@@ -1,0 +1,10 @@
+.caja{
+    width: 390px;
+    height: 112px;
+    background-color: #121212;
+    border-radius: 15px;
+}
+.textoCaja{
+    font-weight: 700;
+    color: #fff;
+}
