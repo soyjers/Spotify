@@ -1,10 +1,40 @@
 .caja{
-    width: 390px;
-    height: 112px;
+    width: 350px;
+    height: 136px;
     background-color: #121212;
     border-radius: 15px;
+    margin-left: 30px;
+   
 }
 .textoCaja{
     font-weight: 700;
-    color: #fff;
+    color: #a89f9f;
+    
+}
+.tama{
+    height: 24px;
+}
+.caja2{
+    width: 350px;
+    height: 136px;
+    background-color: #121212;
+    border-radius: 15px;
+    margin-left: 30px;
+    
+}
+.caja3{
+    width: 350px;
+    height: 640px;
+    background-color: #121212;
+    border-radius: 15px;
+    margin-left: 30px;
+    
+}
+.colortexto{
+    color: #d3c4c4;
+}
+
+.cajaFoto{
+    height: 160px;
+
 }
