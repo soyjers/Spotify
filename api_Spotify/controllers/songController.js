@@ -3,7 +3,7 @@
 const SongModel = require('../models/Song.model');
 
 
-// Crear una nueva canción
+// Crear una nueva canción PUT
 exports.createSong = async (req, res) => {
     try {
         console.log(req.body);
