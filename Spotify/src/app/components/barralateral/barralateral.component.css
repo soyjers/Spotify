@@ -95,3 +95,6 @@
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
 }
+.alturaNavLateral{
+    height: 10px;
+}
