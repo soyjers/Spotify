@@ -1,4 +1,5 @@
 
+const mongoose = require('mongoose')
 const CancionSchema = mongoose.Schema({
     name: {
         type: String,
@@ -12,12 +13,8 @@ const CancionSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    lyrics: {
-        type: String,
-        required: true
-    },
     year: {
-        type: String,
+        type: Number,
         required: true
     },
     artist_Id: {
@@ -32,9 +29,11 @@ const CancionSchema = mongoose.Schema({
         type: String,
         required: true
     },
+
+
 }, {
     timestamps: true,
     versionKey: false
 })
 
-module.exports = mongoose.model('spotifake', CancionSchema)
+module.exports = mongoose.model('song', CancionSchema)

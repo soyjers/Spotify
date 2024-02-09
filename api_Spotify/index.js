@@ -11,6 +11,6 @@ app.use(express.json());
 
 app.use('/api', require('./routes/routes'))
 
-app.listen(4000, () => {
-    console.log('Servidor ejecutandose exitosamente en el puerto 4000');
+app.listen(4001, () => {
+    console.log('Servidor ejecutandose exitosamente en el puerto 4001');
 })

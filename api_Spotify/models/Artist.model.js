@@ -1,5 +1,6 @@
+const mongoose = require('mongoose')
 const ArtistaSchema = mongoose.Schema({
-    id_Artista: {
+    artist_Id: {
         type: String,
         required: true
     },
@@ -12,4 +13,4 @@ const ArtistaSchema = mongoose.Schema({
     versionKey: false
 })
 
-module.exports = mongoose.model('spotifake', ArtistaSchema)
+module.exports = mongoose.model('Artist', ArtistaSchema)
