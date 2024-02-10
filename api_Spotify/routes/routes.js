@@ -5,7 +5,7 @@ const songController = require('../controllers/songController')
 
 // Song Rout
 router.post('/create-song', songController.createSong);
-router.get('find-songs', songController.findSongs);
+router.get('/find-songs', songController.findSongs);
 
 
 
