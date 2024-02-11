@@ -20,7 +20,14 @@ DELETE = http://localhost:4001/api/delete-song/(insertar id cancion)
 
 ---------------------------------------------------------------------------------------------------------------------------------
 
-REGISTRO USUARIOS
+USUARIOS
+
+(crear usuario)
+POST = http://localhost:4001/api/create-user
+
+(buscar todos los usuarios)
+GET = http://localhost:4001/api/find-users
+
 
 
 

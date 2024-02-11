@@ -13,15 +13,15 @@ exports.createSong = async (req, res) => {
             return
         }
         if (req.body.name.length < 3 || req.body.name.length > 30) {
-            res.status(411).send({ error: "the song name must contain minimum 3 characters and maximum 30." });
+            res.status(411).send({ error: "song name must contain minimum 3 characters and maximum 30." });
             return
         }
         if (req.body.duration < 60 || req.body.duration > 800) {
-            res.status(411).send({ error: "the duration should be from 60 to 800 s." });
+            res.status(411).send({ error: "duration should be from 60 to 800 s." });
             return
         }
         if (req.body.artist_Id.length < 3 || req.body.artist_Id.length > 20) {
-            res.status(411).send({ error: "The artist name must be between 3 and 20 characters." });
+            res.status(411).send({ error: "artist name must be between 3 and 20 characters." });
             return
         }
         if (req.body.album_Id.length < 3 || req.body.album_Id.length > 30) {
@@ -29,7 +29,7 @@ exports.createSong = async (req, res) => {
             return
         }
         if (req.body.year < 1900 || req.body.year > 2024) {
-            res.status(411).send({ error: "The year must be between 1900 and 2024." });
+            res.status(411).send({ error: "year must be between 1900 and 2024." });
             return
         }
 
@@ -48,7 +48,7 @@ exports.createSong = async (req, res) => {
 
 /* ------------------------------------------------------------------------------------------------------------------------------ */
 
-// buscando todas las canciones (GET)
+// buscar todas las canciones (GET)
 exports.findSongs = async (req, res) => {
     try {
         let songData = await SongModel.find()
@@ -65,7 +65,7 @@ exports.findSong = async (req, res) => {
     try {
         let songData = await SongModel.findById(req.params.songId);
         if (!songData) {
-            res.status(404).send({ error: "the song has not been found" });
+            res.status(404).send({ error: "song has not been found" });
         } else {
             res.send(songData);
         }
@@ -85,7 +85,7 @@ exports.updateSong = async (req, res) => {
             let songData = await SongModel.findById(req.params.songId);
 
             if (!songData) {
-                res.status(404).send({ error: "the song has not been found" });
+                res.status(404).send({ error: "song has not been found" });
                 return
             }
             const { name, duration, image, year, artist_Id, album_Id, genre } = req.body
@@ -102,7 +102,7 @@ exports.updateSong = async (req, res) => {
             songData = await SongModel.findOneAndUpdate({ _id: req.params.songId }, songData, { new: true });
             res.json(songData)
         } else {
-            res.status(403).send({ error: "the id provided is not valid" });
+            res.status(403).send({ error: "id provided is not valid" });
         }
 
     } catch (error) {
@@ -118,7 +118,7 @@ exports.deleteSong = async (req, res) => {
     try {
         let dataSong = await SongModel.findById(req.params.songId);
         if (!dataSong) {
-            res.status(404).send({ error: "the song has not been found" });
+            res.status(404).send({ error: "song has not been found" });
             return
         }
         await SongModel.findOneAndDelete({ _id: req.params.songId });
