@@ -28,6 +28,15 @@ POST = http://localhost:4001/api/create-user
 (buscar todos los usuarios)
 GET = http://localhost:4001/api/find-users
 
+(buscar un usuario)
+GET = http://localhost:4001/api/find-user/(insertar id usuario)      
+
+(actualizar un usuario)
+PUT = http://localhost:4001/api/update-user/(insertar id usuario)  
+
+(eliminar un usuario)
+DELETE = http://localhost:4001/api/delete-user/(insertar id usuario)
+
 
 
 
