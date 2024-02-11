@@ -18,6 +18,10 @@ PUT = http://localhost:4001/api/update-song/(insertar id cancion)
 (eliminar una cancion)
 DELETE = http://localhost:4001/api/delete-song/(insertar id cancion)
 
+---------------------------------------------------------------------------------------------------------------------------------
+
+REGISTRO USUARIOS
+
 
 
 

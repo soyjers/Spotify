@@ -2,7 +2,7 @@
 
 const SongModel = require('../models/Song.model');
 
-// Crear una cancion (PUT)
+// Crear una cancion (POST)
 exports.createSong = async (req, res) => {
     try {
 
@@ -17,7 +17,7 @@ exports.createSong = async (req, res) => {
             return
         }
         if (req.body.duration < 60 || req.body.duration > 800) {
-            res.status(411).send({ error: "the duration should be from 60 to 600 s." });
+            res.status(411).send({ error: "the duration should be from 60 to 800 s." });
             return
         }
         if (req.body.artist_Id.length < 3 || req.body.artist_Id.length > 20) {
@@ -42,7 +42,7 @@ exports.createSong = async (req, res) => {
         res.status(201).send({ message: 'song created successfully' });
     } catch (error) {
         console.error('error when creatin song:', error)
-        res.status(500).send({ message: "error when creating song, contact the administrator" })
+        res.status(500).send({ message: "Error creating the song, check the data entered or contact the administrator" });
     }
 }
 
@@ -52,7 +52,7 @@ exports.createSong = async (req, res) => {
 exports.findSongs = async (req, res) => {
     try {
         let songData = await SongModel.find()
-        res.json(songData)
+        res.status(200).json(songData);
     } catch (error) {
         res.status(500).send({ error: "Something has happened, contact the administrator" });
     }
@@ -77,7 +77,7 @@ exports.findSong = async (req, res) => {
 
 /* ------------------------------------------------------------------------------------------------------------------------------- */
 
-// actualizar cancion
+// actualizar cancion (PUT)
 exports.updateSong = async (req, res) => {
     try {
 
@@ -113,6 +113,7 @@ exports.updateSong = async (req, res) => {
 
 /* ------------------------------------------------------------------------------------------------------------------------------ */
 
+// eliminar cancion (DELETE)
 exports.deleteSong = async (req, res) => {
     try {
         let dataSong = await SongModel.findById(req.params.songId);
