@@ -17,7 +17,7 @@ exports.createSong = async (req, res) => {
             return
         }
         if (req.body.duration < 60 || req.body.duration > 800) {
-            res.status(411).send({ error: "duration should be from 60 to 800 s." });
+            res.status(411).send({ error: "song duration should be from 60 to 800 s." });
             return
         }
         if (req.body.artist_Id.length < 3 || req.body.artist_Id.length > 20) {
@@ -25,7 +25,7 @@ exports.createSong = async (req, res) => {
             return
         }
         if (req.body.album_Id.length < 3 || req.body.album_Id.length > 30) {
-            res.status(411).send({ error: "Album name must be between 3 and 30 characters." });
+            res.status(411).send({ error: "album name must be between 3 and 30 characters." });
             return
         }
         if (req.body.year < 1900 || req.body.year > 2024) {
