@@ -14,7 +14,7 @@ import {FooterComponent} from './components/footer/footer.component'
 })
 export class AppComponent {
   title = 'JGTS';
-  session = true
+  session! : boolean
   ngOnInit(){
     this.session = (sessionStorage.getItem("token") != null) ? true : false
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-registrarse',
@@ -9,5 +9,12 @@ import { RouterLink } from '@angular/router';
   styleUrl: './registrarse.component.css'
 })
 export class RegistrarseComponent {
+  constructor(private router: Router){}
 
+  ngOnInit(){
+    if(sessionStorage.getItem("token") != null ) {
+            this.router.navigate(['/principal'])
+
+    }
+  }
 }
