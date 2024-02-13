@@ -1,0 +1,221 @@
+.NavBar{
+    background-color: #121212;
+}
+
+.LogoJgts{
+    height: 100px;
+    
+}
+
+.IniciarSesion{
+    margin-top: 100px;
+}
+
+.LineaSeparacion{
+  margin: 30px 0px;
+ color: #fff;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #121212;
+    padding: 30px;
+    width: 450px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 100px;
+  }
+  
+  ::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .form button {
+    align-self: flex-end;
+  }
+  
+  .flex-column > label {
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .inputForm {
+    background-color: #fff;
+    border: 1.5px solid #03690B;
+    border-radius: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .input {
+    margin-left: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 85%;
+    height: 100%;
+  }
+  
+  .input:focus {
+    outline: none;
+  }
+  
+  .inputForm:focus-within {
+    border: 1.5px solid #03690B;
+  }
+  
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  
+  .flex-row > div > label {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  /* Hide the default checkbox */
+.container input {
+  display: none;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 30px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.3em;
+  transition: all 0.25s;
+  --spread: 50px;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #03690B;
+  box-shadow: -10px -10px var(--spread) 0px rgb(255, 255, 255),
+    0 -10px var(--spread) 0px rgb(0, 0, 0),
+    10px -10px var(--spread) 0px #03690B,
+    10px 0 var(--spread) 0px #03690B,
+    10px 10px var(--spread) 0px #03690B,
+    0 10px var(--spread) 0px rgb(0, 0, 0),
+    -10px 10px var(--spread) 0px rgb(255, 255, 255);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  transform: rotate(0deg);
+  border: 0.1em solid rgba(255, 255, 255, 0.863);
+  left: 0;
+  top: 0;
+  width: 1.1em;
+  height: 1.1em;
+  border-radius: 0.25em;
+  transition: all 0.25s, border-width 0.1s;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  left: 0.45em;
+  top: 0.25em;
+  width: 0.25em;
+  height: 0.5em;
+  border-color: #03690B #ffffff #ffffff #03690B;
+  border-width: 0 0.15em 0.15em 0;
+  border-radius: 0em;
+  transform: rotate(45deg);
+}
+
+  
+  .span {
+    font-size: 14px;
+    margin-left: 5px;
+    color: #03690B;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .button-submit {
+    margin: 20px 0 10px 0;
+    background-color: #03690B;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .button-submit:hover {
+    background-color: #00310b;
+  }
+  
+  .p {
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .btn {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    gap: 10px;
+    border: 1px solid #ededef;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .btn:hover {
+    border: 1px solid #03690B;
+    ;
+  }
+  
+  .footerInicioSesion{
+    background-color: #121212;
+    height: 95px;
+  }
+
+  .cajaTxtFooter{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  .TextoFooter{
+    margin-top: 40px;
+    font-size: 15px;
+    color: #f1f1f1;
+  }
+
+  .Subrayado{
+    color: #fff;
+  }

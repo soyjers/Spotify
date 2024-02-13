@@ -1,15 +1,26 @@
+@if (session) {
 
 <main class="row">
     <section class="col-3">
-       <app-barralateral></app-barralateral>
+        <section class="sticky-top">
+            <app-barralateral></app-barralateral>
+        </section>
     </section>
     <section class="col-9">
-       <app-nav></app-nav>
-        
+        <section class="sticky-top">
+            <app-nav></app-nav>
+        </section>
+
         <router-outlet></router-outlet>
     </section>
     <section class="col-12 fixed-bottom">
         Reproductor
     </section>
+
+    <app-footer></app-footer>
 </main>
 
+
+}@else{
+<router-outlet></router-outlet>
+}

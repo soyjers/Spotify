@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-principal',
@@ -13,6 +13,16 @@ import { RouterLink } from '@angular/router';
   styleUrl: './principal.component.css'
 })
 export class PrincipalComponent {
+
+  constructor(private router: Router){}
+
+  ngOnInit(){
+    if(sessionStorage.getItem("token") == null ) {
+            this.router.navigate(['/'])
+
+    }
+  }
+
 }
 //   productosData = signal<any>([])
 //   private productosServices = inject(apis_Spotify)
