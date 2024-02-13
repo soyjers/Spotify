@@ -1,15 +1,15 @@
 const ArtistModel = require("../models/Artist.model");
 
-//crear un artista (POST)
+//crear un album (POST)
 exports.createArtist = async (req, res) => {
     try {
         console.log(req.body);
-        let newArtist = new ArtistModel(req.body)
-        await newArtist.save()
-        res.send(newArtist)
-        console.log(newArtist)
+        let newArtist = new ArtistModel(req.body);
+        await newArtist.save();
+        res.send(newArtist);
+        console.log(newArtist);
     } catch (error) {
-        console.log('error:', error)
+        console.log('error:', error);
         res.status(500).send({ error: "Something has happened, contact the administrator" })
     }
 }

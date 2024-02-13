@@ -4,10 +4,10 @@ const AlbumModel = require("../models/Album.model");
 exports.createAlbum = async (req, res) => {
     try {
         console.log(req.body);
-        let newAlbum = new AlbumModel(req.body)
-        await newAlbum.save()
-        res.send(newAlbum)
-        console.log(newAlbum)
+        let newAlbum = new AlbumModel(req.body);
+        await newAlbum.save();
+        res.send(newAlbum);
+        console.log(newAlbum);
     } catch (error) {
         console.log('error:', error);
         res.status(500).send({ error: "Something has happened, contact the administrator" })

@@ -57,6 +57,10 @@ DELETE = http://localhost:4001/api/delete-artist/(insertar id artista)
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
+Album 
+
+(crear Album)
+POST = http://localhost:4001/api/create-album
 
 
 
