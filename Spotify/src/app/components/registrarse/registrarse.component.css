@@ -16,6 +16,11 @@
  color: #fff;
 }
 
+.post-name{
+  font-size: 12px;
+  color: #03690B;
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -37,7 +42,6 @@
   }
   
   .flex-column > label {
-    color: #fff;
     font-weight: 600;
   }
   
@@ -51,6 +55,7 @@
     padding-left: 10px;
     transition: 0.2s ease-in-out;
   }
+  
   
   .input {
     margin-left: 10px;
@@ -219,3 +224,5 @@
   .Subrayado{
     color: #fff;
   }
+
+  
