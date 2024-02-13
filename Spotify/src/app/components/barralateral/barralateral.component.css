@@ -20,7 +20,7 @@
 
 .caja2 {
     width: 350px;
-    height: 200px;
+    height: 300px;
     background-color: #121212;
     border-radius: 15px;
     margin-left: 30px;
@@ -61,7 +61,7 @@
     font-weight: 500;
     color: rgb(0, 134, 0);
     background-color: #03690b;
-    width: 150px;
+    width: 300px;
 }
 
 .btn:hover {
@@ -97,4 +97,14 @@
 }
 .alturaNavLateral{
     height: 10px;
+}
+
+.favoritos{
+    background-color: #121212;
+    border: none;
+    width: 100%;
+}
+
+.playlist{
+    font-size: 15px;
 }
