@@ -4,11 +4,11 @@ import { RouterOutlet } from '@angular/router';
 import { BarralateralComponent } from './components/barralateral/barralateral.component';
 import { NavComponent } from './components/nav/nav.component';
 import {FooterComponent} from './components/footer/footer.component'
-
+import {ReproductorComponent} from './components/reproductor/reproductor.component'
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, BarralateralComponent, NavComponent, FooterComponent],
+  imports: [CommonModule, RouterOutlet, BarralateralComponent, NavComponent, FooterComponent, ReproductorComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
