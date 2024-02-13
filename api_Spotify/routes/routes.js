@@ -14,7 +14,7 @@ router.delete('/delete-song/:songId', songController.deleteSong);
 
 //? rutas artistas
 router.post('/create-artist', artistController.createArtist);
-router.get('/find-artist', artistController.findArtists);
+router.get('/find-artists', artistController.findArtists);
 router.get('/find-artist/:artistId', artistController.findArtist);
 router.put('/update-artist/:artistId', artistController.updateArtist);
 router.delete('/delete-artist/:artistId', artistController.deleteArtist);

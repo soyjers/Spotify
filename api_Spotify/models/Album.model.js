@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const ArtistSchema = mongoose.Schema({
-    album_Id: {
+    albumId: {
         type: String,
         required: true,
     },
@@ -8,7 +8,7 @@ const ArtistSchema = mongoose.Schema({
         type: Number,
         required: true,
     },
-    artist_Id: {
+    artistId: {
         type: String,
         required: true,
     },

@@ -14,14 +14,6 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    birthday: {
-        type: String,
-        required: true,
-    },
-    sex: {
-        type: String,
-        required: true,
-    },
 }, {
     timestamps: true,
     versionKey: false

@@ -20,11 +20,11 @@ exports.createSong = async (req, res) => {
             res.status(411).send({ error: "song duration should be from 60 to 800 s." });
             return
         }
-        if (req.body.artist_Id.length < 3 || req.body.artist_Id.length > 20) {
+        if (req.body.artist_Id.length < 3 || req.body.artistId.length > 20) {
             res.status(411).send({ error: "artist name must be between 3 and 20 characters." });
             return
         }
-        if (req.body.album_Id.length < 3 || req.body.album_Id.length > 30) {
+        if (req.body.album_Id.length < 3 || req.body.albumId.length > 30) {
             res.status(411).send({ error: "album name must be between 3 and 30 characters." });
             return
         }
@@ -88,14 +88,14 @@ exports.updateSong = async (req, res) => {
                 res.status(404).send({ error: "song has not been found" });
                 return
             }
-            const { name, duration, image, year, artist_Id, album_Id, genre } = req.body
+            const { name, duration, image, year, artistId, albumId, genre } = req.body
 
             songData.name = name
             songData.duration = duration
             songData.image = image
             songData.year = year
-            songData.artist_Id = artist_Id
-            songData.album_Id = album_Id
+            songData.artistId = artistId
+            songData.albumId = albumId
             songData.genre = genre
 
 

@@ -73,13 +73,11 @@ exports.updateUser = async (req, res) => {
                 res.status(404).send({ error: "song has not been found" });
                 return
             }
-            const { email, password, username, birthday, sex } = req.body
+            const { email, password, username} = req.body
 
             userData.email = email
             userData.password = password
             userData.username = username
-            userData.birthday = birthday
-            userData.sex = sex
 
             userData = await UserModel.findOneAndUpdate({ _id: req.params.userId }, userData, { new: true });
             res.json(userData)

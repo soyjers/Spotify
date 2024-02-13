@@ -31,7 +31,7 @@ exports.findArtists = async (req, res) => {
 // consultar un artista (GET)
 exports.findArtist = async (req, res) => {
     try {
-        let artistData = await SongModel.findById(req.params.artistId);
+        let artistData = await ArtistModel.findById(req.params.artistId);
         if (!artistData) {
             res.status(404).send({ error: "artist has not been found" });
         } else {
@@ -43,54 +43,25 @@ exports.findArtist = async (req, res) => {
     }
 }
 
-/* ------------------------------------------------------------------------------------------------------------------------------ */
-
-// buscar todas las canciones (GET)
-exports.findSongs = async (req, res) => {
-    try {
-        let songData = await SongModel.find()
-        res.status(200).json(songData);
-    } catch (error) {
-        res.status(500).send({ error: "Something has happened, contact the administrator" });
-    }
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------ */
-
-// buscar una cancion (GET)
-exports.findSong = async (req, res) => {
-    try {
-        let songData = await SongModel.findById(req.params.songId);
-        if (!songData) {
-            res.status(404).send({ error: "song has not been found" });
-        } else {
-            res.send(songData);
-        }
-    } catch (error) {
-        console.error('error:', error)
-        res.status(500).send({ error: "Something has happened, contact the administrator" });
-    }
-}
-
 /* ------------------------------------------------------------------------------------------------------------------------------- */
 
-// actualizar cancion (PUT)
+// actualizar un artista (PUT)
 exports.updateArtist = async (req, res) => {
     try {
 
-        if (req.params.artist_Id.length == 24) {
-            let artistData = await ArtistModel.findById(req.params.artist_Id);
+        if (req.params.artistId.length == 24) {
+            let artistData = await ArtistModel.findById(req.params.artistId);
 
             if (!artistData) {
                 res.status(404).send({ error: "artist has not been found" });
                 return
             }
-            const { artist_Id, image } = req.body
+            const { artistId, image } = req.body
 
-            artistData.artist_Id = artist_Id
+            artistData.artistId = artistId
             artistData.image = image
 
-            artistData = await artistModel.findOneAndUpdate({ _id: req.params.artist_Id }, artistData, { new: true });
+            artistData = await ArtistModel.findOneAndUpdate({ _id: req.params.artistId }, artistData, { new: true });
             res.json(artistData)
         } else {
             res.status(403).send({ error: "id provided is not valid" });
@@ -104,11 +75,11 @@ exports.updateArtist = async (req, res) => {
 
 /* ----------------------------------------------------------------------------------------------------------------------------- */
 
-// eleminar un artista (DELETE)
+// eliminar un artista (DELETE)
 exports.deleteArtist = async (req, res) => {
     try {
         let dataArtist = await ArtistModel.findById(req.params.artistId);
-        if (!dataSong) {
+        if (!dataArtist) {
             res.status(404).send({ error: "song has not been found" });
             return
         }

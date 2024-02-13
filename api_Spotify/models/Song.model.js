@@ -17,11 +17,11 @@ const songSchema = mongoose.Schema({
         type: Number,
         required: true,
     },
-    artist_Id: {
+    artistId: {
         type: String,
         required: true,
     },
-    album_Id: {
+    albumId: {
         type: String,
         required: true,
     },
