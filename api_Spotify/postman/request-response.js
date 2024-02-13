@@ -55,6 +55,10 @@ PUT = http://localhost:4001/api/update-artist/(insertar id artista)
 (eliminar un artista)
 DELETE = http://localhost:4001/api/delete-artist/(insertar id artista)
 
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
 
 
