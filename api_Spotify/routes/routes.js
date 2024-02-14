@@ -25,7 +25,7 @@ router.post('/create-album', albumController.createAlbum);
 router.get('/find-albums', albumController.findAlbums);
 router.get('/find-album/:albumId', albumController.findAlbums);
 router.put('/update-album/:albumId', albumController.updateAlbum);
-// router.delete('/delete-album/:albumId', albumController.deleteAlbum);
+router.delete('/delete-album/:albumId', albumController.deleteAlbum);
 
 //? rutas usuarios
 router.post('/create-user', userController.createUser);
