@@ -62,6 +62,13 @@ Album
 (crear Album)
 POST = http://localhost:4001/api/create-album
 
+(buscar todos los albums)
+GET = http://localhost:4001/api/find-albums
+
+(buscar un album)
+GET = http://localhost:4001/api/find-artist/(insertar id del album) 
+
+
 
 
 

@@ -16,62 +16,64 @@ exports.createAlbum = async (req, res) => {
 
 /* ------------------------------------------------------------------------------------------------------------------------------- */
 
-// consultar todos los album (GET)
-// exports.findAlbums = async (req, res) => {
-//     try {
-//         let albumData = await AlbumModel.find()
-//         res.status(200).json(albumData);
-//     } catch (error) {
-//         res.status(500).send({ error: "Something has happened, contact the administrator" });
-//     }
-// }
+//consultar todos los album (GET)
+exports.findAlbums = async (req, res) => {
+    try {
+        let albumData = await AlbumModel.find()
+        res.status(200).json(albumData);
+    } catch (error) {
+        res.status(500).send({ error: "Something has happened, contact the administrator" });
+    }
+}
 
 // /* ------------------------------------------------------------------------------------------------------------------------------ */
 
-// // consultar un artista (GET)
-// exports.findArtist = async (req, res) => {
-//     try {
-//         let artistData = await ArtistModel.findById(req.params.artistId);
-//         if (!artistData) {
-//             res.status(404).send({ error: "artist has not been found" });
-//         } else {
-//             res.send(artistData);
-//         }
-//     } catch (error) {
-//         console.error('error:', error)
-//         res.status(500).send({ error: "Something has happened, contact the administrator" });
-//     }
-// }
+// consultar un album (GET)
+exports.findAlbum = async (req, res) => {
+    try {
+        let albumData = await AlbumModel.findById(req.params.albumId);
+        if (!albumData) {
+            res.status(404).send({ error: "album has not been found" });
+        } else {
+            res.send(albumData);
+        }
+    } catch (error) {
+        console.error('error:', error)
+        res.status(500).send({ error: "Something has happened, contact the administrator" });
+    }
+}
 
 // /* ------------------------------------------------------------------------------------------------------------------------------- */
 
-// // actualizar un artista (PUT)
-// exports.updateArtist = async (req, res) => {
-//     try {
+// actualizar un album (PUT)
+exports.updateAlbum = async (req, res) => {
+    try {
 
-//         if (req.params.artistId.length == 24) {
-//             let artistData = await ArtistModel.findById(req.params.artistId);
+        if (req.params.albumId.length == 24) {
+            let albumData = await AlbumModel.findById(req.params.albumId);
 
-//             if (!artistData) {
-//                 res.status(404).send({ error: "artist has not been found" });
-//                 return
-//             }
-//             const { artistId, image } = req.body
+            if (!albumData) {
+                res.status(404).send({ error: "album has not been found" });
+                return
+            }
+            const { albumId, year, artistId, image } = req.body
 
-//             artistData.artistId = artistId
-//             artistData.image = image
+            albumData.albumId = albumId
+            albumData.year = year
+            albumData.artistId = artistId
+            albumData.image = image
 
-//             artistData = await ArtistModel.findOneAndUpdate({ _id: req.params.artistId }, artistData, { new: true });
-//             res.json(artistData)
-//         } else {
-//             res.status(403).send({ error: "id provided is not valid" });
-//         }
+            albumData = await AlbumModel.findOneAndUpdate({ _id: req.params.albumId }, albumData, { new: true });
+            res.json(albumData)
+        } else {
+            res.status(403).send({ error: "id provided is not valid" });
+        }
 
-//     } catch (error) {
-//         console.error('error:', error)
-//         res.status(500).send({ error: "Something has happened, contact the administrator" });
-//     }
-// }
+    } catch (error) {
+        console.error('error:', error)
+        res.status(500).send({ error: "Something has happened, contact the administrator" });
+    }
+}
 
 // /* ----------------------------------------------------------------------------------------------------------------------------- */
 
