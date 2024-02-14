@@ -1,0 +1,33 @@
+.favoritesIcon {
+    border-radius: 5px;
+    margin-top: 60px;
+    margin-left: 30px;
+    box-shadow: 2px 2px 2px 1px #121212;
+
+}
+
+.presentacion {
+    border-radius: 5px;
+}
+
+.playlist {
+    background: rgb(3,105,11);
+    background: linear-gradient(90deg, rgba(3,105,11,1) 0%, rgba(3,105,11,1) 23%, rgba(25,118,32,1) 42%, rgba(114,171,118,1) 62%, rgba(159,198,162,1) 100%, rgba(203,224,205,1) 100%);
+    border-radius: 5px;
+    height: 300px;
+}
+
+.textoPlaylist {
+    margin-left: 50px;
+    margin-top: 130px;
+}
+
+.txtMeGusta {
+    font-size: 80px;
+    
+}
+
+.txtPlaylist {
+    font-size: 20px;
+    margin-left: 15px;
+}
