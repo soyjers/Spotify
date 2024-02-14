@@ -5,11 +5,17 @@ const conectarDB = async () => {
     try {
         await mongoose.connect(process.env.DB_MONGO)
 
-        console.log('Conectado a la base de datos')
+        console.log('connected to MongoDB Atlas');
     } catch (error) {
-        console.log(error);
+        console.error(error);
         process.exit(1);
     }
 }
 
 module.exports = conectarDB
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> Gustavo

@@ -1,7 +1,7 @@
 {
   "name": "api_spotify",
   "version": "1.0.0",
-  "description": "",
+  "description": "API dedicada al reproductor de musics JGTS",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ."
