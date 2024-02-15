@@ -1,10 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const songController = require('../controllers/songController')
-const userController = require('../controllers/userController')
-const artistController = require('../controllers/artistController')
-const albumController = require('../controllers/albumController')
 
+
+const songController = require('../controllers/songController');
+const userController = require('../controllers/userController');
+const artistController = require('../controllers/artistController');
+const albumController = require('../controllers/albumController');
+const uploadController = require('../controllers/uploadController');
 
 //? rutas de canciones
 router.post('/create-song', songController.createSong);
@@ -39,6 +41,7 @@ router.delete('/delete-user/:userId', userController.deleteUser);
 
 
 
+// ? ruta de subir archivos
 
 
 

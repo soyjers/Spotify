@@ -2,44 +2,60 @@
 
 const SongModel = require('../models/Song.model');
 
+const multer = require('multer')
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        // const pathStorage = `${__dirname}/../storage`
+        cb(null, "../storage");
+    },
+
+    filename: function (req, file, cb) {
+        cb(null, `${Date.now()}_${file.originalname}`);
+    }
+})
+
+const upload = multer({ storage })
+
 // Crear una cancion (POST)
 exports.createSong = async (req, res) => {
     try {
-
+        const archivo = req.body
+        console.log(archivo)
         // Realizar validaciones antes de crear la canción
-        const existingSong = await SongModel.findOne({ name: req.body.name });
-        if (existingSong) {
-            res.status(400).send({ error: "There is already a song with the same name" });
-            return
-        }
-        if (req.body.name.length < 3 || req.body.name.length > 30) {
-            res.status(411).send({ error: "song name must contain minimum 3 characters and maximum 30." });
-            return
-        }
-        if (req.body.duration < 60 || req.body.duration > 800) {
-            res.status(411).send({ error: "song duration should be from 60 to 800 s." });
-            return
-        }
-        if (req.body.artist_Id.length < 3 || req.body.artistId.length > 20) {
-            res.status(411).send({ error: "artist name must be between 3 and 20 characters." });
-            return
-        }
-        if (req.body.album_Id.length < 3 || req.body.albumId.length > 30) {
-            res.status(411).send({ error: "album name must be between 3 and 30 characters." });
-            return
-        }
-        if (req.body.year < 1900 || req.body.year > 2024) {
-            res.status(411).send({ error: "year must be between 1900 and 2024." });
-            return
-        }
+        // const existingSong = await SongModel.findOne({ name: req.body.name });
+        // if (existingSong) {
+        //     res.status(400).send({ error: "There is already a song with the same name" });
+        //     return
+        // }
+        // if (req.body.name.length < 3 || req.body.name.length > 30) {
+        //     res.status(411).send({ error: "song name must contain minimum 3 characters and maximum 30." });
+        //     return
+        // }
+        // if (req.body.duration < 60 || req.body.duration > 800) {
+        //     res.status(411).send({ error: "song duration should be from 60 to 800 s." });
+        //     return
+        // }
+        // if (req.body.artist_Id.length < 3 || req.body.artistId.length > 20) {
+        //     res.status(411).send({ error: "artist name must be between 3 and 20 characters." });
+        //     return
+        // }
+        // if (req.body.album_Id.length < 3 || req.body.albumId.length > 30) {
+        //     res.status(411).send({ error: "album name must be between 3 and 30 characters." });
+        //     return
+        // }
+        // if (req.body.year < 1900 || req.body.year > 2024) {
+        //     res.status(411).send({ error: "year must be between 1900 and 2024." });
+        //     return
+        // }
 
 
-        console.log(req.body);
-        let newSong = new SongModel(req.body)
-        await newSong.save()
-        res.send(newSong);
-        console.log(newSong)
-        res.status(201).send({ message: 'song created successfully' });
+        // console.log(req.body);
+        // let newSong = new SongModel(req.body)
+        // await newSong.save()
+        // res.send(newSong);
+        // console.log(newSong)
+        // res.status(201).send({ message: 'song created successfully' });
     } catch (error) {
         console.error('error when creatin song:', error)
         res.status(500).send({ message: "Error creating the song, check the data entered or contact the administrator" });
