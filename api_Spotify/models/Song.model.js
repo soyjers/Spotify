@@ -13,6 +13,10 @@ const songSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    file: {
+        type: String,
+        required: true,
+    },
     year: {
         type: Number,
         required: true,
@@ -23,7 +27,7 @@ const songSchema = mongoose.Schema({
     },
     albumId: {
         type: String,
-        required: true,
+        required: false,
     },
     genre: {
         type: String,

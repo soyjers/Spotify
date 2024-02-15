@@ -8,10 +8,10 @@ conectarDB()
 const app = express();
 app.use(cors())
 app.use(express.json());
-app.use(express.static("storage"))
 
+app.use("/almacenamiento", express.static('storage'))
 app.use('/api', require('./routes/routes'))
 
-app.listen(port, 4001, () => {
+app.listen(port, () => {
     console.log('Server listening on port', port);
 })

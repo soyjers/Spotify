@@ -6,10 +6,10 @@ const songController = require('../controllers/songController');
 const userController = require('../controllers/userController');
 const artistController = require('../controllers/artistController');
 const albumController = require('../controllers/albumController');
-const uploadController = require('../controllers/uploadController');
+const uploadControllerSong = require('../middleware/mdl.uploadSong');
 
 //? rutas de canciones
-router.post('/create-song', songController.createSong);
+router.post('/create-song', uploadControllerSong.array("archivos"), songController.createSong);
 router.get('/find-songs', songController.findSongs);
 router.get('/find-song/:songId', songController.findSong);
 router.put('/update-song/:songId', songController.updateSong);
