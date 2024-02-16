@@ -13,9 +13,6 @@ const conectarDB = async () => {
 }
 
 module.exports = conectarDB
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> Gustavo

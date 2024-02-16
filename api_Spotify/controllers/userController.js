@@ -1,5 +1,5 @@
 //Controlador para manejar las operaciones CRUD de los usuarios
-const UserModel = require('../models/User.model');
+const UserModel = require('../models/User.Model');
 
 // Crear un usuario (POST)
 exports.createUser = async (req, res) => {
@@ -20,7 +20,6 @@ exports.createUser = async (req, res) => {
 
         const newUser = new UserModel(req.body);
         await newUser.save();
-        res.send(newUser);
         res.status(201).json(newUser);
         console.log(newUser);
 
