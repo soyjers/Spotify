@@ -7,6 +7,10 @@ const userController = require('../controllers/userController');
 const artistController = require('../controllers/artistController');
 const albumController = require('../controllers/albumController');
 const uploadControllerSong = require('../middleware/mdl.uploadSong');
+const sessionController = require('../controllers/sessionController')
+
+
+const mdJWT = require('../middleware/Jwt')
 
 //? rutas de canciones
 router.post('/create-song', uploadControllerSong.array("archivos"), songController.createSong);
@@ -31,10 +35,11 @@ router.delete('/delete-album/:albumId', albumController.deleteAlbum);
 
 //? rutas usuarios
 router.post('/create-user', userController.createUser);
-router.get('/find-users', userController.getUsers);
+router.get('/find-users', mdJWT.verificarToken, userController.getUsers);
 router.get('/find-user/:userId', userController.getUser);
 router.put('/update-user/:userId', userController.updateUser);
 router.delete('/delete-user/:userId', userController.deleteUser);
+router.post('/ingreso', sessionController.genereToken)
 
 //? rutas favoritos
 
@@ -42,7 +47,5 @@ router.delete('/delete-user/:userId', userController.deleteUser);
 
 
 // ? ruta de subir archivos
-
-
 
 module.exports = router
