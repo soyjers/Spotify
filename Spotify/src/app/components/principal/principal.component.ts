@@ -1,27 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
-
+import { MusicaGrillaComponent } from '../templates/musica-grilla/musica-grilla.component';
+import { JgtsAPIService } from '../../../app/components/service/jgts-api.service'
 @Component({
   selector: 'app-principal',
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink
-   ],
+    RouterLink,
+    MusicaGrillaComponent
+  ],
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.css'
 })
 export class PrincipalComponent {
 
-  constructor(private router: Router){}
+  constructor(private router: Router) { }
 
-  ngOnInit(){
-    if(sessionStorage.getItem("token") == null ) {
-            this.router.navigate(['/'])
 
+
+
+  cancionesData = signal<any>([])
+  private cancionesService = inject(JgtsAPIService)
+
+  ngOnInit() {
+
+    if (sessionStorage.getItem("token") == null) {
+      this.router.navigate(['/'])
     }
+
+    this.cancionesService.getCanciones().subscribe({
+      next: (canciones) => {
+        this.cancionesData.set(canciones)
+        console.log(this.cancionesData());
+
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
+
 
 }
 //   productosData = signal<any>([])
