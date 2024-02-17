@@ -13,4 +13,8 @@ export class MusicaGrillaComponent {
   @Input() nombreCancion!: string | number
   @Input() nombreArtista!: string
 
+  @Input() imagenCancion!: string
+  @Input() cantante!: string 
+  @Input() album!: string
+
 }

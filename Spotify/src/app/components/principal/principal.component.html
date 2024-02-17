@@ -42,6 +42,18 @@
             </div>
           </button>
         </div>
+<div class="mt-5">
+    <h1 class="textp">Top Canciones</h1>
+</div>
+
+    <div class="row row-cols-1 row-cols-md-4 g-">
+        @for (songData of cancionesData(); track songData.albumId) {
+          <app-musica-grilla
+          [imagenCancion]="'http://localhost:4001/storage/fileSong/images'+songData.image"
+          [cantante]="songData.name" 
+          [album]="songData .albumId">
+          </app-musica-grilla>
+        }
       </div>
     </div>
 
