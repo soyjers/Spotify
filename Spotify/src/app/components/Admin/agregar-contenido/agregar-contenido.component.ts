@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { HttpClient } from '@angular/common/http';
-import { SpotifyAPIService } from '../../../components/services/spotify-api.service';
-import Swal from 'sweetalert2'
+import { JgtsAPIService } from '../../../components/service/jgts-api.service'
+
 
 
 @Component({
@@ -22,18 +22,28 @@ export class AgregarContenidoComponent {
   regexUrl = /^https?:\/\/\w+(\.\w+)+(\/[a-zA-Z0-9_.~-]+)*(\/[a-zA-Z0-9_.~-]+\.[a-zA-Z]+)?$/
   regexString = /^[A-Z]+$/i
 
-  private songServices = inject(SpotifyAPIService)
+  private cancionesServices = inject(JgtsAPIService)
 
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.formSong = this.fb.group({
-      imagen: ['', [Validators.required, Validators.pattern(this.regexUrl)]],
-      nombreArtista: ['', [Validators.required, Validators.pattern(this.regexNumericos)]],
-      nombreAlbum: ['', [Validators.required]],
-      nombreCancion: ['', [Validators.required]],
-      cancion: ['', [Validators.required, Validators.pattern(this.regexNumericos)]],
-      año: ['', [Validators.required, Validators.minLength(15)]],
+      name: ['', [Validators.required]],
+      image: ['', [Validators.required, Validators.pattern(this.regexUrl)]],
+      year: ['', [Validators.required, Validators.pattern(this.regexNumericos)]],
+      artistId: ['', [Validators.required, Validators.pattern(this.regexNumericos)]],
+      albumId: ['', [Validators.required]],
+      // genre: ['', [Validators.required, Validators.pattern(this.regexNumericos)]],
     })
   }
 
+
+
+
+
+
+  submitForm() {
+    this.cancionesServices.postCancion(this.formSong.value).subscribe(respuestaAPI => {
+      alert('producto guardado');
+    })
+  }
 }

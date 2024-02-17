@@ -10,6 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class MusicaGrillaComponent {
   @Input() imagenCancion!: string
+  @Input() cancion!: string | number
   @Input() cantante!: string | number
   @Input() album!: string
 

@@ -5,10 +5,6 @@ const songSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    duration: {
-        type: Number,
-        required: true,
-    },
     image: {
         type: String,
         required: true,
@@ -29,10 +25,10 @@ const songSchema = mongoose.Schema({
         type: String,
         required: false,
     },
-    genre: {
-        type: String,
-        required: true,
-    },
+    // genre: {
+    //     type: String,
+    //     required: true,
+    // },
 }, {
     timestamps: true,
     versionKey: false

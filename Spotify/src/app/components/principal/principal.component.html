@@ -1,4 +1,3 @@
-
 <section class="fondo mt-3">
   <div class="p-5">
     <div class="wd">
@@ -7,15 +6,13 @@
 
     <div class="row row-cols-1 row-cols-md-4 g-">
       @for (songData of cancionesData(); track songData.albumId) {
-        <app-musica-grilla
-        [imagenCancion]="'http://localhost:4001/'+songData.image"
-        [cantante]="songData.name" 
-        [album]="songData .albumId">
-        </app-musica-grilla>
+      <app-musica-grilla [imagenCancion]="'http://localhost:4001/'+songData.image" [cancion]="songData.name"
+        [cantante]="songData.artistId" [album]="songData .albumId">
+      </app-musica-grilla>
       }
     </div>
 
-   
+
 
     <hr role="presentation" class="LineaSeparacion">
 
@@ -84,7 +81,8 @@
             <div class="carad">
               <div class="card carad2">
                 <button class="btn">
-                  <img src="../../../assets/img/Albumes/3MEN2 KBRN - Eladio Carrion.jpg" class="card-img-top w-100" alt="...">
+                  <img src="../../../assets/img/Albumes/3MEN2 KBRN - Eladio Carrion.jpg" class="card-img-top w-100"
+                    alt="...">
                   <div class="card-body mt-2 d-flex flex-column align-items-start">
                     <h5 class="card-title textAlbum">3MEN2 KBRON</h5>
                     <h5 class="card-text txtArtistaAlbum">Eladio Carrion</h5>
