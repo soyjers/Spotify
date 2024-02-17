@@ -29,14 +29,13 @@ export class AgregarContenidoComponent {
     this.formSong = this.fb.group({
       name: ['', [Validators.required]],
       image: ['', [Validators.required, Validators.pattern(this.regexUrl)]],
+      file: ['', [Validators.required]],
       year: ['', [Validators.required, Validators.pattern(this.regexNumericos)]],
       artistId: ['', [Validators.required, Validators.pattern(this.regexNumericos)]],
       albumId: ['', [Validators.required]],
       // genre: ['', [Validators.required, Validators.pattern(this.regexNumericos)]],
     })
   }
-
-
 
 
 
