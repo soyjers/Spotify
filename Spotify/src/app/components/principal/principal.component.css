@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+.fondo {
+    background-color: #121212;
+    border-radius: 10px 10px 0px 0px;
+    width: 1400px;
+}
+
+.LineaSeparacion {
+    height: 60px;
+    color: #121212;
+}
+
+.img {
+    border-radius: 5px;
+}
+
+=======
+>>>>>>> Gustavo
 .textp {
     color: #fff;
 }
@@ -35,6 +53,7 @@
 .cajaSliderAlbunes {
     width: 90vw;
     overflow: auto;
+    height: 280px;
 }
 
 .cajaSliderAlbunes::-webkit-scrollbar {
