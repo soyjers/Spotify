@@ -1,24 +1,21 @@
+
 <section class="fondo mt-3">
   <div class="p-5">
     <div class="wd">
       <h1 class="textp">Canciones Más Escuchadas</h1>
     </div>
 
-<div class="mt-5">
-    <h1 class="textp">Top Canciones</h1>
-</div>
-
     <div class="row row-cols-1 row-cols-md-4 g-">
-        @for (songData of cancionesData(); track songData.albumId) {
-          <app-musica-grilla
-          [imagenCancion]="'http://localhost:4001/storage/fileSong/images'+songData.image"
-          [cantante]="songData.name" 
-          [album]="songData .albumId">
-          </app-musica-grilla>
-        }
-      </div>
+      @for (songData of cancionesData(); track songData.albumId) {
+        <app-musica-grilla
+        [imagenCancion]="'http://localhost:4001/'+songData.image"
+        [cantante]="songData.name" 
+        [album]="songData .albumId">
+        </app-musica-grilla>
+      }
     </div>
 
+   
 
     <hr role="presentation" class="LineaSeparacion">
 

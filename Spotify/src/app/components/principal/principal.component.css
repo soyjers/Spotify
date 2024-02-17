@@ -9,7 +9,7 @@
     color: #121212;
 }
 
-img {
+.img {
     border-radius: 5px;
 }
 
@@ -72,6 +72,7 @@ transform: translateY(-12px);
 .cajaSliderAlbunes {
     width: 90vw;
     overflow: auto;
+    height: 280px;
 }
 
 

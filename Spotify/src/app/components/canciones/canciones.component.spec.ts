@@ -1,23 +1,23 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { CancionesComponent } from './canciones.component';
+import { CancionesComponent } from './canciones.component';
 
-// describe('CancionesComponent', () => {
-//   let component: CancionesComponent;
-//   let fixture: ComponentFixture<CancionesComponent>;
+describe('CancionesComponent', () => {
+  let component: CancionesComponent;
+  let fixture: ComponentFixture<CancionesComponent>;
 
-//   beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//       imports: [CancionesComponent]
-//     })
-//     .compileComponents();
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [CancionesComponent]
+    })
+    .compileComponents();
     
-//     fixture = TestBed.createComponent(CancionesComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+    fixture = TestBed.createComponent(CancionesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

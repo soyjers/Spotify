@@ -9,12 +9,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './musica-grilla.component.css'
 })
 export class MusicaGrillaComponent {
-  @Input({ required: true }) imagenCancion!: string
-  @Input() nombreCancion!: string | number
-  @Input() nombreArtista!: string
-
   @Input() imagenCancion!: string
-  @Input() cantante!: string 
+  @Input() cantante!: string | number
   @Input() album!: string
+
 
 }
