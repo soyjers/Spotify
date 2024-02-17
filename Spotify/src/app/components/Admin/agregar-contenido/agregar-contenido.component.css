@@ -112,3 +112,7 @@
   .button-submit:hover {
     background-color: #f5d470;
   }
+
+  .opacidadNO {
+    opacity: 1 !important;
+}

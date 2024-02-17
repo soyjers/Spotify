@@ -5,7 +5,7 @@ const SongModel = require('../models/Song.model');
 // Crear una cancion (POST)
 exports.createSong = async (req, res) => {
     try {
-
+        const archivos = req.files
         // Realizar validaciones antes de crear la canción
         const existingSong = await SongModel.findOne({ name: req.body.name });
         if (existingSong) {
@@ -16,15 +16,15 @@ exports.createSong = async (req, res) => {
             res.status(411).send({ error: "song name must contain minimum 3 characters and maximum 30." });
             return
         }
-        if (req.body.duration < 60 || req.body.duration > 800) {
-            res.status(411).send({ error: "song duration should be from 60 to 800 s." });
-            return
-        }
-        if (req.body.artist_Id.length < 3 || req.body.artistId.length > 20) {
+        // if (req.body.duration < 60 || req.body.duration > 800) {
+        //     res.status(411).send({ error: "song duration should be from 60 to 800 s." });
+        //     return
+        // }
+        if (req.body.artistId.length < 3 || req.body.artistId.length > 20) {
             res.status(411).send({ error: "artist name must be between 3 and 20 characters." });
             return
         }
-        if (req.body.album_Id.length < 3 || req.body.albumId.length > 30) {
+        if (req.body.albumId.length < 3 || req.body.albumId.length > 30) {
             res.status(411).send({ error: "album name must be between 3 and 30 characters." });
             return
         }
@@ -33,13 +33,20 @@ exports.createSong = async (req, res) => {
             return
         }
 
+        let extensionesImagenes = ["png", "jpg", "webp", "jpeg"];
+        req.body.image = archivos.find((archivo) => {
+            return extensionesImagenes.includes(archivo.mimetype.split('/').pop());
+        });
+        req.body.image = `storage/fileSong/image/${req.body.image.filename}`
 
-        console.log(req.body);
+        req.body.file = archivos.find((archivo) => archivo.mimetype == "audio/mpeg");
+        req.body.file = `storage/fileSong/audios/${req.body.file.filename}`
+
+
         let newSong = new SongModel(req.body)
         await newSong.save()
-        res.send(newSong);
         console.log(newSong)
-        res.status(201).send({ message: 'song created successfully' });
+        res.status(201).send(newSong);
     } catch (error) {
         console.error('error when creatin song:', error)
         res.status(500).send({ message: "Error creating the song, check the data entered or contact the administrator" });

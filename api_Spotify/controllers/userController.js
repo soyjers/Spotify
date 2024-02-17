@@ -20,7 +20,6 @@ exports.createUser = async (req, res) => {
 
         const newUser = new UserModel(req.body);
         await newUser.save();
-        res.send(newUser);
         res.status(201).json(newUser);
         console.log(newUser);
 

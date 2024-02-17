@@ -83,7 +83,7 @@
 }
 
 .button {
-  background-color: #4CAF50;
+  background-color: #03690B;
   color: #212121;
   padding: 10px 15px;
   font-size: 15px;
@@ -100,13 +100,13 @@
   z-index: 1;
   min-width: 200px;
   background-color: #212121;
-  border: 2px solid #4CAF50;
+  border: 2px solid #03690B;
   border-radius: 0px 15px 15px 15px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .dropdown-content a {
-  color: #4CAF50;
+  color: #ffffff;
   padding: 8px 10px;
   text-decoration: none;
   display: block;
@@ -114,13 +114,13 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #4CAF50;
-  color: #212121;
+  background-color: #03690B;
+  color: #fff;
 }
 
 .dropdown-content a:focus {
   background-color: #212121;
-  color: #4CAF50;
+  color: #ffffff;
 }
 
 .dropdown-content #top:hover {
@@ -137,4 +137,8 @@
 
 .paste-button:hover .dropdown-content {
   display: block;
+}
+
+.menu{
+  margin-right: 50px;
 }

@@ -1,10 +1,11 @@
 .Reproductor{
     background-color: #000;
+    height: 100px;
 }
 
 img{
-    width: 75px;
-    height: 75px;
+    width: 70px;
+    height: 70px;
 }
 
 .artista{
@@ -108,7 +109,12 @@ img{
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    margin-top: 20px;
+  }
+
+  .iconosReproductor{
+    width: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
   
   .card__time {
@@ -152,9 +158,9 @@ img{
   }
   
   .card__btn-play {
-    width: 60px;
-    height: 60px;
-    background: #03690B;
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -164,6 +170,7 @@ img{
   .card__btn-play path {
     fill: #fff;
   }
+  
 
   /* level settings 👇 */
 
