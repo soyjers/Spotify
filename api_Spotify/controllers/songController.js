@@ -16,10 +16,6 @@ exports.createSong = async (req, res) => {
             res.status(411).send({ error: "song name must contain minimum 3 characters and maximum 30." });
             return
         }
-        // if (req.body.duration < 60 || req.body.duration > 800) {
-        //     res.status(411).send({ error: "song duration should be from 60 to 800 s." });
-        //     return
-        // }
         if (req.body.artistId.length < 3 || req.body.artistId.length > 20) {
             res.status(411).send({ error: "artist name must be between 3 and 20 characters." });
             return
@@ -33,20 +29,37 @@ exports.createSong = async (req, res) => {
             return
         }
 
-        let extensionesImagenes = ["png", "jpg", "webp", "jpeg"];
-        req.body.image = archivos.find((archivo) => {
-            return extensionesImagenes.includes(archivo.mimetype.split('/').pop());
-        });
-        req.body.image = `storage/fileSong/images/${req.body.image.filename}`
 
-        req.body.file = archivos.find((archivo) => archivo.mimetype == "audio/mpeg");
-        req.body.file = `storage/fileSong/audios/${req.body.file.filename}`
+        let extensionesImagenes = ["png", "jpg", "webp", "jpeg"];
+
+        // Arrays separados para archivos de imagen y archivos de audio
+        let files = [];
+        let images = [];
+
+        // Clasificar los archivos en los arrays correspondientes
+        for (const key in req.files) {
+            if (Object.hasOwnProperty.call(req.files, key)) {
+                const archivos = req.files[key];
+                if (extensionesImagenes.includes(archivos[0].mimetype.split('/').pop())) {
+                    images.push(archivos);
+                } else if (key === "file") {
+                    files.push(archivos);
+                } else if (key === "image") {
+                    images.push(archivos);
+                }
+            }
+        }
+
+        // Asignar las rutas correspondientes a req.body.image y req.body.file
+        req.body.image = images.length > 0 ? `storage/fileSong/images/${images[0][0].filename}` : '';
+        req.body.file = files.length > 0 ? `storage/fileSong/audios/${files[0][0].filename}` : '';
 
 
         let newSong = new SongModel(req.body)
         await newSong.save()
         console.log(newSong)
         res.status(201).send(newSong);
+
     } catch (error) {
         console.error('error when creatin song:', error)
         res.status(500).send({ message: "Error creating the song, check the data entered or contact the administrator" });

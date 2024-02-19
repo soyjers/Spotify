@@ -9,7 +9,9 @@ const albumController = require('../controllers/albumController');
 const uploadControllerSong = require('../middleware/mdl.uploadSong');
 
 //? rutas de canciones
-router.post('/create-song', uploadControllerSong.array("archivos"), songController.createSong);
+router.post('/create-song', uploadControllerSong.fields([{ name: 'file', maxCount: 1 }, { name: 'image', maxCount: 1 }]),
+    songController.createSong
+);
 router.get('/find-songs', songController.findSongs);
 router.get('/find-song/:songId', songController.findSong);
 router.put('/update-song/:songId', songController.updateSong);
