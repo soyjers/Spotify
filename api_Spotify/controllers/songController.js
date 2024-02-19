@@ -36,19 +36,19 @@ exports.createSong = async (req, res) => {
         let files = [];
         let images = [];
 
-        // Clasificar los archivos en los arrays correspondientes
         for (const key in req.files) {
-            if (Object.hasOwnProperty.call(req.files, key)) {
+            if (key in req.files) {
                 const archivos = req.files[key];
-                if (extensionesImagenes.includes(archivos[0].mimetype.split('/').pop())) {
+                const primerArchivo = archivos[0];
+
+                if (extensionesImagenes.includes(primerArchivo.mimetype.split('/').pop()) || key === "image") {
                     images.push(archivos);
                 } else if (key === "file") {
                     files.push(archivos);
-                } else if (key === "image") {
-                    images.push(archivos);
                 }
             }
         }
+
 
         // Asignar las rutas correspondientes a req.body.image y req.body.file
         req.body.image = images.length > 0 ? `storage/fileSong/images/${images[0][0].filename}` : '';

@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { HttpClient } from '@angular/common/http';
-import { JgtsAPIService } from '../../../components/service/jgts-api.service'
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { JgtsAPIService } from '../../service/jgts-api.service';
 
 
 
@@ -17,32 +16,39 @@ import { JgtsAPIService } from '../../../components/service/jgts-api.service'
   styleUrl: './agregar-contenido.component.css'
 })
 export class AgregarContenidoComponent {
-  formSong: FormGroup
+  formSong: FormGroup;
   regexNumericos = /^[0-9]+$/
   regexUrl = /^https?:\/\/\w+(\.\w+)+(\/[a-zA-Z0-9_.~-]+)*(\/[a-zA-Z0-9_.~-]+\.[a-zA-Z]+)?$/
-  regexString = /^[A-Z]+$/i
 
-  private cancionesServices = inject(JgtsAPIService)
+  private JgtsService = inject(JgtsAPIService)
 
-
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private apiService: JgtsAPIService) {
     this.formSong = this.fb.group({
-      name: ['', [Validators.required]],
-      image: ['', [Validators.required, Validators.pattern(this.regexUrl)]],
-      file: ['', [Validators.required]],
-      year: ['', [Validators.required, Validators.pattern(this.regexNumericos)]],
-      artistId: ['', [Validators.required, Validators.pattern(this.regexNumericos)]],
-      albumId: ['', [Validators.required]],
-      // genre: ['', [Validators.required, Validators.pattern(this.regexNumericos)]],
-    })
+      name: ['', Validators.required],
+      // image: [''],
+      // file: [''],
+      year: ['', Validators.required],
+      artistId: ['', Validators.required],
+      albumId: [''],
+    });
   }
 
 
-
-
-  submitForm() {
-    this.cancionesServices.postCancion(this.formSong.value).subscribe(respuestaAPI => {
-      alert('producto guardado');
-    })
+  submitForm(): void {
+    if (this.formSong.value) {
+      console.log("Entro a crear")
+      this.JgtsService.postCancion(this.formSong.value).subscribe(
+        respuestaAPI => {
+          alert('Producto guardado correctamente');
+          this.formSong.reset(); // Limpiar el formulario después de guardar
+        },
+        (error) => {
+          console.error('Error al guardar el producto:', error);
+          alert('Error al guardar el producto');
+        }
+      );
+    } else {
+      alert('Por favor, complete todos los campos obligatorios.');
+    }
   }
 }

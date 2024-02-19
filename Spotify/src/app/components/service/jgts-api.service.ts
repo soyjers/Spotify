@@ -22,8 +22,8 @@ export class JgtsAPIService {
     }
 
     postCancion(dataCancion: any) {
-        return this.http.post(`${this.urlApi}/create-song/${dataCancion} `, dataCancion)
-    }
+        return this.http.post(`${this.urlApi}/create-song`, dataCancion);
+      }
 
     deleteCancion(idCancion: string) {
         return this.http.delete(`${this.urlApi}/eliminar-producto/${idCancion}`)
