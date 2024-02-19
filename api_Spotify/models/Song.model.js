@@ -5,14 +5,14 @@ const songSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    // image: {
-    //     type: String,
-    //     required: true,
-    // },
-    // file: {
-    //     type: String,
-    //     required: true,
-    // },
+    image: {
+        type: String,
+        required: false,
+    },
+    file: {
+        type: String,
+        required: false,
+    },
     year: {
         type: Number,
         required: true,
