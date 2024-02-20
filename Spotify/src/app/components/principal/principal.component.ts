@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-principal',
@@ -14,7 +15,8 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class PrincipalComponent {
 
-  constructor(private router: Router){}
+
+       constructor(private router: Router){}
 
   ngOnInit(){
     if(sessionStorage.getItem("token") == null ) {
@@ -22,8 +24,11 @@ export class PrincipalComponent {
 
     }
   }
-
 }
+
+
+
+// }
 //   productosData = signal<any>([])
 //   private productosServices = inject(apis_Spotify)
 

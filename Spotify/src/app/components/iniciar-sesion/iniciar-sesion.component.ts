@@ -6,7 +6,6 @@ import { Router, RouterLink } from '@angular/router';
 
 import {  SpotifyAPIService } from "../services/spotify-api.service";
 
-// import { Iestudaintes } from "../../models/estudiantes.model";
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -30,18 +29,20 @@ export class IniciarSesionComponent {
     let password = this.inputPassword.value
     this.usuariosServices.postIngresoUsuario({email, password}).subscribe(data => {
       console.log(data)
-      // sessionStorage.setItem('token', data.token)
+      let dataApi:any = data
+      sessionStorage.setItem('token', dataApi.token)
+      location.reload()
     }, err => {
       console.log(err)
     })
   }
 
   constructor(private router: Router){}
+  ngOnInit() {
+    if (sessionStorage.getItem("token") != null) {
+      this.router.navigate(['/principal'])
 
-  ngOnInit(){
-    if(sessionStorage.getItem("token") != null ) {
-            this.router.navigate(['/principal'])
+}
+}
 
-    }
-  }
 }

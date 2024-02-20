@@ -1,10 +1,10 @@
 <nav class="colorback navbar navbar-expand-lg bg-body-tertiary alturaNav ">
     <div class="container-fluid colorback mt">
 
-    
+
 
       <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
-        
+
         <div>
           <!-- <form class="d-flex " role="search">
             <input class="form-control me-2 colorSearch" type="search" placeholder="Busca Canciones, Albumes, Artistas" aria-label="Search">
@@ -31,34 +31,36 @@
                 <div class="paste-button">
                   <button class="button"><i class="fa-regular fa-user"></i>&nbsp; ▼</button>
                   <div class="dropdown-content">
-                    <a id="top" href="#" routerLink="AdminAddContent">Agregar Contenido</a>
+                      @if(ingreso){
+                        <a id="top" href="#" routerLink="AdminAddContent">Agregar Contenido</a>
+                      }
                     <a id="bottom" href="#" routerLink="">Cerrar Sesion</a>
                   </div>
                 </div>
-                
+
               </li>
 
                 <!-- <li class="nav-item me-4">
                   <a class="nav-link active colorLetra" aria-current="page" href="#">Registrate</a>
-                  <button class="ui-btn w-100">Registrate</button> 
+                  <button class="ui-btn w-100">Registrate</button>
                 </li> -->
-      
+
                 <!-- <li class="nav-item box">
                   <a class="nav-link colorLetra" href="#">Iniciar Sesion</a>
 
-                  <button class="ui-btn w-100 "> Cerrar Sesion</button> 
+                  <button class="ui-btn w-100 "> Cerrar Sesion</button>
                 </li>
        -->
-                
-      
+
+
                 <!-- <li class="nav-item">
                   <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                 </li> -->
-      
+
               </ul>
         </div>
 
-        
+
 
       </div>
     </div>

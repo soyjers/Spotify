@@ -1,21 +1,23 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SpotifyAPIService {
 
-    private http = inject(HttpClient)
-    private urlApi: string = "http://localhost:4001/api"
+    private HttpClient = inject(HttpClient)
+    private urlApi: string;
+    private urlApi1: string ;
 
 
-    constructor() { }
 
-    getUsers(){
-      const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2Q1N2I2YjVhZjY4NjJhY2QzOWRjMSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3OTYzMDk5LCJleHAiOjE3MDc5NjY2OTl9.CJp2h8XW9BCAUp_Hz59QQWIKpnXdwfau09U8hx9I53A ')
-      return this.http.get(`${this.urlApi}/find-users`, {headers})
-  }
+    constructor() {
+this.urlApi1 = 'http://localhost:4200'
+this.urlApi = 'http://localhost:4001/api'
+     }
+
 
     estaLogueado() : boolean{
         let estado = (sessionStorage.getItem('token')) ? true : false
@@ -23,8 +25,21 @@ export class SpotifyAPIService {
     }
 
     postIngresoUsuario(dataLogin:any){
-        return this.http.post(`${this.urlApi}/ingreso`, dataLogin)
+        return this.HttpClient.post(`${this.urlApi}/ingreso`, dataLogin)
     }
 
+  //   register(firstValueFrom:any){
+  //     return this.HttpClient.post<any>(`${this.urlApi1}/register`, firstValueFrom)
+  // }
 
-}
+
+    register(formvalue: any){
+      return firstValueFrom(
+        this.HttpClient.post<any>(`${this.urlApi}/create-user`, formvalue)
+      )
+      }
+
+  }
+
+
+
