@@ -18,7 +18,7 @@
             <div class="inputForm">
                 <i class="fa-regular fa-image" style="color: #efb810;"></i>
                 <input type="file" class="input" placeholder="Ingresa la URL de la Imagen" id="txtInputImagen"
-                    formControlName="image">
+                    formControlName="image" (change)="addFileSong($event)">
             </div>
             <div class="text-danger fw-bold opacity-0"
                 [class.opacidadNO]="formSong.get('image')?.hasError('required') && formSong.get('image')?.touched">
@@ -78,7 +78,7 @@
         <div class="inputForm">
             <i class="fa-solid fa-file-audio" style="color: #efb810;"></i>
             <input type="file" class="input" placeholder="Inserta la Canción" id="txtInputArchivo"
-                formControlName="file">
+                formControlName="file" (change)="addFileSong($event, 'song')">
         </div>
 
         <hr role="presentation" class="LineaSeparacion">

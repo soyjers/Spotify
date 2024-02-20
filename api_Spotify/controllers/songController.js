@@ -35,7 +35,7 @@ exports.createSong = async (req, res) => {
         // Arrays separados para archivos de imagen y archivos de audio
         let files = [];
         let images = [];
-
+        console.log(req.files);
         for (const key in req.files) {
             if (key in req.files) {
                 const archivos = req.files[key];

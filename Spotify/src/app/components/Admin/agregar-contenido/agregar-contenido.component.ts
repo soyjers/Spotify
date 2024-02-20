@@ -25,22 +25,54 @@ export class AgregarContenidoComponent {
   constructor(private fb: FormBuilder, private apiService: JgtsAPIService) {
     this.formSong = this.fb.group({
       name: ['', Validators.required],
-      // image: [''],
-      // file: [''],
+      image: [''],
+      file: [''],
       year: ['', Validators.required],
       artistId: ['', Validators.required],
       albumId: [''],
     });
   }
 
+  addFileSong(event: any, tipo: string = "img") {
+    switch (tipo) {
+      case "img":
+        if (event.target.files.length > 0) {
+          const fileImg = event.target.files[0]
+          this.formSong.get("image")!.setValue(fileImg)
+        }
+        break;
+      default:
+        if (event.target.files.length > 0) {
+          const fileSong = event.target.files[0]
+          this.formSong.get("file")!.setValue(fileSong)
+        }
+        break;
+    }
+  }
+
 
   submitForm(): void {
     if (this.formSong.value) {
       console.log("Entro a crear")
-      this.JgtsService.postCancion(this.formSong.value).subscribe(
+
+      
+      let {name, image, file, year, artistId, albumId } = this.formSong.value
+      const formDataSong = new FormData()
+
+      formDataSong.append("name", name)
+      formDataSong.append("image", image)
+      formDataSong.append("file", file)
+      formDataSong.append("year", year)
+      formDataSong.append("artistId", artistId)
+      formDataSong.append("albumId", albumId)
+
+      
+
+      this.JgtsService.postCancion(formDataSong).subscribe(
         respuestaAPI => {
           alert('Producto guardado correctamente');
-          this.formSong.reset(); // Limpiar el formulario después de guardar
+
+          //this.formSong.reset(); // Limpiar el formulario después de guardar
         },
         (error) => {
           console.error('Error al guardar el producto:', error);
