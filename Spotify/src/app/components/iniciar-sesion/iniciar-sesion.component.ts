@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
-<<<<<<< HEAD
 import {  SpotifyAPIService } from "../services/spotify-api.service";
 
 
-=======
->>>>>>> Jers
 @Component({
   selector: 'app-iniciar-sesion',
   standalone: true,
@@ -17,7 +14,6 @@ import {  SpotifyAPIService } from "../services/spotify-api.service";
 export class IniciarSesionComponent {
   constructor(private router: Router) { }
 
-<<<<<<< HEAD
   inputEmail = new FormControl
   inputPassword = new FormControl
   private usuariosServices = inject(SpotifyAPIService)
@@ -36,19 +32,11 @@ export class IniciarSesionComponent {
   }
 
   constructor(private router: Router){}
-=======
->>>>>>> Jers
   ngOnInit() {
     if (sessionStorage.getItem("token") != null) {
       this.router.navigate(['/principal'])
 
-<<<<<<< HEAD
 }
 }
 
 }
-=======
-    }
-  }
-}
->>>>>>> Jers

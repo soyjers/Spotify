@@ -30,6 +30,9 @@ export const routes: Routes = [
     {path: "MisFavoritos", component: MisFavoritosComponent},
     {path: "404", component: error404Component},
     // {path: '**', pathMatch: 'full', redirectTo: '404'},
+<<<<<<< HEAD
+>>>>>>> parent of 7ebe00e (Login funcional)
+=======
 >>>>>>> parent of 7ebe00e (Login funcional)
 
 ]
