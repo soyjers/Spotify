@@ -68,6 +68,12 @@ GET = http://localhost:4001/api/find-albums
 (buscar un album)
 GET = http://localhost:4001/api/find-artist/(insertar id del album) 
 
+(actualizar un album)
+PUT = http://localhost:4001/api/update-album/(insertar id album)  
+
+(eliminar un album)
+DELETE = http://localhost:4001/api/delete-artist/(insertar id album)
+
 
 
 

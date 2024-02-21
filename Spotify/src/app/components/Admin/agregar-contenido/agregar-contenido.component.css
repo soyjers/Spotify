@@ -19,6 +19,16 @@
  color: #efb810;
 }
 
+.LineaSeparacion2{
+  margin: 30px 0px;
+ color: #7B0BAC;
+}
+
+.LineaSeparacion3{
+  margin: 30px 0px;
+ color: #FF0004;
+}
+
 .imgAlbum{
     border: 2px solid #efb810;
     border-radius: 5px;
@@ -112,3 +122,86 @@
   .button-submit:hover {
     background-color: #f5d470;
   }
+
+  .opacidadNO {
+    opacity: 1 !important;
+}
+
+/* ALBUMES */
+
+.imgAlbum2{
+  border: 2px solid #7B0BAC;
+  border-radius: 5px;
+}
+
+.inputForm2{
+  background-color: #fff;
+    border: 1.5px solid #7B0BAC;
+    border-radius: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.inputForm:focus-within {
+  border: 1.5px solid #7B0BAC;
+}
+
+.button-submit2{
+    margin: 20px 0 10px 0;
+    background-color: #7B0BAC;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.button-submit2:hover {
+  background-color: #9125c0;
+}
+
+
+/* ARTISTAS */
+
+.imgAlbum3{
+  border: 2px solid #FF0004;
+  border-radius: 100px;
+}
+
+.inputForm3{
+  background-color: #fff;
+    border: 1.5px solid #FF0004;
+    border-radius: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.inputForm3:focus-within {
+  border: 1.5px solid #FF0004;
+}
+
+.button-submit3{
+  margin: 20px 0 10px 0;
+  background-color: #FF0004;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.button-submit3:hover {
+background-color: #e64346;
+}

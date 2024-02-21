@@ -1,39 +1,147 @@
+<section class="fondo mt-3">
+  <div class="p-5">
+    <div class="wd">
+      <h1 class="textp">Canciones Más Escuchadas</h1>
+    </div>
 
+<<<<<<< HEAD
   <div class="mt-5">
     <h1 class="textp">Top Canciones</h1>
 </div>
+=======
+    <div class="row row-cols-1 row-cols-md-4 g-">
+      @for (songData of cancionesData(); track songData.albumId) {
+      <app-musica-grilla [imagenCancion]="'http://localhost:4001/'+songData.image" [cancion]="songData.name"
+        [cantante]="songData.artistId" [album]="songData .albumId">
+      </app-musica-grilla>
+      }
+    </div>
+>>>>>>> Jers
 
-    <div class="row row-cols-1 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card caja w-75">
-            <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title textp">Sol Maria</h5>
-              <p class="card-text textp">Eladio Carrion</p>
-            </div>
-          </div>
+
+
+    <hr role="presentation" class="LineaSeparacion">
+
+
+
+    <section class="AlbumesDestacados">
+      <div class="mt-5 me-5 row">
+        <div class="col-12">
+          <h1 class="textp">Álbumes Destacados</h1>
         </div>
-        <div class="col">
-            <div class="card caja w-75">
-              <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title textp">Sol Maria</h5>
-                <p class="card-text textp">Eladio Carrion</p>
+        <div class="d-flex cajaSliderAlbunes mt-3 align-items-start">
+
+          <div class="col-2">
+            <div class="carad">
+              <div class="card carad2">
+                <button class="btn">
+                  <img src="assets/img/Albumes/Sol Maria - Eladio Carrion.jpg" class="card-img-top w-100" alt="...">
+                  <div class="card-body mt-2 d-flex flex-column align-items-start">
+                    <h5 class="card-title textAlbum">Sol Maria</h5>
+                    <h5 class="card-text txtArtistaAlbum">Eladio Carrion</h5>
+                  </div>
+                </button>
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="card caja w-75">
-              <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title textp">Sol Maria</h5>
-                <p class="card-text textp">Eladio Carrion</p>
+          <div class="col-2">
+            <div class="carad">
+              <div class="card carad2">
+                <button class="btn">
+                  <img src="assets/img/Albumes/FERXXOCALIPSIS - Feid.jpg" class="card-img-top w-100" alt="...">
+                  <div class="card-body mt-2 d-flex flex-column align-items-start">
+                    <h5 class="card-title textAlbum">FERXXOCALIPSIS</h5>
+                    <h5 class="card-text txtArtistaAlbum">Feid</h5>
+                  </div>
+                </button>
               </div>
             </div>
           </div>
+          <div class="col-2">
+            <div class="carad">
+              <div class="card carad2">
+                <button class="btn">
+                  <img src="assets/img/Albumes/Certified Lover Boy - Drake.jpg" class="card-img-top w-100" alt="...">
+                  <div class="card-body mt-2 d-flex flex-column align-items-start">
+                    <h5 class="card-title textAlbum">Certified Lover Boy</h5>
+                    <h5 class="card-text txtArtistaAlbum">Drake</h5>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="carad">
+              <div class="card carad2">
+                <button class="btn">
+                  <img src="../../../assets/img/Albumes/BOFFF - Kevin Roldan.jpg" class="card-img-top w-100" alt="...">
+                  <div class="card-body mt-2 d-flex flex-column align-items-start">
+                    <h5 class="card-title textAlbum">Bofff</h5>
+                    <h5 class="card-text txtArtistaAlbum">Kevin Roldan</h5>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="carad">
+              <div class="card carad2">
+                <button class="btn">
+                  <img src="../../../assets/img/Albumes/3MEN2 KBRN - Eladio Carrion.jpg" class="card-img-top w-100"
+                    alt="...">
+                  <div class="card-body mt-2 d-flex flex-column align-items-start">
+                    <h5 class="card-title textAlbum">3MEN2 KBRON</h5>
+                    <h5 class="card-text txtArtistaAlbum">Eladio Carrion</h5>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="carad">
+              <div class="card carad2">
+                <button class="btn">
+                  <img src="assets/img/Albumes/Colmillo De Leche - Carin Leon.jpg" class="card-img-top w-100" alt="...">
+                  <div class="card-body mt-2 d-flex flex-column align-items-start">
+                    <h5 class="card-title textAlbum">Colmillo De Leche</h5>
+                    <h5 class="card-text txtArtistaAlbum">Carin León</h5>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="carad">
+              <div class="card carad2">
+                <button class="btn">
+                  <img src="../../../assets/img/Albumes/VIDA - Canserbero.jpg" class="card-img-top w-100" alt="...">
+                  <div class="card-body mt-2 d-flex flex-column align-items-start">
+                    <h5 class="card-title textAlbum">Vida</h5>
+                    <h5 class="card-text txtArtistaAlbum">Canserbero</h5>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <hr role="presentation" class="LineaSeparacion">
+
+
+    <section class="ArtistasTop">
+      <div class="mt-5">
+        <h1 class="textp">
+          Artistas Del Momento
+        </h1>
       </div>
 
+      <div class="row row-cols-1 row-cols-md-4 g-4 mt-3">
 
+<<<<<<< HEAD
 
 
 
@@ -141,16 +249,71 @@
                   </div>
             </div>
 
+=======
+        <div class="col card cajaArtistas">
+          <button class="btn">
+            <img class="circuloArtista" src="assets/img/Artistas/EladioCarrion.jpg" alt="">
+            <h5 class="textCantante fw-bold">Eladio Carrion</h5>
+            <h5 class="txtArtistaFinal">Artista</h5>
+          </button>
+>>>>>>> Jers
         </div>
-    </div>
 
+        <div class="col card cajaArtistas">
+          <button class="btn">
+            <img class="circuloArtista" src="assets/img/Artistas/Feid.jpg" alt="">
+            <h5 class="textCantante fw-bold">Feid</h5>
+            <h5 class="txtArtistaFinal">Artista</h5>
+          </button>
+        </div>
+        <div class="col card cajaArtistas">
+          <button class="btn">
+            <img class="circuloArtista" src="assets/img/Artistas/KevinRoldan.jpg" alt="">
+            <h5 class="textCantante fw-bold">Kevin Roldan</h5>
+            <h5 class="txtArtistaFinal">Artista</h5>
+          </button>
+        </div>
+        <div class="col card cajaArtistas">
+          <button class="btn">
+            <img class="circuloArtista" src="assets/img/Artistas/Drake.jpg" alt="">
+            <h5 class="textCantante fw-bold">Drake</h5>
+            <h5 class="txtArtistaFinal">Artista</h5>
+          </button>
+        </div>
+        <div class="col card cajaArtistas">
+          <button class="btn">
+            <img class="circuloArtista" src="assets/img/Artistas/Canserbero.jpg" alt="">
+            <h5 class="textCantante fw-bold">Canserbero</h5>
+            <h5 class="txtArtistaFinal">Artista</h5>
+          </button>
+        </div>
+        <div class="col card cajaArtistas">
+          <button class="btn">
+            <img class="circuloArtista" src="assets/img/Artistas/CarinLeon.jpg" alt="">
+            <h5 class="textCantante fw-bold">Carin Leon</h5>
+            <h5 class="txtArtistaFinal">Artista</h5>
+          </button>
+        </div>
+        <div class="col card cajaArtistas">
+          <button class="btn">
+            <img class="circuloArtista" src="assets/img/Artistas/Boris.jpg" alt="">
+            <h5 class="textCantante fw-bold">Boris</h5>
+            <h5 class="txtArtistaFinal">Artista</h5>
+          </button>
+        </div>
+        <div class="col card cajaArtistas">
+          <button class="btn">
+            <img class="circuloArtista" src="assets/img/Artistas/Xavi.jpg" alt="">
+            <h5 class="textCantante fw-bold">Xavi</h5>
+            <h5 class="txtArtistaFinal">Artista</h5>
+          </button>
+        </div>
+      </div>
+    </section>
 
-    <div class="mt-5">
-        <h1 class="textp">
-            Artistas
-        </h1>
-    </div>
+    <hr role="presentation" class="LineaSeparacion">
 
+<<<<<<< HEAD
     <div class="row row-cols-1 row-cols-md-4 g-4">
 
             <div class="col">
@@ -187,3 +350,7 @@
                 </button>
               </div>
       </div>
+=======
+  </div>
+</section>
+>>>>>>> Jers
