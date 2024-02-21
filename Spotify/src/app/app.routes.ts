@@ -14,7 +14,7 @@ export const routes: Routes = [
     {path: "AdminAddContent", canMatch:[autenticacionGuard], component: AgregarContenidoComponent},
     {path: "MisFavoritos", component: MisFavoritosComponent},
     {path: "404", component: error404Component},
-    // {path: '**', pathMatch: 'full', redirectTo: '404'},
+    {path: '**', pathMatch: 'full', redirectTo: '404'},
 
 ]
 
