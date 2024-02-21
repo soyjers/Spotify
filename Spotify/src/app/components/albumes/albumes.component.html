@@ -2,95 +2,21 @@
   <h1 class="textp">Albumes</h1>
 </div>
 <div class="row row-cols-1 row-cols-md-5 g-6">
-  <div class="col ">
-    <div class="card caja " routerLink="/zoom">
-      <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title textp">Sol Maria</h5>
-        <p class="card-text textp">Eladio Carrion</p>
+
+
+  @for (albumData of albumesData(); track albumData.albumId) {
+    <div class="col ">
+      <div class="card caja " [routerLink]="['/zoom', albumData._id]" >
+        <img [src]="albumData.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title textp">{{ albumData.albumId }}</h5>
+          <p class="card-text textp">{{ albumData.artistId }}</p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col">
-    <div class="card caja ">
-      <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title textp">Sol Maria</h5>
-        <p class="card-text textp">Eladio Carrion</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card caja ">
-      <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title textp">Sol Maria</h5>
-        <p class="card-text textp">Eladio Carrion</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card caja ">
-      <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title textp">Sol Maria</h5>
-        <p class="card-text textp">Eladio Carrion</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card caja ">
-      <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title textp">Sol Maria</h5>
-        <p class="card-text textp">Eladio Carrion</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card caja ">
-      <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title textp">Sol Maria</h5>
-        <p class="card-text textp">Eladio Carrion</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card caja ">
-      <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title textp">Sol Maria</h5>
-        <p class="card-text textp">Eladio Carrion</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card caja ">
-      <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title textp">Sol Maria</h5>
-        <p class="card-text textp">Eladio Carrion</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card caja ">
-      <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title textp">Sol Maria</h5>
-        <p class="card-text textp">Eladio Carrion</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card caja ">
-      <img src="../../../assets/img/solMaria.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title textp">Sol Maria</h5>
-        <p class="card-text textp">Eladio Carrion</p>
-      </div>
-    </div>
-  </div>
+    }
+
+
+ 
 
 </div>
