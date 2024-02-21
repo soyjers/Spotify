@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { Component, inject, signal } from '@angular/core';
+import { FormControl,ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
 import {  SpotifyAPIService } from "../services/spotify-api.service";
@@ -7,12 +10,15 @@ import {  SpotifyAPIService } from "../services/spotify-api.service";
 @Component({
   selector: 'app-iniciar-sesion',
   standalone: true,
-  imports: [RouterLink],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterLink
+  ],
   templateUrl: './iniciar-sesion.component.html',
   styleUrl: './iniciar-sesion.component.css'
 })
 export class IniciarSesionComponent {
-  constructor(private router: Router) { }
 
   inputEmail = new FormControl
   inputPassword = new FormControl

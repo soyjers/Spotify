@@ -11,7 +11,6 @@ import {  SpotifyAPIService } from "../services/spotify-api.service";
   styleUrl: './nav.component.css'
 })
 
-<<<<<<< HEAD
 export class NavComponent {
 private spotifyService = inject(SpotifyAPIService)
 ingreso:boolean = false
@@ -19,6 +18,3 @@ ngOnInit(){
   this.ingreso =this.spotifyService.estaLogueado()
      }
 }
-=======
-}
->>>>>>> Jers

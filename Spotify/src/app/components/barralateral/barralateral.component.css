@@ -10,7 +10,7 @@
 .textoCaja {
     font-weight: 900;
     color: #fff;
-
+    
 
 }
 
@@ -95,17 +95,16 @@
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
 }
-
-.alturaNavLateral {
+.alturaNavLateral{
     height: 10px;
 }
 
-.favoritos {
+.favoritos{
     background-color: #121212;
     border: none;
     width: 100%;
 }
 
-.playlist {
+.playlist{
     font-size: 15px;
 }
