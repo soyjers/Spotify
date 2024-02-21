@@ -14,6 +14,7 @@ export const routes: Routes = [
     { path: "", component: IniciarSesionComponent },
     { path: "registrarse", component: RegistrarseComponent },
     { path: 'principal', component: PrincipalComponent },
+<<<<<<< HEAD
     { path: "AdminAddContent", component: AgregarContenidoComponent },
     { path: "MisFavoritos", component: MisFavoritosComponent },
     { path: "canciones", component: CancionesComponent },
@@ -24,6 +25,12 @@ export const routes: Routes = [
     { path: "MisFavoritos", component: MisFavoritosComponent },
     { path: "404", component: error404Component },
     { path: '**', pathMatch: 'full', redirectTo: '404' },
+=======
+    {path: "AdminAddContent", canMatch:[autenticacionGuard], component: AgregarContenidoComponent},
+    {path: "MisFavoritos", component: MisFavoritosComponent},
+    {path: "404", component: error404Component},
+    // {path: '**', pathMatch: 'full', redirectTo: '404'},
+>>>>>>> parent of 7ebe00e (Login funcional)
 
 ]
 

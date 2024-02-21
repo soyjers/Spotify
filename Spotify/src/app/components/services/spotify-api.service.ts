@@ -19,16 +19,6 @@ this.urlApi = 'http://localhost:4001/api'
      }
 
 
-
-     postuser(dataUser:any){
-      return this.HttpClient.post(`${this.urlApi}/create-user`, dataUser)
-  }
-
-
-  putuser(userId:string, dataUser:any){
-    return this.HttpClient.put(`${this.urlApi}/find-user/${userId}`, dataUser)
-}
-
     estaLogueado() : boolean{
         let estado = (sessionStorage.getItem('token')) ? true : false
         return estado
@@ -43,11 +33,11 @@ this.urlApi = 'http://localhost:4001/api'
   // }
 
 
-    // register(formvalue: any){
-    //   return firstValueFrom(
-    //     this.HttpClient.post<any>(`${this.urlApi}/create-user`, formvalue)
-    //   )
-    //   }
+    register(formvalue: any){
+      return firstValueFrom(
+        this.HttpClient.post<any>(`${this.urlApi}/create-user`, formvalue)
+      )
+      }
 
   }
 
