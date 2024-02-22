@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { AlbumesGrillasComponent } from '../templates/albumes-grillas/albumes-grillas.component';
 import { JgtsAPIService } from '../service/jgts-api.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { JgtsAPIService } from '../service/jgts-api.service';
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
+    AlbumesGrillasComponent
   ],
   templateUrl: './albumes.component.html',
   styleUrl: './albumes.component.css'
@@ -16,14 +18,14 @@ import { JgtsAPIService } from '../service/jgts-api.service';
 export class AlbumesComponent {
 
 
+
+
+  constructor(private router: Router) { }
   cancionesData = signal<any>([])
   private cancionesService = inject(JgtsAPIService)
 
   albumesData = signal<any>([])
   private albumesService = inject(JgtsAPIService)
-
-  constructor(private router: Router) { }
-
 
   ngOnInit() {
 

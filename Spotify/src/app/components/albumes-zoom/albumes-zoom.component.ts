@@ -18,6 +18,8 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
 export class AlbumesZoomComponent {
   idAlbumUrl:string | null
 
+  nombreAlbum!:string 
+
   constructor(private paramsRuta:ActivatedRoute){
 
     this.idAlbumUrl = this.paramsRuta.snapshot.paramMap.get('idAlbum')
@@ -29,10 +31,11 @@ export class AlbumesZoomComponent {
 
   ngOnInit(){
 
-    this.albumesService.getAlbumes().subscribe({
-      next: (albumes) => {
-        this.albumesData.set(albumes)
+    this.albumesService.getAlbum(this.idAlbumUrl).subscribe({
+      next: (album:any) => {
+        this.albumesData.set(album)
         console.log(this.albumesData());
+        this.nombreAlbum = album.albumId
 
       },
       error: (err) => {

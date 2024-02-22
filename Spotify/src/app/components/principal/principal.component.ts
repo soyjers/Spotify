@@ -20,9 +20,6 @@ export class PrincipalComponent {
 
   constructor(private router: Router) { }
 
-
-
-
   cancionesData = signal<any>([])
   private cancionesService = inject(JgtsAPIService)
 
