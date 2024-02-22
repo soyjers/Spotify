@@ -2,7 +2,7 @@
 const favoriteModel = require('../models/favorite.model');
 
 // Crear una cancion (POST)
-exports.createFavorito= async (req, res) => {
+exports.createfavorito= async (req, res) => {
     try {
 
         // Realizar validaciones antes de crear favorito

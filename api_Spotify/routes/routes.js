@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
+
 const songController = require('../controllers/songController')
 const favoriteController = require('../controllers/favoriteController')
-
 const userController = require('../controllers/userController')
 const artistController = require('../controllers/artistController')
 const albumController = require('../controllers/albumController')
@@ -41,7 +41,7 @@ router.delete('/delete-user/:userId', userController.deleteUser);
 router.post('/ingreso', sessionController.genereToken)
 
 //? rutas favoritos
-router.post('/create-favorite', favoriteController.createFavorito);
+router.post('/create-favorite', favoriteController.createfavorito);
 router.get('/find-favorites', favoriteController.findsfavorite);
 router.get('/find-favorite/:favoriteId', favoriteController.findfavorite);
 router.put('/update-favorite/:favoriteId', favoriteController.updatefavorite);

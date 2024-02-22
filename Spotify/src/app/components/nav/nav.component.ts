@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import {  SpotifyAPIService } from "../services/spotify-api.service";
+import {  SpotifyAPIService } from "../service/spotify-api.service";
 
 
 @Component({

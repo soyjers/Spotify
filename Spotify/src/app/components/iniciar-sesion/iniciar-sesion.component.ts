@@ -4,7 +4,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormControl,ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
-import {  SpotifyAPIService } from "../services/spotify-api.service";
+import {  SpotifyAPIService } from "../service/spotify-api.service";
 
 
 @Component({

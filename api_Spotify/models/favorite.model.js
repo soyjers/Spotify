@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 
-
 const favoriteSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
     },
     duration: {
-        type: Number,
+        type: String,
         required: true,
     },
     image: {
@@ -15,7 +14,7 @@ const favoriteSchema = mongoose.Schema({
         required: true,
     },
     year: {
-        type: Number,
+        type: String,
         required: true,
     },
     artistId: {
