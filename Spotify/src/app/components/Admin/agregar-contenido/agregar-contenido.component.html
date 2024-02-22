@@ -25,7 +25,8 @@
                 La URL proporcionada no es valida
             </div>
             <div class="imagen d-flex justify-content-center align-items-center mt-3">
-                <img class="imgAlbum" src="assets/img/Albumes/3MEN2 KBRN - Eladio Carrion.jpg" width="130px" height="130px">
+                <img class="imgAlbum" src="assets/img/Albumes/3MEN2 KBRN - Eladio Carrion.jpg" width="130px"
+                    height="130px">
             </div>
         </div>
 
@@ -101,7 +102,9 @@
 
     </form>
 
-    <form class="form">
+    <!-- Albumes------------------------------------------------------------------------------------------------------- -->
+
+    <form class="form" [formGroup]="formSong" (ngSubmit)="submitForm()">
         <div class="TextoRegistro">
             <h1 class="fw-bold text-white text-center">Agregar Álbumes En</h1>
             <div class="img">
@@ -114,7 +117,7 @@
                 <label class="fw-bold" for="txtInputImagen">Agregar Imagen de el Álbum</label>
                 <div class="text-danger fw-bold opacity-0"
                     [class.opacidadNO]="formSong.get('imagen')?.hasError('required') && formSong.get('imagen')?.touched">
-                    </div>
+                </div>
 
             </div>
             <div class="inputForm2">
@@ -127,7 +130,8 @@
                 La URL proporcionada no es valida
             </div>
             <div class="imagen d-flex justify-content-center align-items-center mt-3">
-                <img class="imgAlbum2" src="assets/img/Albumes/Certified Lover Boy - Drake.jpg" width="130px" height="130px">
+                <img class="imgAlbum2" src="assets/img/Albumes/Certified Lover Boy - Drake.jpg" width="130px"
+                    height="130px">
             </div>
         </div>
 
@@ -179,6 +183,8 @@
 
 
     </form>
+
+    <!-- Artistas-------------------------------------------------------------------------------------------------------------- -->
 
     <form class="form" [formGroup]="formSong" (ngSubmit)="submitForm()">
         <div class="TextoRegistro">

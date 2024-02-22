@@ -23,7 +23,7 @@ export class JgtsAPIService {
 
     postCancion(dataCancion: any) {
         return this.http.post(`${this.urlApi}/create-song`, dataCancion);
-      }
+    }
 
     deleteCancion(idCancion: string) {
         return this.http.delete(`${this.urlApi}/eliminar-producto/${idCancion}`)
@@ -32,6 +32,31 @@ export class JgtsAPIService {
     putCancion(idCancion: string, dataCancion: any) {
         return this.http.put(`${this.urlApi}/actualizar-producto/${idCancion}`, dataCancion)
     }
+
+    /* Artistas */
+
+    postArtista(artistId: string) {
+        return this.http.get(`${this.urlApi}/create-artist/${artistId}`)
+    }
+
+
+
+
+
+
+
+
+
+
+    /* Albumes */
+    postAlbumes(albumId: string) {
+        return this.http.get(`${this.urlApi}/create-album/${albumId}`)
+    }
+
+
+
+
+
 
     // estaLogueado() : boolean{
     //     let estado = (sessionStorage.getItem('token')) ? true : false
