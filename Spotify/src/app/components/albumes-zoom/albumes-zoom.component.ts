@@ -1,17 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router'; 
+import { JgtsAPIService } from '../service/jgts-api.service';
+import { ZoomComponent } from '../templates/zoom/zoom.component';
+import { RouterLink, ActivatedRoute } from '@angular/router'; 
 
 @Component({
   selector: 'app-albumes-zoom',
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
+    ZoomComponent
   ],
   templateUrl: './albumes-zoom.component.html',
   styleUrl: './albumes-zoom.component.css'
 })
 export class AlbumesZoomComponent {
+  idAlbumUrl:string | null
 
+  nombreAlbum!:string 
+
+  constructor(private paramsRuta:ActivatedRoute){
+
+    this.idAlbumUrl = this.paramsRuta.snapshot.paramMap.get('idAlbum')
+    console.log(this.idAlbumUrl);
+    
+  }
+  albumesData = signal<any>([])
+  private albumesService = inject(JgtsAPIService)
+
+  ngOnInit(){
+
+    this.albumesService.getAlbum(this.idAlbumUrl).subscribe({
+      next: (album:any) => {
+        this.albumesData.set(album)
+        console.log(this.albumesData());
+        this.nombreAlbum = album.albumId
+
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+
+    
+  }
+
+  
 }

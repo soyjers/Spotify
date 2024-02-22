@@ -18,7 +18,7 @@ export const routes: Routes = [
     { path: "MisFavoritos", component: MisFavoritosComponent },
     { path: "canciones", component: CancionesComponent },
     { path: "albumes", component: AlbumesComponent },
-    { path: "zoom", component: AlbumesZoomComponent },
+    { path: "zoom/:idAlbum", component: AlbumesZoomComponent },
     { path: 'principal', component: PrincipalComponent },
     { path: "AdminAddContent", canMatch: [autenticacionGuard], component: AgregarContenidoComponent },
     { path: "MisFavoritos", component: MisFavoritosComponent },
