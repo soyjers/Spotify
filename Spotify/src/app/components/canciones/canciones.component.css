@@ -1,9 +1,18 @@
+.contenido{
+    background-color: #121212;
+
+}
+
 .textp {
     color: #fff;
 }
 
+.artista{
+    transform: translateY(40px);
+}
+
 .caja {
-    background-color: #000;
+    background-color: #212121;
     width: 200px;
 }
 
@@ -29,7 +38,7 @@
 }
 
 .card:hover {
-    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+    box-shadow: 0px 0px 30px 1px #666;
 }
 
 .cajaSliderAlbunes {
