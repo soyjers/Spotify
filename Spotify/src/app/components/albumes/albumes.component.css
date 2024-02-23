@@ -5,6 +5,10 @@
     border-radius: 10px;
 }
 
+.title{
+    transform: translateY(44px);
+}
+
 
 .textp {
     color: #fff;
@@ -43,4 +47,10 @@
 .LineaSeparacion{
     color: #000000;
     height: 90px;
+}
+
+.textoAlbumes{
+    color: #fff;
+    font-size: 30px;
+    transform: translateY(20px);
 }
