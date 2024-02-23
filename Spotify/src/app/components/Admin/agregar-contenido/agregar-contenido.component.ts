@@ -17,6 +17,10 @@ import { JgtsAPIService } from '../../service/jgts-api.service';
 })
 export class AgregarContenidoComponent {
   formSong: FormGroup;
+  formAlbum: FormGroup;
+  formArtist: FormGroup;
+
+
   regexNumericos = /^[0-9]+$/
   regexUrl = /^https?:\/\/\w+(\.\w+)+(\/[a-zA-Z0-9_.~-]+)*(\/[a-zA-Z0-9_.~-]+\.[a-zA-Z]+)?$/
 
@@ -31,8 +35,23 @@ export class AgregarContenidoComponent {
       artistId: ['', Validators.required],
       albumId: [''],
     });
+
+    this.formAlbum = this.fb.group({
+      albumId: [''],
+      year: [''],
+      artistId: [''],
+      image: [''],
+    });
+
+    this.formArtist = this.fb.group({
+      artistId: ['', Validators.required],
+      image: [''],
+
+    });
+
   }
 
+  /* parte para poder guardar la ruta de la imagen y el audio de una cancion en mongo */
   addFileSong(event: any, tipo: string = "img") {
     switch (tipo) {
       case "img":
@@ -50,13 +69,13 @@ export class AgregarContenidoComponent {
     }
   }
 
-
-  submitForm(): void {
+  /* ------------------------------------------------------------------------------------------------------------------------- */
+  submitSongForm(): void {
     if (this.formSong.value) {
       console.log("Entro a crear")
 
-      
-      let {name, image, file, year, artistId, albumId } = this.formSong.value
+
+      let { name, image, file, year, artistId, albumId } = this.formSong.value
       const formDataSong = new FormData()
 
       formDataSong.append("name", name)
@@ -66,9 +85,70 @@ export class AgregarContenidoComponent {
       formDataSong.append("artistId", artistId)
       formDataSong.append("albumId", albumId)
 
-      
 
       this.JgtsService.postCancion(formDataSong).subscribe(
+        respuestaAPI => {
+          alert('Cancion guardada correctamente');
+
+          this.formSong.reset(); // Limpiar el formulario después de guardar
+        },
+        (error) => {
+          console.error('Error al guardar el producto:', error);
+          alert('Error al guardar el producto');
+        }
+      );
+    } else {
+      alert('Por favor, complete todos los campos obligatorios.');
+    }
+  }
+
+  /* -------------------------------------------------------------------------------------------------------------------------- */
+  submitAlbumForm(): void {
+    if (this.formAlbum.value) {
+      console.log("Entro a crear")
+
+
+      let { image, year, artistId, albumId } = this.formAlbum.value
+      const formDataAlbum = new FormData()
+
+      formDataAlbum.append("albumId", albumId)
+      formDataAlbum.append("year", year)
+      formDataAlbum.append("artistId", artistId)
+      formDataAlbum.append("image", image)
+
+
+      this.JgtsService.postAlbum(formDataAlbum).subscribe(
+        respuestaAPI => {
+          alert('Album guardado correctamente');
+
+          //this.formSong.reset(); // Limpiar el formulario después de guardar
+        },
+        (error) => {
+          console.error('Error al guardar el album:', error);
+          alert('Error al guardar el album');
+        }
+      );
+    } else {
+      alert('Por favor, complete todos los campos obligatorios.');
+    }
+  }
+
+  /* ------------------------------------------------------------------------------------------------------------------------- */
+
+  submitArtistForm(): void {
+    if (this.formSong.value) {
+      console.log("Entro a crear")
+
+
+      let { name, image, file, year, artistId, albumId } = this.formSong.value
+      const formDataArtist = new FormData()
+
+      formDataArtist.append("artistId", artistId)
+      formDataArtist.append("image", image)
+
+
+
+      this.JgtsService.postCancion(formDataArtist).subscribe(
         respuestaAPI => {
           alert('Producto guardado correctamente');
 
@@ -83,4 +163,5 @@ export class AgregarContenidoComponent {
       alert('Por favor, complete todos los campos obligatorios.');
     }
   }
+
 }

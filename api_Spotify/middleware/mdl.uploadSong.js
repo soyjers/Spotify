@@ -1,19 +1,25 @@
-const multer = require('multer')
+const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        if (file.mimetype == "audio/mpeg") {
-            cb(null, "storage/fileSong/audios");
+        let destinationPath;
+        if (file.mimetype === "audio/mpeg") {
+            destinationPath = "storage/fileSong/audios";
         } else {
-            cb(null, "storage/fileSong/images");
+            if (req.body.albumId) {
+                destinationPath = "storage/fileSong/images/album";
+            } else {
+                destinationPath = "storage/fileSong/images";
+            }
         }
+        cb(null, destinationPath);
     },
 
     filename: function (req, file, cb) {
         cb(null, `${Date.now()}_${file.originalname}`);
     }
-})
+});
 
-const upload = multer({ storage })
+const upload = multer({ storage });
 
-module.exports = upload
+module.exports = upload;

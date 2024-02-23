@@ -5,7 +5,6 @@ const SongModel = require('../models/Song.model');
 // Crear una cancion (POST)
 exports.createSong = async (req, res) => {
     try {
-        const archivos = req.files
         // Realizar validaciones antes de crear la canción
         const existingSong = await SongModel.findOne({ name: req.body.name });
         if (existingSong) {

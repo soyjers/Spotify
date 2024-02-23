@@ -1,9 +1,9 @@
 <section class="IniciarSesion d-flex align-items-center flex-column ">
-    <form class="form" [formGroup]="formSong" (ngSubmit)="submitForm()">
+    <form class="form" [formGroup]="formSong" (ngSubmit)="submitSongForm()">
         <div class="TextoRegistro">
             <h1 class="fw-bold text-white text-center">Agregar Canciones En</h1>
             <div class="img">
-                <img class="JGTS" src="assets/img/JGTS-Vip.png" alt="">
+                <img class="JGTS" src="assets/img/VIP/JGTS" alt="">
             </div>
         </div>
         <hr role="presentation" class="LineaSeparacion">
@@ -104,7 +104,7 @@
 
     <!-- Albumes------------------------------------------------------------------------------------------------------- -->
 
-    <form class="form" [formGroup]="formSong" (ngSubmit)="submitForm()">
+    <form class="form" [formGroup]="formAlbum" (ngSubmit)="submitAlbumForm()">
         <div class="TextoRegistro">
             <h1 class="fw-bold text-white text-center">Agregar Álbumes En</h1>
             <div class="img">
@@ -116,17 +116,17 @@
             <div class="flex-column mb-2">
                 <label class="fw-bold" for="txtInputImagen">Agregar Imagen de el Álbum</label>
                 <div class="text-danger fw-bold opacity-0"
-                    [class.opacidadNO]="formSong.get('imagen')?.hasError('required') && formSong.get('imagen')?.touched">
+                    [class.opacidadNO]="formAlbum.get('image')?.hasError('required') && formAlbum.get('image')?.touched">
                 </div>
 
             </div>
             <div class="inputForm2">
                 <i class="fa-regular fa-image" style="color: #7B0BAC;"></i>
                 <input type="file" class="input" placeholder="Ingresa la URL de la Imagen" id="txtInputImagen"
-                    formControlName="image" (change)="addFileSong($event)">
+                    formControlName="image">
             </div>
             <div class="text-danger fw-bold opacity-0"
-                [class.opacidadNO]="formSong.get('image')?.hasError('required') && formSong.get('image')?.touched">
+                [class.opacidadNO]="formAlbum.get('image')?.hasError('required') && formAlbum.get('image')?.touched">
                 La URL proporcionada no es valida
             </div>
             <div class="imagen d-flex justify-content-center align-items-center mt-3">
@@ -151,7 +151,7 @@
         <div class="flex-column mb-2">
             <label class="fw-bold" for="txtInputArtista">Agrega el Nombre del Artista</label>
             <div class="text-danger fw-bold opacity-0"
-                [class.opacidadNO]="formSong.get('artistId')?.hasError('required') && formSong.get('artistId')?.touched">
+                [class.opacidadNO]="formAlbum.get('artistId')?.hasError('required') && formAlbum.get('artistId')?.touched">
                 El nombre del artista es obligatorio</div>
         </div>
         <div class="inputForm2">
@@ -160,7 +160,7 @@
                 formControlName="artistId">
         </div>
         <div class="text-danger fw-bold opacity-0"
-            [class.opacidadNO]="formSong.get('artistId')?.hasError('required') && formSong.get('artistId')?.touched">
+            [class.opacidadNO]="formAlbum.get('artistId')?.hasError('required') && formAlbum.get('artistId')?.touched">
             El nombre del artista debe contener letras y/o números
         </div>
 
@@ -186,7 +186,7 @@
 
     <!-- Artistas-------------------------------------------------------------------------------------------------------------- -->
 
-    <form class="form" [formGroup]="formSong" (ngSubmit)="submitForm()">
+    <form class="form" [formGroup]="formArtist" (ngSubmit)="submitArtistForm()">
         <div class="TextoRegistro">
             <h1 class="fw-bold text-white text-center">Agregar Artistas En</h1>
             <div class="img">

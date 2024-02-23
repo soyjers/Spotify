@@ -12,6 +12,8 @@ export class JgtsAPIService {
 
     constructor() { }
 
+
+    /* Canciones */
     getCanciones() {
         const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzZiYWIyZjBiMDgwMzQ3ZWJkODIzOSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3NTI0OTAzLCJleHAiOjE3MDc1Mjg1MDN9.n7XqQr9aFmm_mOu-cKROiwxj0zjYJYlUR5Moq0VqJ_o')
         return this.http.get(`${this.urlApi}/find-songs`, { headers })
@@ -30,8 +32,10 @@ export class JgtsAPIService {
     }
 
     putCancion(idCancion: string, dataCancion: any) {
-        return this.http.put(`${this.urlApi}/actualizar-song/${idCancion}`, dataCancion)
+        return this.http.put(`${this.urlApi}/update-song/${idCancion}`, dataCancion)
     }
+
+
 
     /* Artistas */
 
@@ -49,8 +53,9 @@ export class JgtsAPIService {
     }
 
     getAlbum(idAlbum: string | null) {
-        return this.http.get(`${this.urlApi}/find-album/${idAlbum}`)
+        return this.http.get(`${this.urlApi}/find-album/${idAlbum}`);
     }
+
 
     postAlbum(dataAlbum: any) {
         return this.http.post(`${this.urlApi}/create-album`, dataAlbum);

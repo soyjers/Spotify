@@ -25,7 +25,8 @@ router.put('/update-artist/:artistId', artistController.updateArtist);
 router.delete('/delete-artist/:artistId', artistController.deleteArtist);
 
 //? rutas album
-router.post('/create-album', albumController.createAlbum);
+router.post('/create-album', uploadControllerSong.fields([{ name: 'image', maxCount: 1 }])),
+    albumController.createAlbum
 router.get('/find-albums', albumController.findAlbums);
 router.get('/find-album/:albumId', albumController.findAlbum);
 router.put('/update-album/:albumId', albumController.updateAlbum);
