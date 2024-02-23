@@ -10,7 +10,7 @@ import { Component,Input } from '@angular/core';
   styleUrl: './zoom.component.css'
 })
 export class ZoomComponent {
- @Input() imagenAlbum!: string
+ @Input() imagenCancion!: string
   @Input() cantante!: string | number
-  @Input() album!: string
+  @Input() nombreCancion!: string
 }
