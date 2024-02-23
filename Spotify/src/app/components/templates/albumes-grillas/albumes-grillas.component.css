@@ -1,0 +1,46 @@
+.general{
+    background-color: #121212;
+    width: 1380px;
+    height: 2000px;
+    border-radius: 10px;
+}
+
+
+.textp {
+    color: #fff;
+}
+
+.caja {
+    background-color: #232323;
+    width: 200px;
+}
+
+.carad {
+    width: 190px;
+    height: 254px;
+    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+    border-radius: 20px;
+    transition: all .3s;
+}
+
+.carad2 {
+    width: 190px;
+    height: 254px;
+    background-color: #666;
+
+    transition: all .2s;
+}
+
+.card2:hover {
+    transform: scale(0.98);
+    border-radius: 20px;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 30px 1px #666;
+}
+
+.LineaSeparacion{
+    color: #000000;
+    height: 90px;
+}

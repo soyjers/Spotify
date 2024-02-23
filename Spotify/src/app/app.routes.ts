@@ -11,10 +11,23 @@ export const routes: Routes = [
     {path: "", component: IniciarSesionComponent },
     {path: "registrarse", component: RegistrarseComponent},
     { path: 'principal', component: PrincipalComponent },
+<<<<<<< HEAD
     {path: "AdminAddContent", canMatch:[autenticacionGuard], component: AgregarContenidoComponent},
     {path: "MisFavoritos", component: MisFavoritosComponent},
     {path: "404", component: error404Component},
     {path: '**', pathMatch: 'full', redirectTo: '404'},
+=======
+    { path: "AdminAddContent", component: AgregarContenidoComponent },
+    { path: "MisFavoritos", component: MisFavoritosComponent },
+    { path: "canciones", component: CancionesComponent },
+    { path: "albumes", component: AlbumesComponent },
+    { path: "zoom/:idAlbum", component: AlbumesZoomComponent },
+    { path: 'principal', component: PrincipalComponent },
+    { path: "AdminAddContent", canMatch: [autenticacionGuard], component: AgregarContenidoComponent },
+    { path: "MisFavoritos", component: MisFavoritosComponent },
+    { path: "404", component: error404Component },
+    { path: '**', pathMatch: 'full', redirectTo: '404' },
+>>>>>>> Gustavo
 
 ]
 

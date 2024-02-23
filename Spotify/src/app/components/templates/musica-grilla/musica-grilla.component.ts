@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import { Component } from '@angular/core';
+=======
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+>>>>>>> Gustavo
 
 @Component({
   selector: 'app-musica-grilla',
