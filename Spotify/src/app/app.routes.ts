@@ -7,8 +7,10 @@ import { MisFavoritosComponent } from './components/mis-favoritos/mis-favoritos.
 import { CancionesComponent } from './components/canciones/canciones.component';
 import { AlbumesComponent } from './components/albumes/albumes.component';
 import { AlbumesZoomComponent } from './components/albumes-zoom/albumes-zoom.component';
+import { ArtistasComponent } from './components/artistas/artistas.component';
 import { error404Component } from './components/error404/error404.component';
 import { autenticacionGuard } from './guards/autenticacion.guard';
+
 
 export const routes: Routes = [
     { path: "", component: IniciarSesionComponent },
@@ -18,6 +20,7 @@ export const routes: Routes = [
     { path: "MisFavoritos", component: MisFavoritosComponent },
     { path: "canciones", component: CancionesComponent },
     { path: "albumes", component: AlbumesComponent },
+    { path: "Artistas", component: ArtistasComponent},
     { path: "zoom/:idAlbum", component: AlbumesZoomComponent },
     { path: 'principal', component: PrincipalComponent },
     { path: "AdminAddContent", canMatch: [autenticacionGuard], component: AgregarContenidoComponent },
