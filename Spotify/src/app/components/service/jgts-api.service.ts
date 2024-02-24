@@ -39,8 +39,8 @@ export class JgtsAPIService {
 
     /* Artistas */
 
-    postArtista(artistId: string) {
-        return this.http.get(`${this.urlApi}/create-artist/${artistId}`)
+    postArtista(dataArtista: any) {
+        return this.http.post(`${this.urlApi}/create-artist`, dataArtista);
     }
 
 

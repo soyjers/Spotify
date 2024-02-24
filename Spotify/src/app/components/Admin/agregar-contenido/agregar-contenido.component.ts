@@ -52,21 +52,31 @@ export class AgregarContenidoComponent {
   }
 
   /* parte para poder guardar la ruta de la imagen y el audio de una cancion en mongo */
-  addFileSong(event: any, tipo: string = "img") {
+  addFileSong(event: any, tipo: string = "img", formulario: string = "audio") {
     switch (tipo) {
       case "img":
         if (event.target.files.length > 0) {
-          const fileImg = event.target.files[0]
-          this.formSong.get("image")!.setValue(fileImg)
+          const fileImg = event.target.files[0];
+          if (formulario == "audio") {
+            this.formSong.get("image")!.setValue(fileImg);
+          } else if (formulario == "album") {
+            this.formAlbum.get("image")!.setValue(fileImg);
+          } else if (formulario == "artista") {
+            this.formArtist.get("image")!.setValue(fileImg);
+          }
         }
         break;
       default:
         if (event.target.files.length > 0) {
-          const fileSong = event.target.files[0]
-          this.formSong.get("file")!.setValue(fileSong)
+          const fileSong = event.target.files[0];
+          if (this.formSong) {
+            this.formSong.get("file")!.setValue(fileSong);
+          }
+          break;
         }
-        break;
+
     }
+
   }
 
   /* ------------------------------------------------------------------------------------------------------------------------- */
@@ -140,7 +150,7 @@ export class AgregarContenidoComponent {
       console.log("Entro a crear")
 
 
-      let { name, image, file, year, artistId, albumId } = this.formSong.value
+      let { artistId, image } = this.formArtist.value
       const formDataArtist = new FormData()
 
       formDataArtist.append("artistId", artistId)
@@ -148,15 +158,15 @@ export class AgregarContenidoComponent {
 
 
 
-      this.JgtsService.postCancion(formDataArtist).subscribe(
+      this.JgtsService.postArtista(formDataArtist).subscribe(
         respuestaAPI => {
-          alert('Producto guardado correctamente');
+          alert('Artista guardado correctamente');
 
           //this.formSong.reset(); // Limpiar el formulario después de guardar
         },
         (error) => {
-          console.error('Error al guardar el producto:', error);
-          alert('Error al guardar el producto');
+          console.error('Error al guardar el artista:', error);
+          alert('Error al guardar el artista');
         }
       );
     } else {

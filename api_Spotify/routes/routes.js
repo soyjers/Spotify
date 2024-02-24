@@ -18,15 +18,14 @@ router.put('/update-song/:songId', songController.updateSong);
 router.delete('/delete-song/:songId', songController.deleteSong);
 
 //? rutas artistas
-router.post('/create-artist', artistController.createArtist);
+router.post('/create-artist', uploadControllerSong.array('image'), artistController.createArtist);
 router.get('/find-artists', artistController.findArtists);
 router.get('/find-artist/:artistId', artistController.findArtist);
 router.put('/update-artist/:artistId', artistController.updateArtist);
 router.delete('/delete-artist/:artistId', artistController.deleteArtist);
 
 //? rutas album
-router.post('/create-album', uploadControllerSong.fields([{ name: 'image', maxCount: 1 }])),
-    albumController.createAlbum
+router.post('/create-album', uploadControllerSong.array('image'), albumController.createAlbum);
 router.get('/find-albums', albumController.findAlbums);
 router.get('/find-album/:albumId', albumController.findAlbum);
 router.put('/update-album/:albumId', albumController.updateAlbum);

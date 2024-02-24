@@ -4,6 +4,17 @@ const ArtistModel = require("../models/Artist.model");
 exports.createArtist = async (req, res) => {
     try {
         console.log(req.body);
+        const archivos = req.files
+
+
+        let extensionesImagenes = ["png", "jpg", "webp", "jpeg"];
+        req.body.image = archivos.find((archivo) => {
+            return extensionesImagenes.includes(archivo.mimetype.split('/').pop());
+        });
+        req.body.image = `storage/fileSong/image/artist/${req.body.image.filename}`
+
+
+
         let newArtist = new ArtistModel(req.body);
         await newArtist.save();
         res.send(newArtist);
@@ -12,6 +23,9 @@ exports.createArtist = async (req, res) => {
         console.log('error:', error);
         res.status(500).send({ error: "Something has happened, contact the administrator" })
     }
+
+
+
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------- */

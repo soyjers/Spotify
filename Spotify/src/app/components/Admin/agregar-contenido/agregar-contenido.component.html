@@ -123,7 +123,7 @@
             <div class="inputForm2">
                 <i class="fa-regular fa-image" style="color: #7B0BAC;"></i>
                 <input type="file" class="input" placeholder="Ingresa la URL de la Imagen" id="txtInputImagen"
-                    formControlName="image">
+                    formControlName="image" (change)="addFileSong($event, 'img', 'album')">
             </div>
             <div class="text-danger fw-bold opacity-0"
                 [class.opacidadNO]="formAlbum.get('image')?.hasError('required') && formAlbum.get('image')?.touched">
@@ -205,7 +205,7 @@
             <div class="inputForm3">
                 <i class="fa-regular fa-image" style="color: #FF0004;"></i>
                 <input type="file" class="input" placeholder="Ingresa la URL de la Imagen" id="txtInputImagen"
-                    formControlName="image" (change)="addFileSong($event)">
+                    formControlName="image" (change)="addFileSong($event, 'img', 'artista')">
             </div>
             <div class="text-danger fw-bold opacity-0"
                 [class.opacidadNO]="formSong.get('image')?.hasError('required') && formSong.get('image')?.touched">

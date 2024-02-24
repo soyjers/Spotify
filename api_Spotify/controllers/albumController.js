@@ -4,34 +4,27 @@ const AlbumModel = require("../models/Album.model");
 exports.createAlbum = async (req, res) => {
     try {
         console.log(req.body);
+        const archivos = req.files
+
+        let extensionesImagenes = ["png", "jpg", "webp", "jpeg"];
+        req.body.image = archivos.find((archivo) => {
+            return extensionesImagenes.includes(archivo.mimetype.split('/').pop());
+        });
+        req.body.image = `storage/fileSong/image/album/${req.body.image.filename}`
+
+
         let newAlbum = new AlbumModel(req.body);
         await newAlbum.save();
         res.send(newAlbum);
-        console.log("---------------------- ", newAlbum);
+        console.log(newAlbum);
     } catch (error) {
         console.log('error:', error);
         res.status(500).send({ error: "Something has happened, contact the administrator" })
     }
 
 
-    let extensionesImagenes = ["png", "jpg", "webp", "jpeg"];
-
-    let images = [];
-    console.log(req.files);
-    for (const key in req.files) {
-        if (key in req.files) {
-            const archivos = req.files[key];
-            const primerArchivo = archivos[0];
-
-            if (extensionesImagenes.includes(primerArchivo.mimetype.split('/').pop()) || key === "image") {
-                images.push(archivos);
-            }
-        }
-
-    }
 
 
-    req.body.image = images.length > 0 ? `storage/fileSong/images/album${images[0][0].filename}` : '';
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------- */
