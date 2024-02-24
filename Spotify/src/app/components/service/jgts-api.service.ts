@@ -16,6 +16,13 @@ export class JgtsAPIService {
         const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzZiYWIyZjBiMDgwMzQ3ZWJkODIzOSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3NTI0OTAzLCJleHAiOjE3MDc1Mjg1MDN9.n7XqQr9aFmm_mOu-cKROiwxj0zjYJYlUR5Moq0VqJ_o')
         return this.http.get(`${this.urlApi}/find-songs`, { headers })
     }
+    // getCancionesPorAlbum() {
+    //     const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzZiYWIyZjBiMDgwMzQ3ZWJkODIzOSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3NTI0OTAzLCJleHAiOjE3MDc1Mjg1MDN9.n7XqQr9aFmm_mOu-cKROiwxj0zjYJYlUR5Moq0VqJ_o')
+    //     return this.http.get(`${this.urlApi}/find-song-album/:idAlbum`, { headers })
+    // }
+    getCancionPorAlbum(albumId: any) {
+        return this.http.get(`${this.urlApi}/find-song-album/${albumId}`)
+    }
 
     getCancion(idCancion: string) {
         return this.http.get(`${this.urlApi}/find-song${idCancion}`)

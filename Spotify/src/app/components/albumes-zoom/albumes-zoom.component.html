@@ -35,7 +35,7 @@
             <ol>
                @for (albumData of albumesData(); track albumData.albumId) {
                 <app-zoom [imagenCancion]="albumData.image" 
-                [cantante]="albumData.artistId" [nombreCancion]="albumData._id">
+                [cantante]="albumData.artistId" [nombreCancion]="albumData.name">
               </app-zoom>
               }
                
