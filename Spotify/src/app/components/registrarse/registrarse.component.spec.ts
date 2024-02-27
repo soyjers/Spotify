@@ -11,7 +11,7 @@ describe('RegistrarseComponent', () => {
       imports: [RegistrarseComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(RegistrarseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

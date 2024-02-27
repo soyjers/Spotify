@@ -4,14 +4,14 @@
      <h1 class="title text-white fw-bold">Descubre Todos los Álbumes</h1>
    </div>
   <div class="Albumes">
- 
+
    <div class="mt-5 mb-5">
      <h1 class="textp fw-bold">Álbumes</h1>
    </div>
- 
+
    <div class="row row-cols-1 row-cols-md-5 g-6">
-   
-   
+
+
      @for (albumData of albumesData(); track albumData.albumId) {
        <div class="col ">
          <div class="card caja " [routerLink]="['/zoom', albumData._id]" >
@@ -23,10 +23,10 @@
          </div>
        </div>
        }
-   
-   
-    
-   
+
+
+
+
    </div>
   </div>
   <hr role="presentation" class="LineaSeparacion">
@@ -35,7 +35,7 @@
 
 
 @for (albumData of albumesData(); track albumData.albumId) {
-  <app-albumes-grillas [imagenAlbum]="albumData.image" 
+  <app-albumes-grillas [imagenAlbum]="albumData.image"
     [cantante]="albumData.artistId" [album]="albumData .albumId" [albumDataID]="albumData._id">
   </app-albumes-grillas>
   }

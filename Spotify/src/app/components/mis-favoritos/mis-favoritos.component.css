@@ -1,0 +1,128 @@
+.favoritesIcon {
+  border-radius: 5px;
+  margin-top: 60px;
+  margin-left: 30px;
+  box-shadow: 2px 2px 2px 1px #121212;
+
+}
+
+.presentacion {
+  border-radius: 5px;
+}
+
+.playlist {
+  background: rgb(3, 105, 11);
+  background: linear-gradient(360deg, rgba(3, 105, 11, 1) 0%, rgba(185, 209, 187, 1) 100%);
+  height: 300px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.textoPlaylist {
+  margin-left: 20px;
+  margin-top: 120px;
+}
+
+.txtMeGusta {
+  font-size: 80px;
+
+}
+
+.txtPlaylist {
+  font-size: 15px;
+  transform: translateY(21px);
+}
+
+.txtNumberSongs {
+  color: #aaa;
+}
+
+.fondo {
+  background: rgb(18, 18, 18);
+  background: linear-gradient(360deg, rgba(18, 18, 18, 1) 71%, rgba(3, 105, 11, 1) 100%);
+  height: 1000px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.btnRep {
+  width: 60px;
+  height: 60px;
+  background: #ffffff;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.btnRep:hover {
+  background-color: #aaa;
+}
+
+.tools {
+  transform: translateY(21px);
+}
+
+
+.LineaSeparacion {
+  margin: 30px 0px;
+  color: #fff;
+}
+
+li {
+  list-style: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.container svg {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  transition: all 0.3s;
+  fill: #03690B;
+}
+
+.container svg:hover {
+  transform: scale(1.1);
+}
+
+.container input:checked~svg {
+  fill: #666;
+}
+
+
+img.imagenCancion:hover {
+  background-color: #aaa;
+  background: url(../../../assets/img/reproductor/play.svg);
+}
+
+.textCancion {
+  color: #fff;
+  font-size: 18px;
+}
+
+.textArtista {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.txtAbum {
+  font-size: 18px;
+}
+
+.LineaSeparacion2 {
+  color: #121212;
+  height: 90px;
+}

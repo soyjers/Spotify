@@ -15,15 +15,11 @@ exports.createfavorito= async (req, res) => {
             res.status(411).send({ error: "song name must contain minimum 3 characters and maximum 30." });
             return
         }
-        if (req.body.duration < 60 || req.body.duration > 800) {
-            res.status(411).send({ error: "song duration should be from 60 to 800 s." });
-            return
-        }
-        if (req.body.artist_Id.length < 3 || req.body.artistId.length > 20) {
+        if (req.body.artistId.length < 3 || req.body.artistId.length > 20) {
             res.status(411).send({ error: "artist name must be between 3 and 20 characters." });
             return
         }
-        if (req.body.album_Id.length < 3 || req.body.albumId.length > 30) {
+        if (req.body.albumId.length < 3 || req.body.albumId.length > 30) {
             res.status(411).send({ error: "album name must be between 3 and 30 characters." });
             return
         }
@@ -33,15 +29,39 @@ exports.createfavorito= async (req, res) => {
         }
 
 
-        console.log(req.body);
-        let newFavorite = new favoriteModel(req.body)
-        await newFavorite.save()
-        res.send(newFavorite);
-        console.log(newFavorite)
-        res.status(201).send({ message: 'favorite created successfully' });
+        let extensionesImagenes = ["png", "jpg", "webp", "jpeg"];
+
+        // Arrays separados para archivos de imagen y archivos de audio
+        let files = [];
+        let images = [];
+        console.log(req.files);
+        for (const key in req.files) {
+            if (key in req.files) {
+                const archivos = req.files[key];
+                const primerArchivo = archivos[0];
+
+                if (extensionesImagenes.includes(primerArchivo.mimetype.split('/').pop()) || key === "image") {
+                    images.push(archivos);
+                } else if (key === "file") {
+                    files.push(archivos);
+                }
+            }
+        }
+
+
+        // Asignar las rutas correspondientes a req.body.image y req.body.file
+        req.body.image = images.length > 0 ? `storage/fileSong/images/${images[0][0].filename}` : '';
+        req.body.file = files.length > 0 ? `storage/fileSong/audios/${files[0][0].filename}` : '';
+
+
+        let newfavorite = new favoriteModel(req.body)
+        await newfavorite.save()
+        console.log(newfavorite)
+        res.status(201).send(newfavorite);
+
     } catch (error) {
-        console.error('error when creatin favorite:', error)
-        res.status(500).send({ message: "Error creating the favorite, check the data entered or contact the administrator" });
+        console.error('error when creatin song:', error)
+        res.status(500).send({ message: "Error creating the song, check the data entered or contact the administrator" });
     }
 }
 

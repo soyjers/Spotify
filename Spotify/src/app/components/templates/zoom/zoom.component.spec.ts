@@ -11,7 +11,7 @@ describe('ZoomComponent', () => {
       imports: [ZoomComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ZoomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JgtsAPIService } from '../service/jgts-api.service';
 import { ZoomComponent } from '../templates/zoom/zoom.component';
-import { RouterLink, ActivatedRoute } from '@angular/router'; 
+import { RouterLink, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-albumes-zoom',
@@ -18,13 +18,13 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
 export class AlbumesZoomComponent {
   idAlbumUrl:string | null
 
-  nombreAlbum!:string 
+  nombreAlbum!:string
 
   constructor(private paramsRuta:ActivatedRoute){
 
     this.idAlbumUrl = this.paramsRuta.snapshot.paramMap.get('idAlbum')
     console.log(this.idAlbumUrl);
-    
+
   }
   albumesData = signal<any>([])
   private albumesService = inject(JgtsAPIService)
@@ -43,8 +43,8 @@ export class AlbumesZoomComponent {
       }
     })
 
-    
+
   }
 
-  
+
 }

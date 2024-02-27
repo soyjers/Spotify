@@ -5,16 +5,16 @@ const favoriteSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    duration: {
-        type: String,
-        required: true,
-    },
     image: {
         type: String,
-        required: true,
+        required: false,
+    },
+    file: {
+        type: String,
+        required: false,
     },
     year: {
-        type: String,
+        type: Number,
         required: true,
     },
     artistId: {
@@ -23,12 +23,12 @@ const favoriteSchema = mongoose.Schema({
     },
     albumId: {
         type: String,
-        required: true,
+        required: false,
     },
-    genre: {
-        type: String,
-        required: true,
-    },
+    // genre: {
+    //     type: String,
+    //     required: true,
+    // },
 }, {
     timestamps: true,
     versionKey: false

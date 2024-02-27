@@ -1,11 +1,8 @@
-// Controlador para manejar las operaciones CRUD de las canciones
-
 const SongModel = require('../models/Song.model');
 
 // Crear una cancion (POST)
 exports.createSong = async (req, res) => {
     try {
-
         // Realizar validaciones antes de crear la canción
         const existingSong = await SongModel.findOne({ name: req.body.name });
         if (existingSong) {
@@ -16,15 +13,11 @@ exports.createSong = async (req, res) => {
             res.status(411).send({ error: "song name must contain minimum 3 characters and maximum 30." });
             return
         }
-        if (req.body.duration < 60 || req.body.duration > 800) {
-            res.status(411).send({ error: "song duration should be from 60 to 800 s." });
-            return
-        }
-        if (req.body.artist_Id.length < 3 || req.body.artistId.length > 20) {
+        if (req.body.artistId.length < 3 || req.body.artistId.length > 20) {
             res.status(411).send({ error: "artist name must be between 3 and 20 characters." });
             return
         }
-        if (req.body.album_Id.length < 3 || req.body.albumId.length > 30) {
+        if (req.body.albumId.length < 3 || req.body.albumId.length > 30) {
             res.status(411).send({ error: "album name must be between 3 and 30 characters." });
             return
         }
@@ -34,12 +27,36 @@ exports.createSong = async (req, res) => {
         }
 
 
-        console.log(req.body);
+        let extensionesImagenes = ["png", "jpg", "webp", "jpeg"];
+
+        // Arrays separados para archivos de imagen y archivos de audio
+        let files = [];
+        let images = [];
+        console.log(req.files);
+        for (const key in req.files) {
+            if (key in req.files) {
+                const archivos = req.files[key];
+                const primerArchivo = archivos[0];
+
+                if (extensionesImagenes.includes(primerArchivo.mimetype.split('/').pop()) || key === "image") {
+                    images.push(archivos);
+                } else if (key === "file") {
+                    files.push(archivos);
+                }
+            }
+        }
+
+
+        // Asignar las rutas correspondientes a req.body.image y req.body.file
+        req.body.image = images.length > 0 ? `storage/fileSong/images/${images[0][0].filename}` : '';
+        req.body.file = files.length > 0 ? `storage/fileSong/audios/${files[0][0].filename}` : '';
+
+
         let newSong = new SongModel(req.body)
         await newSong.save()
-        res.send(newSong);
         console.log(newSong)
-        res.status(201).send({ message: 'song created successfully' });
+        res.status(201).send(newSong);
+
     } catch (error) {
         console.error('error when creatin song:', error)
         res.status(500).send({ message: "Error creating the song, check the data entered or contact the administrator" });

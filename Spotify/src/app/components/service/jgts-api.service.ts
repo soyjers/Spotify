@@ -63,4 +63,32 @@ export class JgtsAPIService {
     putAlbum(idAlbum: string, dataAlbum: any) {
         return this.http.put(`${this.urlApi}/actualizar-album/${idAlbum}`, dataAlbum)
     }
+
+
+
+
+
+
+    postfavorite(datafavorito:any){
+      return this.http.post(`${this.urlApi}/create-favorite`, datafavorito)
+  }
+  putfavorite(favoritoId:string, datafavorito:any){
+    return this.http.put(`${this.urlApi}/find-user/${favoritoId}`, datafavorito)
 }
+
+
+getfavorite(idAlbum: string | null) {
+  return this.http.get(`${this.urlApi}/find-album/${idAlbum}`)
+}
+
+}
+
+// deletefavorite(idAlbum: string) {
+//   return this.http.delete(`${this.urlApi}/eliminar-album/${idAlbum}`)
+// }
+
+// putfavorite(idAlbum: string, dataAlbum: any) {
+//   return this.http.put(`${this.urlApi}/actualizar-album/${idAlbum}`, dataAlbum)
+// }
+
+

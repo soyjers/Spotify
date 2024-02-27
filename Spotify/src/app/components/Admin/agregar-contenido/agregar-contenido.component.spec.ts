@@ -11,7 +11,7 @@ describe('AgregarContenidoComponent', () => {
       imports: [AgregarContenidoComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(AgregarContenidoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

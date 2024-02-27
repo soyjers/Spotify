@@ -5,13 +5,13 @@ const songSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    duration: {
-        type: Number,
-        required: true,
-    },
     image: {
         type: String,
-        required: true,
+        required: false,
+    },
+    file: {
+        type: String,
+        required: false,
     },
     year: {
         type: Number,
@@ -23,12 +23,12 @@ const songSchema = mongoose.Schema({
     },
     albumId: {
         type: String,
-        required: true,
+        required: false,
     },
-    genre: {
-        type: String,
-        required: true,
-    },
+    // genre: {
+    //     type: String,
+    //     required: true,
+    // },
 }, {
     timestamps: true,
     versionKey: false

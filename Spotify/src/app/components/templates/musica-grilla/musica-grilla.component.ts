@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-=======
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
->>>>>>> Gustavo
 
 @Component({
   selector: 'app-musica-grilla',
@@ -13,5 +9,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './musica-grilla.component.css'
 })
 export class MusicaGrillaComponent {
-
+  @Input() imagenCancion!: string
+  @Input() cancion!: string | number
+  @Input() cantante!: string | number
+  @Input()album!:string
 }

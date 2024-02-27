@@ -4,7 +4,7 @@
 
 .LogoJgts{
     height: 100px;
-    
+
 }
 
 .IniciarSesion{
@@ -32,19 +32,19 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin-bottom: 100px;
   }
-  
+
   ::placeholder {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
-  
+
   .form button {
     align-self: flex-end;
   }
-  
+
   .flex-column > label {
     font-weight: 600;
   }
-  
+
   .inputForm {
     background-color: #fff;
     border: 1.5px solid #03690B;
@@ -55,8 +55,8 @@
     padding-left: 10px;
     transition: 0.2s ease-in-out;
   }
-  
-  
+
+
   .input {
     margin-left: 10px;
     border-radius: 10px;
@@ -64,15 +64,15 @@
     width: 85%;
     height: 100%;
   }
-  
+
   .input:focus {
     outline: none;
   }
-  
+
   .inputForm:focus-within {
     border: 1.5px solid #03690B;
   }
-  
+
   .flex-row {
     display: flex;
     flex-direction: row;
@@ -80,7 +80,7 @@
     gap: 10px;
     justify-content: space-between;
   }
-  
+
   .flex-row > div > label {
     font-size: 14px;
     color: #ffffff;
@@ -150,7 +150,7 @@
   transform: rotate(45deg);
 }
 
-  
+
   .span {
     font-size: 14px;
     margin-left: 5px;
@@ -158,7 +158,7 @@
     font-weight: 500;
     cursor: pointer;
   }
-  
+
   .button-submit {
     margin: 20px 0 10px 0;
     background-color: #03690B;
@@ -171,18 +171,18 @@
     width: 100%;
     cursor: pointer;
   }
-  
+
   .button-submit:hover {
     background-color: #00310b;
   }
-  
+
   .p {
     text-align: center;
     color: #fff;
     font-size: 14px;
     margin: 5px 0;
   }
-  
+
   .btn {
     margin-top: 10px;
     width: 100%;
@@ -198,12 +198,12 @@
     cursor: pointer;
     transition: 0.2s ease-in-out;
   }
-  
+
   .btn:hover {
     border: 1px solid #03690B;
     ;
   }
-  
+
   .footerInicioSesion{
     background-color: #121212;
     height: 95px;
@@ -225,4 +225,3 @@
     color: #fff;
   }
 
-  
