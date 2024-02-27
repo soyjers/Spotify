@@ -3,15 +3,15 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-artistas',
+  selector: 'app-artistas-zoom',
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink,
+    RouterLink
   ],
-  templateUrl: './artistas.component.html',
-  styleUrl: './artistas.component.css'
+  templateUrl: './artistas-zoom.component.html',
+  styleUrl: './artistas-zoom.component.css'
 })
-export class ArtistasComponent {
+export class ArtistasZoomComponent {
 
 }
