@@ -138,12 +138,19 @@
         <hr role="presentation" class="LineaSeparacion2">
 
         <div class="flex-column">
-            <label class="fw-bold" for="txtInputAlbum">Agrega el Nombre de el Album</label>
+            <label class="fw-bold" for="txtInputAlbum">=========================Agrega el Nombre de el Album</label>
         </div>
         <div class="inputForm2">
             <i class="fa-solid fa-compact-disc" style="color: #7B0BAC;"></i>
             <input type="text" class="input" placeholder="Ingresa el Nombre de el Album" id="txtInputAlbum"
                 formControlName="albumId">
+
+            <select name="">
+                <option value="">Seleccione uno...</option>
+                @for (album of listaAlbum; track album._id) {
+                <option [value]="album._id">{{album.albumId}}</option>
+                }
+            </select>
         </div>
 
         <hr role="presentation" class="LineaSeparacion2">
@@ -158,7 +165,17 @@
             <i class="fa-solid fa-user-secret" style="color: #7B0BAC;"></i>
             <input type="text" class="input" placeholder="Ingresa el Nombre del Artista" id="txtInputArtista"
                 formControlName="artistId">
+
+
+
+
         </div>
+        <select name="" (change)="findAlbumXArtist($event)">
+            <option value="">Seleccione uno...</option>
+            @for (artista of listaArtistas; track artista._id) {
+            <option [value]="artista._id">{{artista.artistId}}</option>
+            }
+        </select>
         <div class="text-danger fw-bold opacity-0"
             [class.opacidadNO]="formAlbum.get('artistId')?.hasError('required') && formAlbum.get('artistId')?.touched">
             El nombre del artista debe contener letras y/o números

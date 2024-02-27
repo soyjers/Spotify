@@ -20,6 +20,9 @@ export class AgregarContenidoComponent {
   formAlbum: FormGroup;
   formArtist: FormGroup;
 
+  listaArtistas: any = []
+  listaAlbum:any = []
+
 
   regexNumericos = /^[0-9]+$/
   regexUrl = /^https?:\/\/\w+(\.\w+)+(\/[a-zA-Z0-9_.~-]+)*(\/[a-zA-Z0-9_.~-]+\.[a-zA-Z]+)?$/
@@ -49,6 +52,10 @@ export class AgregarContenidoComponent {
 
     });
 
+  }
+
+  ngOnInit() {
+    this.findArtists()
   }
 
   /* parte para poder guardar la ruta de la imagen y el audio de una cancion en mongo */
@@ -172,6 +179,34 @@ export class AgregarContenidoComponent {
     } else {
       alert('Por favor, complete todos los campos obligatorios.');
     }
+  }
+
+
+  findArtists() {
+    this.JgtsService.getArtistas().subscribe(
+      respuestaAPI => {
+        this.listaArtistas = respuestaAPI
+        //this.formSong.reset(); // Limpiar el formulario después de guardar
+      },
+      (error) => {
+        console.error('Error al guardar el artista:', error);
+        alert('Error al guardar el artista');
+      }
+    );
+  }
+
+  findAlbumXArtist(event:Event){
+    let valueIdArtist = event.target as HTMLInputElement
+    this.JgtsService.getAlbumXArtist(valueIdArtist.value).subscribe(
+      respuestaAPI => {
+        this.listaAlbum = respuestaAPI
+        //this.formSong.reset(); // Limpiar el formulario después de guardar
+      },
+      (error) => {
+        console.error('Error al guardar el artista:', error);
+        alert('Error al guardar el artista');
+      }
+    );
   }
 
 }

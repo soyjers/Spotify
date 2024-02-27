@@ -43,6 +43,9 @@ export class JgtsAPIService {
         return this.http.post(`${this.urlApi}/create-artist`, dataArtista);
     }
 
+    getArtistas() {
+        return this.http.get(`${this.urlApi}/find-artists`)
+    }
 
 
 
@@ -54,6 +57,10 @@ export class JgtsAPIService {
 
     getAlbum(idAlbum: string | null) {
         return this.http.get(`${this.urlApi}/find-album/${idAlbum}`);
+    }
+
+    getAlbumXArtist(idArtist: string | null) {
+        return this.http.get(`${this.urlApi}/find-album-x-artist/${idArtist}`);
     }
 
 

@@ -105,3 +105,18 @@ exports.deleteAlbum = async (req, res) => {
         res.status(500).send({ error: "Something has happened, contact the administrator" });
     }
 }
+
+
+exports.findAlbumXArtist = async (req, res) => {
+    try {
+        let albumData = await AlbumModel.find({ artistId: req.params.artistId });
+        if (!albumData) {
+            res.send([]);
+        } else {
+            res.send(albumData);
+        }
+    } catch (error) {
+        console.error('error:', error)
+        res.status(500).send({ error: "Something has happened, contact the administrator" });
+    }
+}
