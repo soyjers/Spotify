@@ -1,5 +1,11 @@
-.contenido{
-  background-color: #121212;
+s.contenido {
+    background-color: #121212;
+    border-radius: 10px;
+    width: 1389px;
+}
+
+.TextoPrincipal {
+    transform: translateY(44px);
 
 }
 
@@ -7,8 +13,8 @@
   color: #fff;
 }
 
-.artista{
-  transform: translateY(40px);
+.artista {
+    transform: translateY(40px);
 }
 
 .caja {
