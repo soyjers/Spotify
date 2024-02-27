@@ -2,12 +2,13 @@ import { Routes } from '@angular/router';
 import { IniciarSesionComponent } from '../app/components/iniciar-sesion/iniciar-sesion.component'
 import { RegistrarseComponent } from "./components/registrarse/registrarse.component"
 import { PrincipalComponent } from './components/principal/principal.component';
+import { ArtistasComponent } from './components/artistas/artistas.component';
+import { ArtistasZoomComponent } from './components/artistas-zoom/artistas-zoom.component';
 import { AgregarContenidoComponent } from './components/Admin/agregar-contenido/agregar-contenido.component'
 import { MisFavoritosComponent } from './components/mis-favoritos/mis-favoritos.component'
 import { CancionesComponent } from './components/canciones/canciones.component';
 import { AlbumesComponent } from './components/albumes/albumes.component';
 import { AlbumesZoomComponent } from './components/albumes-zoom/albumes-zoom.component';
-import { ArtistasComponent } from './components/artistas/artistas.component';
 import { error404Component } from './components/error404/error404.component';
 import { autenticacionGuard } from './guards/autenticacion.guard';
 
@@ -21,6 +22,7 @@ export const routes: Routes = [
     { path: "canciones", component: CancionesComponent },
     { path: "albumes", component: AlbumesComponent },
     { path: "Artistas", component: ArtistasComponent},
+    { path: "ZoomArtistas", component: ArtistasZoomComponent},
     { path: "zoom/:idAlbum", component: AlbumesZoomComponent },
     { path: 'principal', component: PrincipalComponent },
     { path: "AdminAddContent", canMatch: [autenticacionGuard], component: AgregarContenidoComponent },
