@@ -1,0 +1,56 @@
+<section class="IniciarSesion d-flex align-items-center flex-column">
+    <!-- Artistas---------------------------------------------------------------------------------------------------------------->
+    <form class="form" [formGroup]="formArtist" (ngSubmit)="submitArtistForm()">
+        <div class="TextoRegistro">
+            <h1 class="fw-bold text-white text-center">Agregar Artistas En</h1>
+            <div class="img">
+                <img class="JGTS" src="assets/img/VIP/JGTSRojo.png" alt="">
+            </div>
+        </div>
+        <hr role="presentation" class="LineaSeparacion3">
+        <div>
+            <div class="flex-column mb-2">
+                <label class="fw-bold" for="txtInputImagen">Agregar Imagen de el o la Artista</label>
+                <div class="text-danger fw-bold opacity-0"
+                    [class.opacidadNO]="formArtist.get('imagen')?.hasError('required') && formArtist.get('imagen')?.touched">
+                    La URL es obligatoria</div>
+
+            </div>
+            <div class="inputForm3">
+                <i class="fa-regular fa-image" style="color: #FF0004;"></i>
+                <input type="file" class="input" placeholder="Ingresa la URL de la Imagen" id="txtInputImagen"
+                    formControlName="image" (change)="addFileSong($event, 'img', 'artista')">
+            </div>
+            <div class="text-danger fw-bold opacity-0"
+                [class.opacidadNO]="formArtist.get('image')?.hasError('required') && formArtist.get('image')?.touched">
+                La URL proporcionada no es valida
+            </div>
+            <div class="imagen d-flex justify-content-center align-items-center mt-3">
+                <img class="imgAlbum3" src="assets/img/Artistas/Feid.jpg" width="130px" height="130px">
+            </div>
+        </div>
+
+        <hr role="presentation" class="LineaSeparacion3">
+
+        <div class="flex-column mb-2">
+            <label class="fw-bold" for="txtInputArtista">Agrega el Nombre de el o la Artista</label>
+            <div class="text-danger fw-bold opacity-0"
+                [class.opacidadNO]="formArtist.get('artistId')?.hasError('required') && formArtist.get('artistId')?.touched">
+                El nombre del artista es obligatorio</div>
+        </div>
+        <div class="inputForm3">
+            <i class="fa-solid fa-user-secret" style="color: #FF0004;"></i>
+            <input type="text" class="input" placeholder="Ingresa el Nombre del Artista" id="txtInputArtista"
+                formControlName="artistId">
+        </div>
+        <div class="text-danger fw-bold opacity-0"
+            [class.opacidadNO]="formArtist.get('artistId')?.hasError('required') && formArtist.get('artistId')?.touched">
+            El nombre del artista debe contener letras y/o números
+        </div>
+
+
+        <hr role="presentation" class="LineaSeparacion3">
+
+        <button class="button-submit3 fw-bold">Agregar Contenido</button>
+    </form>
+</section>
