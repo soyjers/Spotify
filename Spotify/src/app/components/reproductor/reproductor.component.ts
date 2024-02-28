@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
-import {  FormControl,FormGroup,ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 import Swal from 'sweetalert2'
 import {  JgtsAPIService } from "../service/jgts-api.service";
 
@@ -11,20 +10,11 @@ import {  JgtsAPIService } from "../service/jgts-api.service";
   imports: [
     CommonModule,
     RouterLink,
-    ReactiveFormsModule
   ],
   templateUrl: './reproductor.component.html',
     styleUrl: './reproductor.component.css'
 })
 export class ReproductorComponent {
-
-  favorite: FormGroup;
-
-  private favoriteService = inject(JgtsAPIService)
-
-
-  inputHiddenID = new FormControl()
-
 
 
   iconPlay: string = "assets/img/reproductor/play.svg"
@@ -43,44 +33,43 @@ export class ReproductorComponent {
     this.artista = this.dataSongs[0].artista
     this.nombreCancion = this.dataSongs[0].nombre
   }
-  constructor(private fb: FormBuilder) {
-    this.favorite = this.fb.group({
-      name: ['', [Validators.required]],
-      image: ['', [Validators.required]],
-      file: ['', [Validators.required]],
-      year: ['', [Validators.required]],
-      artistId: ['', [Validators.required]],
-      albumId: ['', [Validators.required]],
 
 
+  constructor(private favoritePlaylistService: JgtsAPIService) {}
+  song: any; // Suponiendo que aquí tienes la canción que se muestra en el componente
 
-    })
+  toggleFavorite(song: any): void {
+    if (song.isFavorite) {
+      this.removeSongFromFavorites(song);
+    } else {
+      this.addSongToFavorites(song);
+    }
   }
-  ngOnChanges(): void {
-  }
-  submitForm() {
-      console.log(this.inputHiddenID.value);
-      if (this.inputHiddenID.value == null || this.inputHiddenID.value == '') {
-          console.log("Entro en crear");
-          this.favoriteService.postfavorite(this.favorite.value).subscribe(respuestaAPI => {
-              Swal.fire({
-                  title: "favorito creado correctamente! ",
-                  icon: "success"
-              });
-          })
-      } else {
-          console.log("Entro en actualizar");
-          this.favoriteService.putfavorite(this.inputHiddenID.value, this.favorite.value).subscribe(respuestaAPI => {
-              Swal.fire({
-                  title: "favorito actualizado correctamente!",
-                  icon: "success"
-              });
-          })
+
+  addSongToFavorites(song: any): void {
+    this.favoritePlaylistService.postfavorite(song).subscribe(
+      response => {
+        song.isFavorite = true;
+        console.log('Canción agregada a la playlist de favoritos:', response);
+      },
+      error => {
+        console.error('Error al agregar la canción a la playlist de favoritos:', error);
       }
-      // this.consultarProductos()
-      setTimeout(() => {
-          location.reload()
-      }, 2000);
+    );
   }
+
+  removeSongFromFavorites(song: any): void {
+    this.favoritePlaylistService.deletefavorite(song).subscribe(
+      response => {
+        song.isFavorite = false;
+        console.log('Canción eliminada de la playlist de favoritos:', response);
+      },
+      error => {
+        console.error('Error al eliminar la canción de la playlist de favoritos:', error);
+      }
+    );
+  }
+
+
 
 }

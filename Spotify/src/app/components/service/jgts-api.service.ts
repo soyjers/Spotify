@@ -48,47 +48,47 @@ export class JgtsAPIService {
         return this.http.get(`${this.urlApi}/find-albums`, { headers })
     }
 
-    getAlbum(idAlbum: string | null) {
-        return this.http.get(`${this.urlApi}/find-album/${idAlbum}`)
+    getAlbum(iDfavorite: string | null) {
+        return this.http.get(`${this.urlApi}/find-album/${iDfavorite}`)
     }
 
     postAlbum(dataAlbum: any) {
         return this.http.post(`${this.urlApi}/create-album`, dataAlbum);
     }
 
-    deleteaAlbum(idAlbum: string) {
-        return this.http.delete(`${this.urlApi}/eliminar-album/${idAlbum}`)
+    deleteaAlbum(iDfavorite: string) {
+        return this.http.delete(`${this.urlApi}/eliminar-album/${iDfavorite}`)
     }
 
-    putAlbum(idAlbum: string, dataAlbum: any) {
-        return this.http.put(`${this.urlApi}/actualizar-album/${idAlbum}`, dataAlbum)
+    putAlbum(iDfavorite: string, dataAlbum: any) {
+        return this.http.put(`${this.urlApi}/actualizar-album/${iDfavorite}`, dataAlbum)
     }
 
 
 
 
+    getfavorites() {
+      const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzZiYWIyZjBiMDgwMzQ3ZWJkODIzOSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3NTI0OTAzLCJleHAiOjE3MDc1Mjg1MDN9.n7XqQr9aFmm_mOu-cKROiwxj0zjYJYlUR5Moq0VqJ_o')
+      return this.http.get(`${this.urlApi}/find-favorites`, { headers })
+    }
 
+    getfavorite(favoriteId: string | null) {
+    return this.http.get(`${this.urlApi}/find-favorite/${favoriteId}`)
+    }
 
     postfavorite(datafavorito:any){
-      return this.http.post(`${this.urlApi}/create-favorite`, datafavorito)
-  }
-  putfavorite(favoritoId:string, datafavorito:any){
-    return this.http.put(`${this.urlApi}/find-user/${favoritoId}`, datafavorito)
+    return this.http.post(`${this.urlApi}/create-favorite`, datafavorito)
+    }
+
+    putfavorite(favoriteId:string, datafavorito:any){
+    return this.http.put(`${this.urlApi}/update-user/${favoriteId}`, datafavorito)
+    }
+
+    deletefavorite(favoriteId: string) {
+    return this.http.delete(`${this.urlApi}/delete-favorite/${favoriteId}`)
+    }
+
+
+
 }
-
-
-getfavorite(idAlbum: string | null) {
-  return this.http.get(`${this.urlApi}/find-album/${idAlbum}`)
-}
-
-}
-
-// deletefavorite(idAlbum: string) {
-//   return this.http.delete(`${this.urlApi}/eliminar-album/${idAlbum}`)
-// }
-
-// putfavorite(idAlbum: string, dataAlbum: any) {
-//   return this.http.put(`${this.urlApi}/actualizar-album/${idAlbum}`, dataAlbum)
-// }
-
 

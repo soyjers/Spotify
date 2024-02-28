@@ -19,6 +19,7 @@ export const routes: Routes = [
     {path: "", component: IniciarSesionComponent },
     {path: "registrarse", component: RegistrarseComponent},
     { path: 'principal', component: PrincipalComponent },
+    { path: 'nav', component: NavComponent },
     { path: "AdminAddContent", component: AgregarContenidoComponent },
     { path: "canciones", component: CancionesComponent },
     { path: "albumes", component: AlbumesComponent },
@@ -28,7 +29,11 @@ export const routes: Routes = [
     { path: "AdminAddContent", canMatch: [autenticacionGuard], component: AgregarContenidoComponent },
     { path: "MisFavoritos", component: MisFavoritosComponent },
     { path: "404", component: error404Component },
-    { path: '**', pathMatch: 'full', redirectTo: '404' },
+    { path: '**', redirectTo: '404', pathMatch: 'full' } ,
+    // { path: '**', redirectTo: 'registrarse', pathMatch: 'full' } ,
+
+
+
 
 ]
 

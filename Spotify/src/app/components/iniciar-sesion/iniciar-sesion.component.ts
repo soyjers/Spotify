@@ -38,7 +38,7 @@ export class IniciarSesionComponent {
   }
 
   constructor(private router: Router){}
-  ngOnInit() {
+  ngOninit() {
     if (sessionStorage.getItem("token") != null) {
       this.router.navigate(['/principal'])
 

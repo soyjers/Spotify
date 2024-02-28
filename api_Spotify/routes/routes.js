@@ -42,7 +42,7 @@ router.post('/ingreso', sessionController.genereToken)
 
 //? rutas favoritos
 router.post('/create-favorite', favoriteController.createfavorito);
-router.get('/find-favorites', favoriteController.findsfavorite);
+router.get('/find-favorites',mdJWT.verificarToken, favoriteController.findsfavorite);
 router.get('/find-favorite/:favoriteId', favoriteController.findfavorite);
 router.put('/update-favorite/:favoriteId', favoriteController.updatefavorite);
 router.delete('/delete-favorite/:favoriteId', favoriteController.deleteFavorite);
