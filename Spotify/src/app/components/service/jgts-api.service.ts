@@ -53,4 +53,9 @@ export class JgtsAPIService {
     putAlbum(idAlbum: string, dataAlbum: any) {
         return this.http.put(`${this.urlApi}/actualizar-album/${idAlbum}`, dataAlbum)
     }
-}
+
+    private headerCustom = HttpHeaders}
+
+    // constructor(private httpClient: HttpClient){}
+
+    // searchTrack({q: string}: songMo)

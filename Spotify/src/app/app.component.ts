@@ -5,10 +5,11 @@ import { BarralateralComponent } from './components/barralateral/barralateral.co
 import { NavComponent } from './components/nav/nav.component';
 import {FooterComponent} from './components/footer/footer.component'
 import {ReproductorComponent} from './components/reproductor/reproductor.component'
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, BarralateralComponent, NavComponent, FooterComponent, ReproductorComponent],
+  imports: [CommonModule, RouterOutlet, BarralateralComponent, NavComponent, FooterComponent, ReproductorComponent, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
