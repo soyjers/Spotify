@@ -77,18 +77,18 @@ exports.updateAlbum = async (req, res) => {
 
 // /* ----------------------------------------------------------------------------------------------------------------------------- */
 
-// eliminar un album (DELETE)
-exports.deleteAlbum = async (req, res) => {
-    try {
-        let dataAlbum = await AlbumModel.findById(req.params.albumId);
-        if (!dataAlbum) {
-            res.status(404).send({ error: "album has not been found" });
-            return
-        }
-        await AlbumModel.findOneAndDelete({ _id: req.params.albumId });
-        res.status(200).send({ message: "album deleted correctly" });
-    } catch (error) {
-        console.error('error:', error)
-        res.status(500).send({ error: "Something has happened, contact the administrator" });
-    }
-}
+// // eliminar un artista (DELETE)
+// exports.deleteArtist = async (req, res) => {
+//     try {
+//         let dataArtist = await ArtistModel.findById(req.params.artistId);
+//         if (!dataArtist) {
+//             res.status(404).send({ error: "song has not been found" });
+//             return
+//         }
+//         await ArtistModel.findOneAndDelete({ _id: req.params.artistId });
+//         res.status(200).send({ message: "artist deleted correctly" });
+//     } catch (error) {
+//         console.error('error:', error)
+//         res.status(500).send({ error: "Something has happened, contact the administrator" });
+//     }
+// }

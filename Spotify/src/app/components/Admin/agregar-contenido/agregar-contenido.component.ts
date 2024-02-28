@@ -55,7 +55,7 @@ export class AgregarContenidoComponent {
     if (this.formSong.value) {
       console.log("Entro a crear")
 
-      
+
       let {name, image, file, year, artistId, albumId } = this.formSong.value
       const formDataSong = new FormData()
 
@@ -66,7 +66,7 @@ export class AgregarContenidoComponent {
       formDataSong.append("artistId", artistId)
       formDataSong.append("albumId", albumId)
 
-      
+
 
       this.JgtsService.postCancion(formDataSong).subscribe(
         respuestaAPI => {

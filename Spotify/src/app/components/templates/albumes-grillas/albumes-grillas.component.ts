@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
 })
 export class AlbumesGrillasComponent {
   @Input() imagenAlbum!: string
-  @Input() cantante!: string 
+  @Input() cantante!: string
   @Input() album!: string
   @Input() albumDataID!: string
 }

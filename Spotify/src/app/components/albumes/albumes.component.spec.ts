@@ -11,7 +11,7 @@ describe('AlbumesComponent', () => {
       imports: [AlbumesComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(AlbumesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
