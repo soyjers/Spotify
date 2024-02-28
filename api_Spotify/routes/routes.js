@@ -24,7 +24,7 @@ router.get('/find-artists', artistController.findArtists);
 router.get('/find-artist/:artistId', artistController.findArtist);
 router.put('/update-artist/:artistId', artistController.updateArtist);
 router.delete('/delete-artist/:artistId', artistController.deleteArtist);
-
+router.get('/find-song-artista/:idAlbum', songController.findSongsForAlbum);
 //? rutas album
 router.post('/create-album', albumController.createAlbum);
 router.get('/find-albums', albumController.findAlbums);
