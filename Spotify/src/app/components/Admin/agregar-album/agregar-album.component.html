@@ -1,0 +1,86 @@
+<section class="IniciarSesion d-flex align-items-center flex-column">
+    <!-- Albumes------------------------------------------------------------------------------------------------------- -->
+
+    <form class="form" [formGroup]="formAlbum" (ngSubmit)="submitAlbumForm()">
+        <div class="TextoRegistro">
+            <h1 class="fw-bold text-white text-center">Agregar Álbumes En</h1>
+            <div class="img">
+                <img class="JGTS" src="assets/img/VIP/JGTSMorado.png" alt="">
+            </div>
+        </div>
+        <hr role="presentation" class="LineaSeparacion2">
+
+
+        <div class="flex-column mb-2">
+            <label class="fw-bold" for="txtInputArtista">Seleccione el Nombre del Artista</label>
+            <div class="text-danger fw-bold opacity-0"
+                [class.opacidadNO]="formAlbum.get('artistId')?.hasError('required') && formAlbum.get('artistId')?.touched">
+                El nombre del artista es obligatorio</div>
+        </div>
+        <select name="" (change)="findAlbumXArtist($event)" formControlName="artistId">
+            <option value="">Seleccione uno...</option>
+            @for (artista of listaArtistas; track artista._id) {
+            <option [value]="artista._id">{{artista.artistId}}</option>
+            }
+        </select>
+        <div class="text-danger fw-bold opacity-0"
+            [class.opacidadNO]="formAlbum.get('artistId')?.hasError('required') && formAlbum.get('artistId')?.touched">
+            El nombre del artista debe contener letras y/o números
+        </div>
+
+        <hr role="presentation" class="LineaSeparacion2">
+
+        <div class="flex-column">
+            <label class="fw-bold" for="txtInputAlbum">Agrega el Nombre del Album</label>
+        </div>
+        <div class="inputForm2">
+            <i class="fa-solid fa-compact-disc" style="color: #7B0BAC;"></i>
+            <input type="text" class="input" placeholder="Ingresa el Nombre de el Album" id="txtInputAlbum"
+                formControlName="albumId">
+        </div>
+
+        <hr role="presentation" class="LineaSeparacion2">
+
+        <div>
+            <div class="flex-column mb-2">
+                <label class="fw-bold" for="txtInputImagen">Agrega Imagen del Álbum</label>
+                <div class="text-danger fw-bold opacity-0"
+                    [class.opacidadNO]="formAlbum.get('image')?.hasError('required') && formAlbum.get('image')?.touched">
+                </div>
+
+            </div>
+            <div class="inputForm2">
+                <i class="fa-regular fa-image" style="color: #7B0BAC;"></i>
+                <input type="file" class="input" placeholder="Ingresa la URL de la Imagen" id="txtInputImagen"
+                    formControlName="image" (change)="addFileSong($event, 'img', 'album')">
+            </div>
+            <div class="text-danger fw-bold opacity-0"
+                [class.opacidadNO]="formAlbum.get('image')?.hasError('required') && formAlbum.get('image')?.touched">
+                La URL proporcionada no es valida
+            </div>
+            <div class="imagen d-flex justify-content-center align-items-center mt-3">
+                <img class="imgAlbum2" src="assets/img/Albumes/Certified Lover Boy - Drake.jpg" width="130px"
+                    height="130px">
+            </div>
+        </div>
+
+        <hr role="presentation" class="LineaSeparacion2">
+
+        <div class="flex-column">
+            <label class="fw-bold" for="txtInputAño">Agregar Año de la Publicacion</label>
+        </div>
+        <div class="inputForm2">
+            <i class="fa-solid fa-calendar-day" style="color: #7B0BAC;"></i>
+            <input type="text" class="input" placeholder="Ingresa el Año de la Publicacion" id="txtInputAño"
+                formControlName="year">
+        </div>
+
+
+        <hr role="presentation" class="LineaSeparacion2">
+
+        <button class="button-submit2 fw-bold">Agregar Contenido</button>
+
+
+
+    </form>
+</section>

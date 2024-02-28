@@ -1,0 +1,107 @@
+<section class="IniciarSesion d-flex align-items-center flex-column ">
+    <form class="form" [formGroup]="formSong" (ngSubmit)="submitSongForm()">
+        <div class="TextoRegistro">
+            <h1 class="fw-bold text-white text-center">Agregar Canciones En</h1>
+            <div class="img">
+                <img class="JGTS" src="assets/img/JGTS-Vip.png" alt="">
+            </div>
+        </div>
+        <hr role="presentation" class="LineaSeparacion">
+
+
+        <div class="flex-column mb-2">
+            <label class="fw-bold" for="txtInputArtista">Seleccione el Nombre del Artista</label>
+            <div class="text-danger fw-bold opacity-0"
+                [class.opacidadNO]="formSong.get('artistId')?.hasError('required') && formSong.get('artistId')?.touched">
+                El nombre del artista es obligatorio</div>
+        </div>
+        <select name="" (change)="findAlbumXArtist($event)" formControlName="artistId">
+            <option value="">Seleccione uno...</option>
+            @for (artista of listaArtistas; track artista._id) {
+            <option [value]="artista._id">{{artista.artistId}}</option>
+            }
+        </select>
+
+        <div class="text-danger fw-bold opacity-0"
+            [class.opacidadNO]="formSong.get('artistId')?.hasError('required') && formSong.get('artistId')?.touched">
+            El nombre del artista debe contener letras y/o números
+        </div>
+
+        <hr role="presentation" class="LineaSeparacion">
+
+
+        <div class="flex-column">
+            <label class="fw-bold" for="txtInputAlbum">Seleccione el Nombre del Album</label>
+        </div>
+
+        <select name="" formControlName="albumId">
+            <option value="">Seleccione uno...</option>
+            @for (album of listaAlbum; track album._id) {
+            <option [value]="album._id">{{album.albumId}}</option>
+            }
+        </select>
+
+        <hr role="presentation" class="LineaSeparacion">
+
+        <div>
+            <div class="flex-column mb-2">
+                <label class="fw-bold" for="txtInputImagen">Agregar Imagen de la Cancion</label>
+                <div class="text-danger fw-bold opacity-0"
+                    [class.opacidadNO]="formSong.get('imagen')?.hasError('required') && formSong.get('imagen')?.touched">
+                    La URL es obligatoria</div>
+
+            </div>
+            <div class="inputForm">
+                <i class="fa-regular fa-image" style="color: #efb810;"></i>
+                <input type="file" class="input" placeholder="Ingresa la URL de la Imagen" id="txtInputImagen"
+                    formControlName="image" (change)="addFileSong($event)">
+            </div>
+            <div class="text-danger fw-bold opacity-0"
+                [class.opacidadNO]="formSong.get('image')?.hasError('required') && formSong.get('image')?.touched">
+                La URL proporcionada no es valida
+            </div>
+            <div class="imagen d-flex justify-content-center align-items-center mt-3">
+                <img class="imgAlbum" src="assets/img/Albumes/3MEN2 KBRN - Eladio Carrion.jpg" width="130px"
+                    height="130px">
+            </div>
+        </div>
+
+        <hr role="presentation" class="LineaSeparacion">
+
+        <div class="flex-column">
+            <label class="fw-bold" for="txtInputCancion">Agregar Nombre de la Cancion</label>
+        </div>
+        <div class="inputForm">
+            <i class="fa-solid fa-music" style="color: #efb810;"></i>
+            <input type="text" class="input" placeholder="Ingresa el Nombre de la Cancion" id="txtInputCancion"
+                formControlName="name">
+        </div>
+
+        <hr role="presentation" class="LineaSeparacion">
+
+        <div class="flex-column">
+            <label class="fw-bold" for="txtInputArchivo">Inserta la Cancion</label>
+        </div>
+        <div class="inputForm">
+            <i class="fa-solid fa-file-audio" style="color: #efb810;"></i>
+            <input type="file" class="input" placeholder="Inserta la Canción" id="txtInputArchivo"
+                formControlName="file" (change)="addFileSong($event, 'song')">
+        </div>
+
+        <hr role="presentation" class="LineaSeparacion">
+
+        <div class="flex-column">
+            <label class="fw-bold" for="txtInputAño">Agregar Año de la Publicacion</label>
+        </div>
+        <div class="inputForm">
+            <i class="fa-solid fa-calendar-day" style="color: #efb810;"></i>
+            <input type="text" class="input" placeholder="Ingresa el Año de la Publicacion" id="txtInputAño"
+                formControlName="year">
+        </div>
+
+
+        <hr role="presentation" class="LineaSeparacion">
+
+        <button class="button-submit fw-bold">Agregar Contenido</button>
+    </form>
+</section>
