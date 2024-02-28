@@ -63,9 +63,6 @@ export class AlbumesZoomComponent {
 
 
 
-
-
-
   }
 
 

@@ -11,7 +11,7 @@ describe('IniciarSesionComponent', () => {
       imports: [IniciarSesionComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(IniciarSesionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

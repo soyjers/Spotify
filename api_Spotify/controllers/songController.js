@@ -1,22 +1,21 @@
-// Controlador para manejar las operaciones CRUD de las canciones
-
 const SongModel = require('../models/Song.model');
 
 // Crear una cancion (POST)
 exports.createSong = async (req, res) => {
     try {
-        const archivos = req.files
+        console.log(req.body);
         // Realizar validaciones antes de crear la canción
         const existingSong = await SongModel.findOne({ name: req.body.name });
         if (existingSong) {
             res.status(400).send({ error: "There is already a song with the same name" });
             return
         }
+
         if (req.body.name.length < 3 || req.body.name.length > 30) {
             res.status(411).send({ error: "song name must contain minimum 3 characters and maximum 30." });
             return
         }
-        if (req.body.artistId.length < 3 || req.body.artistId.length > 20) {
+        if (req.body.artistId.length < 3 || req.body.artistId.length > 30) {
             res.status(411).send({ error: "artist name must be between 3 and 20 characters." });
             return
         }

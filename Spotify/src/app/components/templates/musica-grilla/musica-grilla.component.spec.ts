@@ -11,7 +11,7 @@ describe('MusicaGrillaComponent', () => {
       imports: [MusicaGrillaComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(MusicaGrillaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

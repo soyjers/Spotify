@@ -11,7 +11,7 @@ describe('BarralateralComponent', () => {
       imports: [BarralateralComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(BarralateralComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

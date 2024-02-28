@@ -1,93 +1,93 @@
-.NavBar {
-  background-color: #121212;
+.NavBar{
+    background-color: #121212;
 }
 
-.LogoJgts {
-  height: 100px;
+.LogoJgts{
+    height: 100px;
 
 }
 
-.IniciarSesion {
-  margin-top: 100px;
+.IniciarSesion{
+    margin-top: 100px;
 }
 
-.LineaSeparacion {
+.LineaSeparacion{
   margin: 30px 0px;
-  color: #fff;
+ color: #fff;
 }
 
-.post-name {
+.post-name{
   font-size: 12px;
   color: #03690B;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background-color: #121212;
-  padding: 30px;
-  width: 450px;
-  border-radius: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  margin-bottom: 100px;
-}
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #121212;
+    padding: 30px;
+    width: 450px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 100px;
+  }
 
-::placeholder {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+  ::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
 
-.form button {
-  align-self: flex-end;
-}
+  .form button {
+    align-self: flex-end;
+  }
 
-.flex-column>label {
-  font-weight: 600;
-}
+  .flex-column > label {
+    font-weight: 600;
+  }
 
-.inputForm {
-  background-color: #fff;
-  border: 1.5px solid #03690B;
-  border-radius: 10px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  transition: 0.2s ease-in-out;
-}
+  .inputForm {
+    background-color: #fff;
+    border: 1.5px solid #03690B;
+    border-radius: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    transition: 0.2s ease-in-out;
+  }
 
 
-.input {
-  margin-left: 10px;
-  border-radius: 10px;
-  border: none;
-  width: 85%;
-  height: 100%;
-}
+  .input {
+    margin-left: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 85%;
+    height: 100%;
+  }
 
-.input:focus {
-  outline: none;
-}
+  .input:focus {
+    outline: none;
+  }
 
-.inputForm:focus-within {
-  border: 1.5px solid #03690B;
-}
+  .inputForm:focus-within {
+    border: 1.5px solid #03690B;
+  }
 
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  justify-content: space-between;
-}
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+  }
 
-.flex-row>div>label {
-  font-size: 14px;
-  color: #ffffff;
-  font-weight: 400;
-}
+  .flex-row > div > label {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 400;
+  }
 
-/* Hide the default checkbox */
+  /* Hide the default checkbox */
 .container input {
   display: none;
 }
@@ -113,7 +113,7 @@
   --spread: 50px;
 }
 
-.container input:checked~.checkmark {
+.container input:checked ~ .checkmark {
   background-color: #03690B;
   box-shadow: -10px -10px var(--spread) 0px rgb(255, 255, 255),
     0 -10px var(--spread) 0px rgb(0, 0, 0),
@@ -139,7 +139,7 @@
 }
 
 /* Show the checkmark when checked */
-.container input:checked~.checkmark:after {
+.container input:checked ~ .checkmark:after {
   left: 0.45em;
   top: 0.25em;
   width: 0.25em;
@@ -151,76 +151,77 @@
 }
 
 
-.span {
-  font-size: 14px;
-  margin-left: 5px;
-  color: #03690B;
-  font-weight: 500;
-  cursor: pointer;
-}
+  .span {
+    font-size: 14px;
+    margin-left: 5px;
+    color: #03690B;
+    font-weight: 500;
+    cursor: pointer;
+  }
 
-.button-submit {
-  margin: 20px 0 10px 0;
-  background-color: #03690B;
-  border: none;
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  border-radius: 10px;
-  height: 50px;
-  width: 100%;
-  cursor: pointer;
-}
+  .button-submit {
+    margin: 20px 0 10px 0;
+    background-color: #03690B;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+  }
 
-.button-submit:hover {
-  background-color: #00310b;
-}
+  .button-submit:hover {
+    background-color: #00310b;
+  }
 
-.p {
-  text-align: center;
-  color: #fff;
-  font-size: 14px;
-  margin: 5px 0;
-}
+  .p {
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    margin: 5px 0;
+  }
 
-.btn {
-  margin-top: 10px;
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
+  .btn {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    gap: 10px;
+    border: 1px solid #ededef;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+
+  .btn:hover {
+    border: 1px solid #03690B;
+    ;
+  }
+
+  .footerInicioSesion{
+    background-color: #121212;
+    height: 95px;
+  }
+
+  .cajaTxtFooter{
+    display: flex;
   align-items: center;
-  font-weight: 500;
-  gap: 10px;
-  border: 1px solid #ededef;
-  background-color: white;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-}
-
-.btn:hover {
-  border: 1px solid #03690B;
-  ;
-}
-
-.footerInicioSesion {
-  background-color: #121212;
-  height: 95px;
-}
-
-.cajaTxtFooter {
-  display: flex;
-  align-items: center;
   justify-content: center;
-}
+  }
 
-.TextoFooter {
-  margin-top: 40px;
-  font-size: 15px;
-  color: #f1f1f1;
-}
+  .TextoFooter{
+    margin-top: 40px;
+    font-size: 15px;
+    color: #f1f1f1;
+  }
 
-.Subrayado {
-  color: #fff;
-}
+  .Subrayado{
+    color: #fff;
+  }
+

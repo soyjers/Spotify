@@ -1,107 +1,89 @@
-<section class="IniciarSesion d-flex align-items-center flex-column ">
-    <form class="form" [formGroup]="formSong" (ngSubmit)="submitForm()">
-        <div class="TextoRegistro">
-            <h1 class="fw-bold text-white text-center">Agregar Canciones En</h1>
+
+  <section class="IniciarSesion d-flex align-items-center flex-column ">
+    <form class="form">
+      <div class="TextoRegistro">
+        <h1 class="fw-bold text-white text-center">Agregar Productos En</h1>
             <div class="img">
                 <img class="JGTS" src="assets/img/JGTS-Vip.png" alt="">
-            </div>
+              </div>
         </div>
         <hr role="presentation" class="LineaSeparacion">
         <div>
             <div class="flex-column mb-2">
-                <label class="fw-bold" for="txtInputImagen">Agregar Imagen de la Cancion</label>
-                <div class="text-danger fw-bold opacity-0"
-                    [class.opacidadNO]="formSong.get('imagen')?.hasError('required') && formSong.get('imagen')?.touched">
-                    La URL es obligatoria</div>
-
+                <label class="fw-bold">Agregar Imagen de la Cancion o Album (URL)</label>
             </div>
             <div class="inputForm">
-                <i class="fa-regular fa-image" style="color: #efb810;"></i>
-                <input type="file" class="input" placeholder="Ingresa la URL de la Imagen" id="txtInputImagen"
-                    formControlName="image" (change)="addFileSong($event)">
-            </div>
-            <div class="text-danger fw-bold opacity-0"
-                [class.opacidadNO]="formSong.get('image')?.hasError('required') && formSong.get('image')?.touched">
-                La URL proporcionada no es valida
+              <i class="fa-regular fa-image" style="color: #efb810;"></i>
+                <input type="url" class="input" placeholder="Ingresa la URL de la Imagen">
             </div>
             <div class="imagen d-flex justify-content-center align-items-center mt-3">
-                <img class="imgAlbum" src="assets/img/Albumes/3MEN2 KBRN - Eladio Carrion.jpg" width="130px" height="130px">
+                <img class="imgAlbum" src="assets/img/Albumes/3MEN2 KBRN - Eladio Carrion.jpg" width="130px"
+                    height="130px">
             </div>
-        </div>
-
-        <hr role="presentation" class="LineaSeparacion">
-
-        <div class="flex-column mb-2">
-            <label class="fw-bold" for="txtInputArtista">Agrega el Nombre del Artista</label>
-            <div class="text-danger fw-bold opacity-0"
-                [class.opacidadNO]="formSong.get('artistId')?.hasError('required') && formSong.get('artistId')?.touched">
-                El nombre del artista es obligatorio</div>
-        </div>
-        <div class="inputForm">
-            <i class="fa-solid fa-user-secret" style="color: #efb810;"></i>
-            <input type="text" class="input" placeholder="Ingresa el Nombre del Artista" id="txtInputArtista"
-                formControlName="artistId">
-        </div>
-        <div class="text-danger fw-bold opacity-0"
-            [class.opacidadNO]="formSong.get('artistId')?.hasError('required') && formSong.get('artistId')?.touched">
-            El nombre del artista debe contener letras y/o números
         </div>
 
         <hr role="presentation" class="LineaSeparacion">
 
         <div class="flex-column">
-            <label class="fw-bold" for="txtInputAlbum">Agrega el Nombre de el Album (Si es un Sencillo, Dejar esta
-                opcion en Blanco)</label>
+            <label class="fw-bold">Agrega el Nombre del Artista</label>
+          </div>
+        <div class="inputForm">
+            <i class="fa-solid fa-user-secret" style="color: #efb810;"></i>
+            <input type="text" class="input" placeholder="Ingresa el Nombre del Artista">
+          </div>
+
+        <hr role="presentation" class="LineaSeparacion">
+
+        <div class="flex-column">
+          <label class="fw-bold">Agrega el Nombre de el Album (Si es un Sencillo, Dejar esta opcion en Blanco)</label>
         </div>
         <div class="inputForm">
             <i class="fa-solid fa-compact-disc" style="color: #efb810;"></i>
-            <input type="text" class="input" placeholder="Ingresa el Nombre de el Album" id="txtInputAlbum"
-                formControlName="albumId">
+            <input type="text" class="input" placeholder="Ingresa el Nombre de el Album">
         </div>
 
         <hr role="presentation" class="LineaSeparacion">
 
         <div class="flex-column">
-            <label class="fw-bold" for="txtInputCancion">Agregar Nombre de la Cancion</label>
-        </div>
-        <div class="inputForm">
+            <label class="fw-bold">Agregar Nombre de la Cancion</label>
+          </div>
+          <div class="inputForm">
             <i class="fa-solid fa-music" style="color: #efb810;"></i>
-            <input type="text" class="input" placeholder="Ingresa el Nombre de la Cancion" id="txtInputCancion"
-                formControlName="name">
-        </div>
+            <input type="text" class="input" placeholder="Ingresa el Nombre de la Cancion">
+          </div>
 
         <hr role="presentation" class="LineaSeparacion">
 
         <div class="flex-column">
-            <label class="fw-bold" for="txtInputArchivo">Inserta la Cancion</label>
-        </div>
+            <label class="fw-bold">Inserta la Cancion</label>
+          </div>
         <div class="inputForm">
             <i class="fa-solid fa-file-audio" style="color: #efb810;"></i>
-            <input type="file" class="input" placeholder="Inserta la Canción" id="txtInputArchivo"
-                formControlName="file" (change)="addFileSong($event, 'song')">
+            <input type="text" class="input" placeholder="Inserta la Canción">
         </div>
 
         <hr role="presentation" class="LineaSeparacion">
 
         <div class="flex-column">
-            <label class="fw-bold" for="txtInputAño">Agregar Año de la Publicacion</label>
+            <label class="fw-bold">Agregar Año de la Publicacion</label>
         </div>
         <div class="inputForm">
             <i class="fa-solid fa-calendar-day" style="color: #efb810;"></i>
-            <input type="text" class="input" placeholder="Ingresa el Año de la Publicacion" id="txtInputAño"
-                formControlName="year">
-        </div>
+            <input type="text" class="input" placeholder="Ingresa el Año de la Publicacion">
+          </div>
 
 
-        <hr role="presentation" class="LineaSeparacion">
+          <hr role="presentation" class="LineaSeparacion">
 
-        <button class="button-submit fw-bold">Agregar Contenido</button>
+          <button class="button-submit fw-bold">Agregar Contenido</button>
 
 
 
     </form>
 
-    <form class="form">
+    <!-- Albumes------------------------------------------------------------------------------------------------------- -->
+
+    <form class="form" [formGroup]="formSong" (ngSubmit)="submitForm()">
         <div class="TextoRegistro">
             <h1 class="fw-bold text-white text-center">Agregar Álbumes En</h1>
             <div class="img">
@@ -114,7 +96,7 @@
                 <label class="fw-bold" for="txtInputImagen">Agregar Imagen de el Álbum</label>
                 <div class="text-danger fw-bold opacity-0"
                     [class.opacidadNO]="formSong.get('imagen')?.hasError('required') && formSong.get('imagen')?.touched">
-                    </div>
+                </div>
 
             </div>
             <div class="inputForm2">
@@ -127,7 +109,8 @@
                 La URL proporcionada no es valida
             </div>
             <div class="imagen d-flex justify-content-center align-items-center mt-3">
-                <img class="imgAlbum2" src="assets/img/Albumes/Certified Lover Boy - Drake.jpg" width="130px" height="130px">
+                <img class="imgAlbum2" src="assets/img/Albumes/Certified Lover Boy - Drake.jpg" width="130px"
+                    height="130px">
             </div>
         </div>
 
@@ -179,6 +162,8 @@
 
 
     </form>
+
+    <!-- Artistas-------------------------------------------------------------------------------------------------------------- -->
 
     <form class="form" [formGroup]="formSong" (ngSubmit)="submitForm()">
         <div class="TextoRegistro">
