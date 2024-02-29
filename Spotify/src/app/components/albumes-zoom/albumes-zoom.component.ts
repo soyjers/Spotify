@@ -52,7 +52,9 @@ export class AlbumesZoomComponent {
 
             this.servicioAPI.getCancionPorAlbum(this.idAlbumUrl).subscribe({
               next: (canciones) => {
+                console.log("********************");
                 console.log(canciones);
+                console.log("********************");
                 this.cancionesData = canciones
 
               },

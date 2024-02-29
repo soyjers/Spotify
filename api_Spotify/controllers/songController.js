@@ -1,3 +1,5 @@
+// Controlador para manejar las operaciones CRUD de las canciones
+
 const SongModel = require('../models/Song.model');
 
 // Crear una cancion (POST)
