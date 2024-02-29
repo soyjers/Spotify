@@ -4,7 +4,6 @@ import { RegistrarseComponent } from "./components/registrarse/registrarse.compo
 import { PrincipalComponent } from './components/principal/principal.component';
 import { ArtistasComponent } from './components/artistas/artistas.component';
 import { ArtistasZoomComponent } from './components/artistas-zoom/artistas-zoom.component';
-import { AgregarContenidoComponent } from './components/Admin/agregar-contenido/agregar-contenido.component'
 import { MisFavoritosComponent } from './components/mis-favoritos/mis-favoritos.component'
 import { error404Component } from './components/error404/error404.component';
 import { autenticacionGuard } from './guards/autenticacion.guard';
@@ -24,7 +23,6 @@ export const routes: Routes = [
     {path: "registrarse", component: RegistrarseComponent},
     { path: 'principal', component: PrincipalComponent },
     { path: 'nav', component: NavComponent },
-    { path: "AdminAddContent", component: AgregarContenidoComponent },
     { path: "AdminAddSong", component: AgregarCancionComponent },
     { path: "AdminAddArtist", component: AgregarArtistaComponent },
     { path: "AdminAddAlbum", component: AgregarAlbumComponent },
