@@ -9,7 +9,7 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink, 
+    RouterLink,
     ZoomArtistaComponent
   ],
   templateUrl: './artistas-zoom.component.html',
@@ -24,9 +24,9 @@ export class ArtistasZoomComponent {
   private servicioAPI = inject(JgtsAPIService)
   cancionesData = signal<any>([])
   albumesData = signal<any>([])
-  
-  constructor(private paramsRuta: ActivatedRoute){
-    this.idArtistaUrl = this.paramsRuta.snapshot.paramMap.get('idAlbum')
+
+  constructor(private paramsRuta: ActivatedRoute) {
+    this.idArtistaUrl = this.paramsRuta.snapshot.paramMap.get('AlbumId')
     console.log(this.idArtistaUrl);
   }
 
@@ -38,7 +38,7 @@ export class ArtistasZoomComponent {
       next: (artista: any) => {
         this.artistasData.set(artista)
 
-        
+
         this.imgArtista = artista.image
         this.cantante = artista.artistId
 
@@ -56,5 +56,5 @@ export class ArtistasZoomComponent {
       },
     })
 
-}
+  }
 }

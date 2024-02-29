@@ -1,3 +1,5 @@
+// Controlador para manejar las operaciones CRUD de las canciones
+
 const SongModel = require('../models/Song.model');
 const usermodel = require('../models/User.Model');
 
@@ -73,16 +75,6 @@ exports.createSong = async (req, res) => {
 exports.findSongs = async (req, res) => {
     try {
         let songData = await SongModel.find()
-        res.status(200).json(songData);
-    } catch (error) {
-        res.status(500).send({ error: "Something has happened, contact the administrator" });
-    }
-}
-// buscar todas las canciones (GET)
-exports.findSongsForAlbum = async (req, res) => {
-    try {
-        let songData = await SongModel.find({albumId: 'DataPrueba'})
-        // let songData = await SongModel.find({albumId: req.params.idAlbum})
         res.status(200).json(songData);
     } catch (error) {
         res.status(500).send({ error: "Something has happened, contact the administrator" });
