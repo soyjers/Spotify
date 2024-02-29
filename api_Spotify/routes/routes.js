@@ -1,16 +1,16 @@
 const express = require('express')
 const router = express.Router()
 
-const songController = require('../controllers/songController')
-const favoriteController = require('../controllers/favoriteController')
-const userController = require('../controllers/userController')
-const artistController = require('../controllers/artistController')
-const albumController = require('../controllers/albumController')
-const sessionController = require('../controllers/sessionController')
+const songController = require('../controllers/songController');
+const favoriteController = require('../controllers/favoriteController');
+const userController = require('../controllers/userController');
+const artistController = require('../controllers/artistController');
+const albumController = require('../controllers/albumController');
+const sessionController = require('../controllers/sessionController');
 const uploadControllerSong = require('../middleware/mdl.uploadSong');
 
 
-const mdJWT = require('../middleware/Jwt')
+const mdJWT = require('../middleware/Jwt');
 
 //? rutas de canciones
 router.post('/create-song', songController.createSong);
@@ -41,7 +41,7 @@ router.get('/find-users', mdJWT.verificarToken,userController.getUsers);
 router.get('/find-user/:userId', userController.getUser);
 router.put('/update-user/:userId', userController.updateUser);
 router.delete('/delete-user/:userId', userController.deleteUser);
-router.post('/ingreso', sessionController.genereToken)
+router.post('/ingreso', sessionController.genereToken);
 
 //? rutas favoritos
 router.post('/create-favorite', favoriteController.createfavorito);
@@ -50,7 +50,7 @@ router.get('/find-favorite/:favoriteId', favoriteController.findfavorite);
 router.put('/update-favorite/:favoriteId', favoriteController.updatefavorite);
 router.delete('/delete-favorite/:favoriteId', favoriteController.deleteFavorite);
 
-
+router.post('/:userId/add-to-favorites/:songId',songController.aggAforite);
 
 
 module.exports = router

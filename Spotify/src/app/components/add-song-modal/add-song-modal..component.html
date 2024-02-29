@@ -1,0 +1,8 @@
+<h2>Selecciona la lista de reproducción</h2>
+  <select [ngModel]="selectedPlaylist">
+    <option value="playlist1">Playlist 1</option>
+    <option value="playlist2">Playlist 2</option>
+    <!-- Agrega más opciones según tus necesidades -->
+  </select>
+  <button (click)="save()">Guardar</button>
+  <button (click)="cancel()">Cancelar</button>

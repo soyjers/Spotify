@@ -30,7 +30,7 @@ export class CancionesComponent {
       next: (canciones) => {
         this.cancionesData.set(canciones)
         console.log(this.cancionesData());
-  
+
       },
       error: (err) => {
         console.log(err);
@@ -41,7 +41,9 @@ export class CancionesComponent {
 
 
   }
-}
- 
 
- 
+
+}
+
+
+

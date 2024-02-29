@@ -14,6 +14,8 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+
+    favoritePlaylist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Song' }]
 }, {
     timestamps: true,
     versionKey: false
