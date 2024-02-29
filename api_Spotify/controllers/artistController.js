@@ -104,3 +104,15 @@ exports.deleteArtist = async (req, res) => {
         res.status(500).send({ error: "Something has happened, contact the administrator" });
     }
 }
+
+
+
+exports.findSongsForArtist = async (req, res) => {
+    try {
+        let songData = await SongModel.find({artistId: 'DataPrueba'})
+        // let songData = await SongModel.find({artistId: req.params.idAlbum})
+        res.status(200).json(songData);
+    } catch (error) {
+        res.status(500).send({ error: "Something has happened, contact the administrator" });
+    }
+}

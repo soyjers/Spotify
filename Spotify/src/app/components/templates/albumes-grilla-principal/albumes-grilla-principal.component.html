@@ -1,7 +1,7 @@
 
 
-<div class="card carad2">
-  <button class="btn">
+<div class="card carad2" [routerLink]="['/zoom', albumDataID]">
+  <button class="btn"  >
     <img [src]="imagenAlbum" class="card-img-top w-100 tamanoooooo" alt="...">
     <div class="card-body mt-2 d-flex flex-column align-items-start">
       <h5 class="card-title textAlbum">{{album}}</h5>

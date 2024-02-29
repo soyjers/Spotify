@@ -16,37 +16,43 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
   styleUrl: './albumes-zoom.component.css'
 })
 export class AlbumesZoomComponent {
-  idAlbumUrl:string | null
+  idAlbumUrl: string | null
+  nombreAlbum!: string
+  imgAlbum!: string
+  cantante!: string
+  albumesData:any
+  servicioAPI = inject(JgtsAPIService)
+  cancionesData = signal<any>([])
 
-
-
-
-  nombreAlbum!:string
-  imgAlbum!:string
-  cantante!:string
-
-
-
-
-  constructor(private paramsRuta:ActivatedRoute){
+  constructor(private paramsRuta: ActivatedRoute) {
 
     this.idAlbumUrl = this.paramsRuta.snapshot.paramMap.get('idAlbum')
     console.log(this.idAlbumUrl);
 
   }
-  albumesData = signal<any>([])
-  private albumesService = inject(JgtsAPIService)
 
-  ngOnInit(){
 
-    this.albumesService.getAlbum(this.idAlbumUrl).subscribe({
-      next: (album:any) => {
-        this.albumesData.set(album)
+  ngOnInit() {
+
+    this.servicioAPI.getAlbum(this.idAlbumUrl).subscribe({
+      next: (album: any) => {
+        this.albumesData = album
 
         this.nombreAlbum = album.albumId
         this.imgAlbum = album.image
-        this.cantante=album.artistId
+        this.cantante = album.artistId
 
+
+
+        this.servicioAPI.getCancionPorAlbum(this.idAlbumUrl).subscribe({
+          next: (canciones) => {
+            console.log(canciones);
+
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        })
       },
       error: (err) => {
         console.log(err);

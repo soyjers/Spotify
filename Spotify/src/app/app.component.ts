@@ -27,11 +27,11 @@ export class AppComponent implements OnInit {
 
   private time: any
 
-  @HostListener('mousemove', ['$event'])
-  public enviarmouse(btn: any) {
-    console.log("se ejecuta el mosue");
-    this.actividad.set(true);
-  }
+  // @HostListener('mousemove', ['$event'])
+  // public enviarmouse(btn: any) {
+  //   console.log("se ejecuta el mosue");
+  //   this.actividad.set(true);
+  // }
 
 
   constructor(private inject: Injector, private loginservice: SpotifyAPIService) { }

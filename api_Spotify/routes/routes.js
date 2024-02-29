@@ -18,6 +18,7 @@ router.get('/find-songs', songController.findSongs);
 router.get('/find-song/:songId', songController.findSong);
 router.put('/update-song/:songId', songController.updateSong);
 router.delete('/delete-song/:songId', songController.deleteSong);
+router.get('/find-song-album/:idAlbum', songController.findSongsForAlbum);
 
 //? rutas artistas
 router.post('/create-artist', uploadControllerSong.array('image'), artistController.createArtist);
@@ -25,7 +26,7 @@ router.get('/find-artists', artistController.findArtists);
 router.get('/find-artist/:artistId', artistController.findArtist);
 router.put('/update-artist/:artistId', artistController.updateArtist);
 router.delete('/delete-artist/:artistId', artistController.deleteArtist);
-
+router.get('/find-song-artista/:idAlbum', songController.findSongsForAlbum);
 //? rutas album
 router.post('/create-album', uploadControllerSong.array('image'), albumController.createAlbum);
 router.get('/find-albums', albumController.findAlbums);
