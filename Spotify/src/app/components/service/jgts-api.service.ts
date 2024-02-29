@@ -46,13 +46,13 @@ export class JgtsAPIService {
 
     /* Artistas */
 
-    postArtista(dataArtista: any) {
-        return this.http.post(`${this.urlApi}/create-artist`, dataArtista);
-    }
+    // postArtista(dataArtista: any) {
+    //     return this.http.post(`${this.urlApi}/create-artist`, dataArtista);
+    // }
 
-    getArtistas() {
-        return this.http.get(`${this.urlApi}/find-artists`)
-    }
+    // getArtistas() {
+    //     return this.http.get(`${this.urlApi}/find-artists`)
+    // }
 
 
 
@@ -83,6 +83,7 @@ export class JgtsAPIService {
 
     getCancionPorArtista(artistId: any) {
         return this.http.get(`${this.urlApi}/find-song-album/${artistId}`)
+    }
     // private headerCustom = HttpHeaders}
 
     // // constructor(private httpClient: HttpClient){}
@@ -94,18 +95,18 @@ export class JgtsAPIService {
 
 
 
-    // getArtistas() {
-    //     const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzZiYWIyZjBiMDgwMzQ3ZWJkODIzOSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3NTI0OTAzLCJleHAiOjE3MDc1Mjg1MDN9.n7XqQr9aFmm_mOu-cKROiwxj0zjYJYlUR5Moq0VqJ_o')
-    //     return this.http.get(`${this.urlApi}/find-artists`, { headers })
-    // }
+    getArtistas() {
+        const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzZiYWIyZjBiMDgwMzQ3ZWJkODIzOSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3NTI0OTAzLCJleHAiOjE3MDc1Mjg1MDN9.n7XqQr9aFmm_mOu-cKROiwxj0zjYJYlUR5Moq0VqJ_o')
+        return this.http.get(`${this.urlApi}/find-artists`, { headers })
+    }
 
-    // getArtista(idArtista: string|null) {
-    //     return this.http.get(`${this.urlApi}/find-artist/${idArtista}`)
-    // }
+    getArtista(idArtista: string|null) {
+        return this.http.get(`${this.urlApi}/find-artist/${idArtista}`)
+    }
 
-    // postArtista(dataArtista: any) {
-    //     return this.http.post(`${this.urlApi}/create-artist`, dataArtista);
-    //   }
+    postArtista(dataArtista: any) {
+        return this.http.post(`${this.urlApi}/create-artist`, dataArtista);
+      }
 
     // deleteArtista(idArtista: string) {
     //     return this.http.delete(`${this.urlApi}/eliminar-album/${idArtista}`)
@@ -113,7 +114,6 @@ export class JgtsAPIService {
 
     // putArtista(idArtista: string, dataArtista: any) {
     //     return this.http.put(`${this.urlApi}/delete-artist/${idArtista}`, dataArtista)
-    }
 
     getfavorites() {
       const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzZiYWIyZjBiMDgwMzQ3ZWJkODIzOSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3NTI0OTAzLCJleHAiOjE3MDc1Mjg1MDN9.n7XqQr9aFmm_mOu-cKROiwxj0zjYJYlUR5Moq0VqJ_o')

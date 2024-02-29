@@ -7,6 +7,7 @@ const userController = require('../controllers/userController')
 const artistController = require('../controllers/artistController')
 const albumController = require('../controllers/albumController')
 const sessionController = require('../controllers/sessionController')
+const uploadControllerSong = require('../middleware/mdl.uploadSong');
 
 
 const mdJWT = require('../middleware/Jwt')

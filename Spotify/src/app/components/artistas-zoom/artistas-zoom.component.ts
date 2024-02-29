@@ -54,9 +54,6 @@ export class ArtistasZoomComponent {
           }
         })
       },
-      error: (err) => {
-        console.log(err);
-      }
     })
 
 }

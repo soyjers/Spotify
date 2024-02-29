@@ -20,8 +20,8 @@ export class AlbumesZoomComponent {
   nombreAlbum!: string
   imgAlbum!: string
   cantante!: string
-  albumesData = signal<any>([])
-  private servicioAPI = inject(JgtsAPIService)
+  albumesData:any
+  servicioAPI = inject(JgtsAPIService)
   cancionesData = signal<any>([])
 
   constructor(private paramsRuta: ActivatedRoute) {
@@ -36,7 +36,7 @@ export class AlbumesZoomComponent {
 
     this.servicioAPI.getAlbum(this.idAlbumUrl).subscribe({
       next: (album: any) => {
-        this.albumesData.set(album)
+        this.albumesData = album
 
         this.nombreAlbum = album.albumId
         this.imgAlbum = album.image
