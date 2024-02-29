@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { MusicaGrillaComponent } from '../templates/musica-grilla/musica-grilla.component';
 import { AlbumesGrillaPrincipalComponent } from '../templates/albumes-grilla-principal/albumes-grilla-principal.component';
 import { JgtsAPIService } from '../../../app/components/service/jgts-api.service'
+import { ArtistasGrillaPrincipalComponent } from '../templates/artistas-grilla-principal/artistas-grilla-principal.component';
 @Component({
   selector: 'app-principal',
   standalone: true,
@@ -11,7 +12,8 @@ import { JgtsAPIService } from '../../../app/components/service/jgts-api.service
     CommonModule,
     RouterLink,
     MusicaGrillaComponent,
-    AlbumesGrillaPrincipalComponent
+    AlbumesGrillaPrincipalComponent,
+    ArtistasGrillaPrincipalComponent
   ],
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.css'
@@ -25,6 +27,8 @@ export class PrincipalComponent {
 
   albumesData = signal<any>([])
   private albumesService = inject(JgtsAPIService)
+  artistasData = signal<any>([])
+  private artistaService = inject(JgtsAPIService)
 
 
 
@@ -62,6 +66,20 @@ export class PrincipalComponent {
     })
 
 
+    
+    this.artistaService.getArtistas().subscribe({
+      next: (artistas) => {
+        this.artistasData.set(artistas)
+        console.log(this.artistasData());
+
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+    
+
+
 
 
 
@@ -69,44 +87,3 @@ export class PrincipalComponent {
 
 
 }
-//   productosData = signal<any>([])
-//   private productosServices = inject(apis_Spotify)
-
-//   ngOnInit(){
-//       this.productosServices.getProductos().subscribe({
-//           next: (productos) => {
-//               this.productosData.set(productos)
-//               console.log(this.productosData());
-
-//           },
-//           error: (err) => {
-//               console.log(err);
-//           }
-//       })
-//   }
-
-//   changeCategoria(event: Event){
-//       const valorInput = event.target as HTMLInputElement
-//       console.log(valorInput.value);
-//       this.productosServices.postProductosXCategoria(valorInput.value).subscribe({
-//           next: (productos) => {
-//               this.productosData.set(productos)
-//               console.log("-----------> "+this.productosData());
-
-//           },
-//           error: (err) => {
-//               console.log(err);
-//           }
-//       })
-//   }
-
-
-//   productoDesdeMiHijo(event: string){
-//       console.log("Alumbrame bien chingada madre")
-//       console.log(event);
-//   }
-
-
-
-// }
-// }

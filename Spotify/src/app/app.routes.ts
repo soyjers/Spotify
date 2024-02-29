@@ -30,7 +30,7 @@ export const routes: Routes = [
     { path: "canciones", component: CancionesComponent },
     { path: "albumes", component: AlbumesComponent },
     { path: "Artistas", component: ArtistasComponent},
-    { path: "ZoomArtistas", component: ArtistasZoomComponent},
+    { path: "zoomArtista/:idArtista", component: ArtistasZoomComponent},
     { path: "zoom/:idAlbum", component: AlbumesZoomComponent },
     { path: 'principal', component: PrincipalComponent },
     { path: "AdminAddContent", canMatch: [autenticacionGuard], component: AgregarCancionComponent },
