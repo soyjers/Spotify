@@ -12,6 +12,31 @@ export class JgtsAPIService {
 
     constructor() { }
 
+    /* Artistas */
+
+    getArtistas() {
+        const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzZiYWIyZjBiMDgwMzQ3ZWJkODIzOSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3NTI0OTAzLCJleHAiOjE3MDc1Mjg1MDN9.n7XqQr9aFmm_mOu-cKROiwxj0zjYJYlUR5Moq0VqJ_o')
+        return this.http.get(`${this.urlApi}/find-artists`, { headers })
+    }
+
+    getArtista(idArtista: string | null) {
+        return this.http.get(`${this.urlApi}/find-artists ${idArtista}`)
+    }
+
+    postArtista(dataArtista: any) {
+        return this.http.post(`${this.urlApi}/create-artist`, dataArtista);
+    }
+
+
+
+    // deleteArtista(idArtista: string) {
+    //     return this.http.delete(`${this.urlApi}/eliminar-album/${idArtista}`)
+    // }
+
+    // putArtista(idArtista: string, dataArtista: any) {
+    //     return this.http.put(`${this.urlApi}/delete-artist/${idArtista}`, dataArtista)
+
+
 
     /* Canciones */
     getCanciones() {
@@ -42,17 +67,6 @@ export class JgtsAPIService {
         return this.http.put(`${this.urlApi}/update-song/${idCancion}`, dataCancion)
     }
 
-
-
-    /* Artistas */
-
-    // postArtista(dataArtista: any) {
-    //     return this.http.post(`${this.urlApi}/create-artist`, dataArtista);
-    // }
-
-    // getArtistas() {
-    //     return this.http.get(`${this.urlApi}/find-artists`)
-    // }
 
 
 
@@ -95,45 +109,29 @@ export class JgtsAPIService {
 
 
 
-    getArtistas() {
-        const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzZiYWIyZjBiMDgwMzQ3ZWJkODIzOSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3NTI0OTAzLCJleHAiOjE3MDc1Mjg1MDN9.n7XqQr9aFmm_mOu-cKROiwxj0zjYJYlUR5Moq0VqJ_o')
-        return this.http.get(`${this.urlApi}/find-artists`, { headers })
-    }
 
-    getArtista(idArtista: string|null) {
-        return this.http.get(`${this.urlApi}/find-artist/${idArtista}`)
-    }
 
-    postArtista(dataArtista: any) {
-        return this.http.post(`${this.urlApi}/create-artist`, dataArtista);
-      }
-
-    // deleteArtista(idArtista: string) {
-    //     return this.http.delete(`${this.urlApi}/eliminar-album/${idArtista}`)
-    // }
-
-    // putArtista(idArtista: string, dataArtista: any) {
-    //     return this.http.put(`${this.urlApi}/delete-artist/${idArtista}`, dataArtista)
+    /* favoritos */
 
     getfavorites() {
-      const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzZiYWIyZjBiMDgwMzQ3ZWJkODIzOSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3NTI0OTAzLCJleHAiOjE3MDc1Mjg1MDN9.n7XqQr9aFmm_mOu-cKROiwxj0zjYJYlUR5Moq0VqJ_o')
-      return this.http.get(`${this.urlApi}/find-favorites`, { headers })
+        const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzZiYWIyZjBiMDgwMzQ3ZWJkODIzOSIsInJvbCI6ImFkbWluIiwiaWF0IjoxNzA3NTI0OTAzLCJleHAiOjE3MDc1Mjg1MDN9.n7XqQr9aFmm_mOu-cKROiwxj0zjYJYlUR5Moq0VqJ_o')
+        return this.http.get(`${this.urlApi}/find-favorites`, { headers })
     }
 
     getfavorite(favoriteId: string | null) {
-    return this.http.get(`${this.urlApi}/find-favorite/${favoriteId}`)
+        return this.http.get(`${this.urlApi}/find-favorite/${favoriteId}`)
     }
 
-    postfavorite(datafavorito:any){
-    return this.http.post(`${this.urlApi}/create-favorite`, datafavorito)
+    postfavorite(datafavorito: any) {
+        return this.http.post(`${this.urlApi}/create-favorite`, datafavorito)
     }
 
-    putfavorite(favoriteId:string, datafavorito:any){
-    return this.http.put(`${this.urlApi}/update-user/${favoriteId}`, datafavorito)
+    putfavorite(favoriteId: string, datafavorito: any) {
+        return this.http.put(`${this.urlApi}/update-user/${favoriteId}`, datafavorito)
     }
 
     deletefavorite(favoriteId: string) {
-    return this.http.delete(`${this.urlApi}/delete-favorite/${favoriteId}`)
+        return this.http.delete(`${this.urlApi}/delete-favorite/${favoriteId}`)
     }
 
 
