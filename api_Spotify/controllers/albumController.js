@@ -10,7 +10,7 @@ exports.createAlbum = async (req, res) => {
         req.body.image = archivos.find((archivo) => {
             return extensionesImagenes.includes(archivo.mimetype.split('/').pop());
         });
-        req.body.image = `storage/fileSong/image/album/${req.body.image.filename}`
+        req.body.image = `storage/fileSong/images/album/${req.body.image.filename}`
 
 
         let newAlbum = new AlbumModel(req.body);
