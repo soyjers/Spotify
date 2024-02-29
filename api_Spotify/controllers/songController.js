@@ -78,6 +78,15 @@ exports.findSongs = async (req, res) => {
         res.status(500).send({ error: "Something has happened, contact the administrator" });
     }
 }
+// buscar todas las canciones (GET)
+exports.findSongsForAlbum = async (req, res) => {
+    try {
+        let songData = await SongModel.find({albumId: req.params.idAlbum})
+        res.status(200).json(songData);
+    } catch (error) {
+        res.status(500).send({ error: "Something has happened, contact the administrator" });
+    }
+}
 
 /* ------------------------------------------------------------------------------------------------------------------------------ */
 

@@ -20,13 +20,13 @@ export class ArtistasZoomComponent {
   imgArtista!: string
   cantante!: string
 
-  artistasData = signal<any>([])
+  artistasData : any
   private servicioAPI = inject(JgtsAPIService)
   cancionesData = signal<any>([])
   albumesData = signal<any>([])
-
-  constructor(private paramsRuta: ActivatedRoute) {
-    this.idArtistaUrl = this.paramsRuta.snapshot.paramMap.get('AlbumId')
+  
+  constructor(private paramsRuta: ActivatedRoute){
+    this.idArtistaUrl = this.paramsRuta.snapshot.paramMap.get('idArtista')
     console.log(this.idArtistaUrl);
   }
 

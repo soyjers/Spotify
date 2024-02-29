@@ -40,14 +40,6 @@
             </div>
           </div>
           }
-
-
-
-
-
-
-
-
         </div>
       </div>
     </section>
@@ -65,63 +57,13 @@
 
       <div class="row row-cols-1 row-cols-md-4 g-4 mt-3">
 
-        <div class="col card cajaArtistas">
-          <button class="btn" routerLink="/ZoomArtistas">
-            <img class="circuloArtista" src="assets/img/Artistas/EladioCarrion.jpg" alt="">
-            <h5 class="textCantante fw-bold">Eladio Carrion</h5>
-            <h5 class="txtArtistaFinal">Artista</h5>
-          </button>
-        </div>
+        @for (artistaData of artistasData(); track artistaData.artistaId) {
+          <app-artistas-grilla-principal  [imagenArtista]="artistaData.image" 
+            [cantante]="artistaData.artistaId"  [artistaDataID]="artistaData._id">
+          </app-artistas-grilla-principal>
+          }
+  
 
-        <div class="col card cajaArtistas">
-          <button class="btn" routerLink="/ZoomArtistas">
-            <img class="circuloArtista" src="assets/img/Artistas/Feid.jpg" alt="">
-            <h5 class="textCantante fw-bold">Feid</h5>
-            <h5 class="txtArtistaFinal">Artista</h5>
-          </button>
-        </div>
-        <div class="col card cajaArtistas">
-          <button class="btn" routerLink="/ZoomArtistas">
-            <img class="circuloArtista" src="assets/img/Artistas/KevinRoldan.jpg" alt="">
-            <h5 class="textCantante fw-bold">Kevin Roldan</h5>
-            <h5 class="txtArtistaFinal">Artista</h5>
-          </button>
-        </div>
-        <div class="col card cajaArtistas">
-          <button class="btn" routerLink="/ZoomArtistas">
-            <img class="circuloArtista" src="assets/img/Artistas/Drake.jpg" alt="">
-            <h5 class="textCantante fw-bold">Drake</h5>
-            <h5 class="txtArtistaFinal">Artista</h5>
-          </button>
-        </div>
-        <div class="col card cajaArtistas">
-          <button class="btn" routerLink="/ZoomArtistas">
-            <img class="circuloArtista" src="assets/img/Artistas/Canserbero.jpg" alt="">
-            <h5 class="textCantante fw-bold">Canserbero</h5>
-            <h5 class="txtArtistaFinal">Artista</h5>
-          </button>
-        </div>
-        <div class="col card cajaArtistas">
-          <button class="btn" routerLink="/ZoomArtistas">
-            <img class="circuloArtista" src="assets/img/Artistas/CarinLeon.jpg" alt="">
-            <h5 class="textCantante fw-bold">Carin Leon</h5>
-            <h5 class="txtArtistaFinal">Artista</h5>
-          </button>
-        </div>
-        <div class="col card cajaArtistas">
-          <button class="btn" routerLink="/ZoomArtistas">
-            <img class="circuloArtista" src="assets/img/Artistas/Boris.jpg" alt="">
-            <h5 class="textCantante fw-bold">Boris</h5>
-            <h5 class="txtArtistaFinal">Artista</h5>
-          </button>
-        </div>
-        <div class="col card cajaArtistas">
-          <button class="btn" routerLink="/ZoomArtistas">
-            <img class="circuloArtista" src="assets/img/Artistas/Xavi.jpg" alt="">
-            <h5 class="textCantante fw-bold">Xavi</h5>
-            <h5 class="txtArtistaFinal">Artista</h5>
-          </button>
-        </div>
       </div>
     </section>
 
