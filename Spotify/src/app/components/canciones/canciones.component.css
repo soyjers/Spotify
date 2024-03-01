@@ -1,7 +1,8 @@
-s.contenido {
+.contenido {
     background-color: #121212;
     border-radius: 10px;
     width: 1389px;
+    height: 3000px;
 }
 
 .TextoPrincipal {
