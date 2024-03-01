@@ -56,6 +56,7 @@ export class JgtsAPIService {
         return this.http.get(`${this.urlApi}/find-song${idCancion}`)
     }
 
+
     postCancion(dataCancion: any) {
         return this.http.post(`${this.urlApi}/create-song`, dataCancion);
     }
@@ -142,10 +143,13 @@ export class JgtsAPIService {
 
 
 
-    addToFavorites(userId: string, songId: string): Observable<any> {
-      return this.http.post<any>(`${this.urlApi}/${userId}/add-to-favorites/${songId}`, {});
-    }
+    // addToFavorites(userId: string, songId: string): Observable<any> {
+    //   return this.http.post<any>(`${this.urlApi}/add-to-favorites/${userId}/${songId}`, {});
+    // }
+
+
+
+
+
   }
-
-
 

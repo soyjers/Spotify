@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JgtsAPIService } from '../service/jgts-api.service';
 import { ZoomArtistaComponent } from '../templates/zoom-artista/zoom-artista.component';
-import { RouterLink, ActivatedRoute } from '@angular/router';
+import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-artistas-zoom',
@@ -25,7 +25,7 @@ export class ArtistasZoomComponent {
   cancionesData = signal<any>([])
   albumesData = signal<any>([])
 
-  constructor(private paramsRuta: ActivatedRoute) {
+  constructor(private paramsRuta: ActivatedRoute , private router :Router) {
     this.idArtistaUrl = this.paramsRuta.snapshot.paramMap.get('AlbumId')
     console.log(this.idArtistaUrl);
   }
@@ -34,6 +34,9 @@ export class ArtistasZoomComponent {
 
   ngOnInit() {
 
+    if (sessionStorage.getItem("token") == null) {
+      this.router.navigate(['/'])
+    }
     this.servicioAPI.getArtista(this.idArtistaUrl).subscribe({
       next: (artista: any) => {
         this.artistasData.set(artista)
@@ -57,4 +60,5 @@ export class ArtistasZoomComponent {
     })
 
   }
+
 }

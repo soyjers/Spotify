@@ -8,9 +8,9 @@ const artistController = require('../controllers/artistController');
 const albumController = require('../controllers/albumController');
 const sessionController = require('../controllers/sessionController');
 const uploadControllerSong = require('../middleware/mdl.uploadSong');
-
-
 const mdJWT = require('../middleware/Jwt');
+
+
 
 //? rutas de canciones
 router.post('/create-song', uploadControllerSong.fields([{ name: 'file', maxCount: 1 }, { name: 'image', maxCount: 1 }]),
@@ -46,7 +46,7 @@ router.post('/ingreso', sessionController.genereToken);
 
 //? rutas favoritos
 
-router.post('/:userId/add-to-favorites/:songId',songController.aggAforite);
+// router.post('/:userId/add-to-favorites/:songId',songController.aggAforite);
 
 
 // ? ruta de subir archivos

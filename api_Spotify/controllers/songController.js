@@ -1,8 +1,6 @@
 // Controlador para manejar las operaciones CRUD de las canciones
 
 const SongModel = require('../models/Song.model');
-const usermodel = require('../models/User.Model');
-
 
 // Crear una cancion (POST)
 exports.createSong = async (req, res) => {
@@ -60,7 +58,9 @@ exports.createSong = async (req, res) => {
 
         let newSong = new SongModel(req.body)
         await newSong.save()
+        console.log("++++++++++++++++++++++++++++");
         console.log(newSong)
+        console.log("++++++++++++++++++++++++++++");
         res.status(201).send(newSong);
 
     } catch (error) {
@@ -75,6 +75,15 @@ exports.createSong = async (req, res) => {
 exports.findSongs = async (req, res) => {
     try {
         let songData = await SongModel.find()
+        res.status(200).json(songData);
+    } catch (error) {
+        res.status(500).send({ error: "Something has happened, contact the administrator" });
+    }
+}
+// buscar todas las canciones (GET)
+exports.findSongsForAlbum = async (req, res) => {
+    try {
+        let songData = await SongModel.find({albumId: req.params.idAlbum})
         res.status(200).json(songData);
     } catch (error) {
         res.status(500).send({ error: "Something has happened, contact the administrator" });
@@ -150,30 +159,28 @@ exports.deleteSong = async (req, res) => {
         console.error('error:', error)
         res.status(500).send({ error: "Something has happened, contact the administrator" });
     }
-
-
 }
 
 
+    // exports.aggAforite =  async (req, res) => {
+    //     try {
+    //         const { userId, songId } = req.params;
+    //         const user = await usermodel.findById(userId);
+    //         if (!user) {
+    //             res.status(404).json({ message: 'Usuario no encontrado' });
+    //             return
+    //         }
+    //         if (!user.favoritePlaylist.includes(songId)) {
+    //             user.favoritePlaylist.push(songId);
+    //             await user.save();
+    //             res.status(200).json({ message: 'Canción agregada a favoritos correctamente' });
+    //         } else {
+    //             res.status(400).json({ message: 'La canción ya está en la lista de favoritos' });
+    //         }
+    //     } catch (error) {
+    //         console.error('error:',error);
+    //         res.status(500).json({ message: 'Error al agregar canción a favoritos' });
+    //     }
+    // }
 
-    exports.aggAforite =  async (req, res) => {
-        try {
-            const { userId, songId } = req.params;
-            const user = await usermodel.findById(userId);
-            if (!user) {
-                res.status(404).json({ message: 'Usuario no encontrado' });
-                return
-            }
-            if (!user.favoritePlaylist.includes(songId)) {
-                user.favoritePlaylist.push(songId);
-                await user.save();
-                res.status(200).json({ message: 'Canción agregada a favoritos correctamente' });
-            } else {
-                res.status(400).json({ message: 'La canción ya está en la lista de favoritos' });
-            }
-        } catch (error) {
-            console.error('error:',error);
-            res.status(500).json({ message: 'Error al agregar canción a favoritos' });
-        }
-    }
 
