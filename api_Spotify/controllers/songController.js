@@ -58,7 +58,9 @@ exports.createSong = async (req, res) => {
 
         let newSong = new SongModel(req.body)
         await newSong.save()
+        console.log("++++++++++++++++++++++++++++");
         console.log(newSong)
+        console.log("++++++++++++++++++++++++++++");
         res.status(201).send(newSong);
 
     } catch (error) {
