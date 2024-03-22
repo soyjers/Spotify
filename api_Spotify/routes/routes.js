@@ -52,6 +52,18 @@ router.post('/ingreso', sessionController.genereToken);
 
 // ? ruta de subir archivos
 
+// Route To Validate  Healt
+router.get('/health', (req, res) => {
+    // You can perform any health check logic here
+    // For example, check if the database is accessible
+    // or if any critical services are running
+    const healthStatus = {
+        status: 'ok',
+        message: 'Application is healthy'
+    };
+    res.json(healthStatus);
+});
+
 
 
 module.exports = router
