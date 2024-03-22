@@ -14,6 +14,11 @@ docker build -t jgts-music .
 
 docker run -p 4001:4001 jgts-music
 
+# Doker Compose 
+
+docker-compose build
+docker-compose up
+docker-compose down
 
 ## Uso
 
