@@ -14,7 +14,7 @@ const mdJWT = require('../middleware/Jwt');
 
 //? rutas de canciones
 router.post('/create-song', uploadControllerSong.fields([{ name: 'file', maxCount: 1 }, { name: 'image', maxCount: 1 }]),
-    songController.createSong
+  songController.createSong
 );
 router.get('/find-songs', songController.findSongs);
 router.get('/find-song/:songId', songController.findSong);
@@ -52,8 +52,8 @@ router.get('/health', (req, res) => {
   // For example, check if the database is accessible
   // or if any critical services are running
   const healthStatus = {
-      status: 'ok',
-      message: 'Application is healthy'
+    status: 'ok',
+    message: 'Application is healthy'
   };
   res.json(healthStatus);
 });
